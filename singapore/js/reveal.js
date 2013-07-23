@@ -325,93 +325,93 @@ var Reveal = (function(){
 	 * Handler for the document level 'touchstart' event,
 	 * enables support for swipe and pinch gestures.
 	// */
-	//function onDocumentTouchStart( event ) {
-	//	touch.startX = event.touches[0].clientX;
-	//	touch.startY = event.touches[0].clientY;
-	//	touch.startCount = event.touches.length;
-//
-	//	// If there's two touches we need to memorize the distance 
-	//	// between those two points to detect pinching
-	//	if( event.touches.length === 2 ) {
-	//		touch.startSpan = distanceBetween( {
-	//			x: event.touches[1].clientX,
-	//			y: event.touches[1].clientY
-	//		}, {
-	//			x: touch.startX,
-	//			y: touch.startY
-	//		} );
-	//	}
-	//}
-	//
-	///**
-	// * Handler for the document level 'touchmove' event.
-	// */
-	//function onDocumentTouchMove( event ) {
-	//	// Each touch should only trigger one action
-	//	if( !touch.handled ) {
-	//		var currentX = event.touches[0].clientX;
-	//		var currentY = event.touches[0].clientY;
-//
-	//		// If the touch started off with two points and still has 
-	//		// two active touches; test for the pinch gesture
-	//		if( event.touches.length === 2 && touch.startCount === 2 ) {
-//
-	//			// The current distance in pixels between the two touch points
-	//			var currentSpan = distanceBetween( {
-	//				x: event.touches[1].clientX,
-	//				y: event.touches[1].clientY
-	//			}, {
-	//				x: touch.startX,
-	//				y: touch.startY
-	//			} );
-//
-	//			// If the span is larger than the desire amount we've got 
-	//			// ourselves a pinch
-	//			if( Math.abs( touch.startSpan - currentSpan ) > touch.threshold ) {
-	//				touch.handled = true;
-//
-	//				if( currentSpan < touch.startSpan ) {
-	//					activateOverview();
-	//				}
-	//				else {
-	//					deactivateOverview();
-	//				}
-	//			}
-//
-	//		}
-	//		// There was only one touch point, look for a swipe
-	//		else if( event.touches.length === 1 ) {
-	//			var deltaX = currentX - touch.startX,
-	//				deltaY = currentY - touch.startY;
-//
-	//			if( deltaX > touch.threshold && Math.abs( deltaX ) > Math.abs( deltaY ) ) {
-	//				touch.handled = true;
-	//				navigateLeft();
-	//			} 
-	//			else if( deltaX < -touch.threshold && Math.abs( deltaX ) > Math.abs( deltaY ) ) {
-	//				touch.handled = true;
-	//				navigateRight();
-	//			} 
-	//			else if( deltaY > touch.threshold ) {
-	//				touch.handled = true;
-	//				navigateUp();
-	//			} 
-	//			else if( deltaY < -touch.threshold ) {
-	//				touch.handled = true;
-	//				navigateDown();
-	//			}
-	//		}
-//
-	//		event.preventDefault();
-	//	}
-	//}
+  function onDocumentTouchStart( event ) {
+  	touch.startX = event.touches[0].clientX;
+  	touch.startY = event.touches[0].clientY;
+  	touch.startCount = event.touches.length;
+  
+  	// If there's two touches we need to memorize the distance 
+  	// between those two points to detect pinching
+  	if( event.touches.length === 2 ) {
+  		touch.startSpan = distanceBetween( {
+  			x: event.touches[1].clientX,
+  			y: event.touches[1].clientY
+  		}, {
+  			x: touch.startX,
+  			y: touch.startY
+  		} );
+  	}
+}
+
+/**
+ * Handler for the document level 'touchmove' event.
+ */
+function onDocumentTouchMove( event ) {
+	// Each touch should only trigger one action
+	if( !touch.handled ) {
+		var currentX = event.touches[0].clientX;
+		var currentY = event.touches[0].clientY;
+
+		// If the touch started off with two points and still has 
+		// two active touches; test for the pinch gesture
+		if( event.touches.length === 2 && touch.startCount === 2 ) {
+
+			// The current distance in pixels between the two touch points
+			var currentSpan = distanceBetween( {
+				x: event.touches[1].clientX,
+				y: event.touches[1].clientY
+			}, {
+				x: touch.startX,
+				y: touch.startY
+			} );
+
+			// If the span is larger than the desire amount we've got 
+			// ourselves a pinch
+			if( Math.abs( touch.startSpan - currentSpan ) > touch.threshold ) {
+				touch.handled = true;
+
+				if( currentSpan < touch.startSpan ) {
+					activateOverview();
+				}
+				else {
+					deactivateOverview();
+				}
+			}
+
+		}
+		// There was only one touch point, look for a swipe
+		else if( event.touches.length === 1 ) {
+			var deltaX = currentX - touch.startX,
+				deltaY = currentY - touch.startY;
+
+			if( deltaX > touch.threshold && Math.abs( deltaX ) > Math.abs( deltaY ) ) {
+				touch.handled = true;
+				navigateLeft();
+			} 
+			else if( deltaX < -touch.threshold && Math.abs( deltaX ) > Math.abs( deltaY ) ) {
+				touch.handled = true;
+				navigateRight();
+			} 
+			else if( deltaY > touch.threshold ) {
+				touch.handled = true;
+				navigateUp();
+			} 
+			else if( deltaY < -touch.threshold ) {
+				touch.handled = true;
+				navigateDown();
+			}
+		}
+
+		event.preventDefault();
+	}
+}
 //
 	///**
 	// * Handler for the document level 'touchend' event.
 	// */
-	//function onDocumentTouchEnd( event ) {
-	//	touch.handled = false;
-	//}
+	function onDocumentTouchEnd( event ) {
+		touch.handled = false;
+	}
 
 	/**
 	 * Handles mouse wheel scrolling, throttled to avoid 
