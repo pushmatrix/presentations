@@ -1,0 +1,711 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>HTML</title>
+
+    <meta name="description" content="Slides on Dashing for monitoramaEU 2013">
+    <meta name="author" content="Daniel Beauchamp">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/moon.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+      document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+
+    <style type="text/css">
+      .reveal .slides section {
+        min-height: 600px !important;
+      }
+
+      table, th, td {
+        border: 1px solid black !important;
+      }
+
+      img {
+        border: none !important;
+      }
+      pre {
+        text-align: left;
+        background: #eee !important;
+        padding: 10px 20px !important;
+      }
+      pre strong {
+        font-weight: normal;
+        color: #c61800;
+        text-shadow: #c61800 0 0 1px;
+        letter-spacing: -1px;
+      } 
+
+      input, button {
+        text-align: left;
+        font-size: 140%;
+      }
+    </style>
+
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+
+      <div class="slides">
+    
+    
+    <section>
+     <header><h1>HTML (Advanced)</h1></header>
+    </section> 
+    
+    
+   
+    
+    
+    
+    <section> 
+     <header><h2>Outline</h2></header> 
+     <ul>
+ <li>Tables
+ <li>Forms
+ <li>iFrames
+ <li>Audio/Video
+</ul>
+    </section>
+    
+    
+
+    <section>
+     <header><h1>Tables</h1></header>
+    </section> 
+    
+    
+    <section> 
+     <header><h2>Tables</h2></header> 
+      
+     <p>Tables are useful for displaying tabular data on the web, like research study results.</p>
+<img src="http://www.mathworks.com/matlabcentral/fx_files/18329/1/GTHTMLtable.png">
+
+    </section>
+    
+  
+   
+    
+    
+    
+    <section> 
+     <header><h2>The table element</h2></header> 
+      
+     <p>The <code>TABLE</code> element contains all the elements that make up a table - the header, rows, and columns. 
+This example shows a table of monthly savings.
+</p>
+
+<pre>
+<strong>&lt;table</strong> border="1"&gt;
+  &lt;thead&gt;
+   &lt;tr&gt;
+    &lt;th&gt;Month &lt;/th&gt;
+    &lt;th&gt;Savings &lt;/th&gt;
+   &lt;/tr&gt;
+  &lt;tbody&gt;
+   &lt;tr&gt;
+    &lt;td&gt;January &lt;/td&gt;
+    &lt;td&gt;$100 &lt;/td&gt;
+   &lt;/tr&gt;
+   &hellip;
+<strong>&lt;/table&gt;</strong>
+</pre>
+
+<table style="font-size:110%">
+  <thead>
+   <tr>
+    <th>Month</th>
+    <th>Savings</th>
+   </tr>
+  <tbody>
+   <tr>
+    <td>January</td>
+    <td>$100</td>
+   </tr>
+</table>
+
+    </section>
+    
+   
+    
+    
+    
+    <section> 
+     <header><h2>The table header</h2></header> 
+      
+     <p>Most tables start with a header row with the names of the columns. The <code>thead</code> element starts the header area, the <code>tr</code> element creates a row, and <code>th</code> elements create cells in the row.</p>
+
+<pre>
+&lt;table border="1"&gt;<strong>
+  &lt;thead&gt;
+   &lt;tr&gt;
+    &lt;th&gt;Month &lt;/th&gt;
+    &lt;th&gt;Savings &lt;/th&gt;</strong>
+    &lt;/tr&gt;
+    ....
+&lt;/table&gt;
+</pre>
+
+<table  style="font-size:110%">
+  <thead>
+   <tr>
+    <th>Month </th>
+    <th>Savings </th>
+   </tr>
+</table>
+
+     </section>
+    
+   
+    
+    
+    
+    <section> 
+     <header><h2>The table body</h2></header> 
+      
+     <p>Tables can consist of any number of data rows after the header. The <code>tbody</code> element begins the body (data) area, the same <code>tr</code> element creates a row, and <code>td</code> elements create data cells in each row.
+</p>
+
+<pre>
+&lt;table border="1"&gt;
+  ....
+  <strong>&lt;tbody&gt;
+   &lt;tr&gt;
+    &lt;td&gt;January &lt;/td&gt;
+    &lt;td&gt;$100 &lt;/td&gt;
+   &lt;/tr&gt;</strong>
+&lt;/table&gt;
+</pre>
+
+<table style="font-size:110%">
+  <thead>
+   <tr>
+    <th>Month</th>
+    <th>Savings</th>
+   </tr>
+  <tbody>
+   <tr>
+    <td>January</td>
+    <td>$100</td>
+   <tr>
+   <tr>
+    <td>February</td>
+    <td>$50</td>
+   </tr>
+</table>
+     </section>
+    
+    <section> 
+     <header><h2>Tables: Not for Layout</h2></header> 
+      
+     <p>Before we had better techniques, tables were often used to layout a webpage, but this is now strongly discouraged.</p>
+<img src="http://farm5.static.flickr.com/4095/4930956277_a1b328a446.jpg">
+<p>We will discuss better ways to do layout when we cover CSS.</p>
+     </section>
+    
+
+    <section>
+     <header><h1>Iframes</h1></header>
+    </section> 
+    
+    
+    
+    <section> 
+     <header><h2>The iframe element</h2></header> 
+      
+     <p>You can use HTML to embed other webpages in your own page using an <code>iframe</code> element pointing at a URL:
+</p>
+
+<pre>
+&lt;iframe src="https://www.pamelafox.org"
+  width="500" height="300"&gt;&lt;/iframe&gt;
+</pre>
+
+<iframe src="http://www.pamelafox.org" width="500" height="280"></iframe>
+     </section>
+    </section>
+    
+   
+    
+    
+    
+    <section> 
+     <header><h2>Iframe embeds</h2></header> 
+      
+     <p>The <code>iframe</code> element makes it easy for websites to become embeddable on other websites, and for users to share content that they've created on a site.</p>
+
+<p>Most websites don't naturally look good when embedded at small sizes, so websites create special versions that are designed for embeddability, and the provide users with those URLs.</p>
+
+    </section>
+    
+   
+    
+    
+    
+    <section> 
+     <header><h2>Iframe embeds: Docs</h2></header> 
+      
+     <p>In its "Publish" dialog, Google Docs provides this HTML for embedding a presentation on your site:</p>
+<pre style="font-size:20px;">
+&lt;iframe
+src="https://docs.google.com/present/embed?id=dggjrx3s_2119zdj9k4cf"
+width="410" height="342"&gt;&lt;/iframe&gt;
+</pre>
+
+<iframe src="https://docs.google.com/present/embed?id=dggjrx3s_2119zdj9k4cf" width="410" height="342"></iframe>
+    </section>
+    
+   
+    
+    
+    
+    <section> 
+     <header><h2>Iframe embeds: Calendar</h2></header> 
+      
+     <p>In settings, Google Calendar provides this HTML for embedding a calendar:</p>
+<pre style="font-size:14px;">
+&lt;iframe
+src="http://www.google.com/calendar/embed?src=en.usa%23holiday%40group.v.calendar.google.com" 
+width="600" height="400"&gt;&lt;/iframe&gt;
+</pre>
+
+<iframe src="http://www.google.com/calendar/embed?src=en.usa%23holiday%40group.v.calendar.google.com" width="600" height="380"></iframe>
+    </section>
+    
+    <section> 
+     <header><h2>Iframe embeds: Social widgets</h2></header> 
+     
+
+      <p>Many social widgets are implemented as tiny iframes.</p>
+
+      <p>
+      <a href="https://dev.twitter.com/docs/tweet-button">Twitter</a>:
+      <img src="http://dl.dropbox.com/u/10998095/Screenshots/fztnjs~trigb.png" style="vertical-align:middle">
+      </p>
+
+      <p>
+      <a href="http://developers.facebook.com/docs/reference/plugins/like/">Facebook</a>:
+      <img src="http://dl.dropbox.com/u/10998095/Screenshots/n_410cnvf_t7.png"  style="vertical-align:middle">
+      </p>
+
+      <p>
+      <a href="http://www.disqus.com">Disqus</a>:<br>
+      <img src="http://dl.dropbox.com/u/10998095/Screenshots/mxbm3wtb70ew.png"  style="vertical-align:middle">
+      </p>
+
+    </section>
+    
+    
+    <section>
+     <header><h1>Multimedia</h1></header>
+    </section> 
+
+
+    <section>
+      <h2>Embed video using iframes</h2>
+      <iframe src="http://player.vimeo.com/video/42193906" width="1280" height="800" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+    </section>  
+    
+    
+    <section> 
+     <header><h2>Multimedia in HTML5</h2></header> 
+      
+        <p>We now don't need plugins for many types of multimedia!</p>
+         <ul>
+            <li> <code>&lt;canvas&gt;</code> (<a href="https://dl.dropbox.com/u/7508542/sandbox/io2012/particles_zz85.html">Particles</a>)
+            <li> <code>&lt;svg&gt;</code> (<a href="http://upload.wikimedia.org/wikipedia/commons/f/fd/Ghostscript_Tiger.svg">Tiger</a>)
+            <li> <code>&lt;audio&gt;</code> (<a href="http://cs.iupui.edu/~aharris/n351/notes09/HTML5AudioDemo.html">Basic</a>, <a href="http://9elements.com/io/projects/html5/canvas/">Visualizer</a>)
+            <li> <code>&lt;video&gt;</code> (<a href="http://www.youtube.com/html5">Youtube & HTML5</a>, <a href="http://www.craftymind.com/factory/html5video/CanvasVideo.html">Exploding video</a>)
+        </ul>
+    </section>
+    
+    <section> 
+     <header><h2>Exercise Time</h2></header> 
+      
+     <a href="exercise_tables_descrip.html">Exercise: Tables</a>
+
+    </section>
+
+    <section>
+     <header><h1>Forms</header>
+     <!--<p>The web started as a way for people to post static information, but now is largely about "user-contributed content." All that content means a lot of forms!</p>
+<p>Users see form on social sites, login screens, banking sites, and more:</p>-->
+<p style="text-align:center"><img src="http://farm5.static.flickr.com/4138/4931405344_1a5cd92b80_m.jpg">
+<br>
+<img src="http://farm5.static.flickr.com/4135/4930813031_601aa2c5c9_o.png">
+</p>
+    </section> 
+    
+    <section>
+     <header><h2>Forms: Browser-to-Server Communication</h1></header>
+     
+
+     <img src="images/form_diagram.png">
+
+     </section>
+    </section>
+   
+    <section> 
+     <header><h2>The Form HTML</h2></header> 
+     
+
+<pre>
+&lt;form action="http://imagine-it.org/processform.php" 
+  method="get"&gt;
+  &lt;input type="text" name="first"&gt;
+  &lt;input type="text" name="last"&gt;
+  &lt;button type="submit"&gt;Send Data&lt;/button&gt;
+&lt;/form&gt;
+</pre>
+
+<form action="http://imagine-it.org/processform.php" 
+  method="get" target="_blank">
+  <input type="text" name="first"> <br>
+  <input type="text" name="last"> <br>
+  <button type="submit">Send Data</button>
+</form>
+
+    </section>
+
+    <section>                                                                                                                        
+      <header><h2>The Form HTTP Request: GET</h1></header>
+                                                                                                                             
+      <p>Request:</p>
+      <pre>
+GET /processform.php?first=Pamela&last=Fox HTTP/1.1
+Host: imagine-it.org
+</pre>
+
+<p>Response:</p>
+<pre>
+200
+&lt;doctype html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Welcome to my website!&lt;/title&gt;
+    &hellip;
+&lt;/html&gt;
+</pre>
+
+    </section>
+     
+    <section> 
+     <header><h2>Form element</h2></header> 
+     
+<pre>
+&lt;form action="http://imagine-it.org/processform.php" 
+  <b>method="get"&gt;</b>
+&lt;/form&gt;
+</pre>
+
+<pre>
+&lt;form action="http://imagine-it.org/processform.php" 
+  <b>method="post"&gt;</b>
+&lt;/form&gt;
+</pre>
+
+    </section>
+
+    <section>                                                                                                                        
+      <header><h2>The Form HTTP Request: POST</h1></header>
+                                                                                                                             
+      <p>Request:</p>
+      <pre>
+POST /processform.php HTTP/1.1
+Host: imagine-it.org
+first=Pamela&last=Fox
+</pre>
+
+<p>Response:</p>
+<pre>
+200
+&lt;doctype html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Welcome to my website!&lt;/title&gt;
+    &hellip;
+&lt;/html&gt;
+</pre>
+
+    </section>
+
+    <section> 
+     <header><h2>Input element</h2></header> 
+      
+<!---<p>The <code>input</code> element is used for many different types of user input, depending on value of the <code>type</code> attribute. It defaults to a simple 1-line text input.</p>
+<p>The "name" attribute gives the server a way to identify that piece of attribute. The "value" attribute can be set to specify a default value.</p>-->
+
+<pre>
+&lt;input type="text" name="animal"&gt;
+</pre>
+
+<input type="text" name="animal"/>
+
+<pre>
+&lt;input type="text" name="animal" <b>value="Fox"</b>&gt;
+</pre>
+
+<input type="text" name="animal" value="Fox"/>
+    </section>
+    
+   
+  <section> 
+     <header><h2>Button element</h2></header> 
+      
+     <!--<p>The <code>button</code> element is most commonly used to submit a form to the server, but can also be used for resetting a form or other scripted actions.-->
+<pre>
+&lt;button type="submit"&gt;Submit order&lt;/button&gt;
+</pre>
+
+<button type="submit">Submit order</button>
+
+<pre>
+&lt;button type="reset"&gt;Start over&lt;/button&gt;
+</pre>
+
+<button type="reset">Start over</button>
+
+<pre>
+&lt;button type="button"&gt;Customize&lt;/button&gt;
+</pre>
+
+<button type="button">Customize</button>
+    </section>
+      
+    
+    
+    <section> 
+     <header><h2>Label element</h2></header> 
+      
+<!--<p>The <code>label</code> element is used to caption a form control, so users know what they should put in it.
+</p>-->
+
+<pre>
+<b>&lt;label for="animal"&gt;</b> Animal: <b>&lt;/label&gt;</b>
+&lt;input type="text" name="animal" <b>id="animal"</b>&gt;
+</pre>
+
+<label>Animal
+<input type="text" name="animal"/>
+</label>
+
+    </section>
+   
+    
+    
+    
+    <section> 
+     <header><h2>Checkboxes</h2></header> 
+      
+     <!--The <code>input</code> element can be used for letting users pick multiple in a list or simply indicate yes/no, using <code>type="checkbox"</code>.-->
+
+Yes/No questions: <br>
+<pre>
+&lt;label&gt; Extra cheese?
+<b>&lt;input type="checkbox" name="cheese"/&gt;</b>
+&lt;/label&gt;
+</pre>
+
+<label> Extra cheese? <input type="checkbox" name="extracheese"/></label>
+
+<hr><br>
+Multiple options: <br>
+<pre>
+Pizza Toppings:
+<b>&lt;input type="checkbox" name="bacon" id="bacon"&gt;</b>
+&lt;label for="bacon"&gt;Bacon&lt;/label&gt;
+<b>&lt;input type="checkbox" name="cheese" id="cheese"&gt;</b>
+&lt;label for="cheese"&gt;Extra Cheese&lt;/label&gt;
+</pre>
+
+Pizza Toppings:
+<input type=checkbox name="bacon" id="bacon">
+<label for="bacon">Bacon</label>
+<input type=checkbox name="cheese" id="cheese">
+<label for="cheese">Extra Cheese</label>
+
+     </section>
+    
+   
+    
+    
+    
+    <section> 
+     <header><h2>Radio buttons</h2></header> 
+      
+     <!--<p>Similarly, the <code>input</code> element can be used for creating a group of radio buttons, for letting users pick one in a list, with <code>type="radio"</code>.</p>-->
+Multiple choice:
+<pre>
+<b>&lt;fieldset&gt;</b>
+  <b>&lt;legend&gt;</b>Pizza Size:<b>&lt;/legend&gt;</b>
+  &lt;label for="small"&gt;Small&lt;/label&gt;
+  <b>&lt;input type="radio" name="size" id="small" value="small"&gt;</b>
+  &lt;label for="medium"&gt;Medium&lt;/label&gt;
+  <b>&lt;input type="radio" name="size" id="medium" value="medium"&gt;</b>
+  &lt;label for="large"&gt;Large&lt;/label&gt;
+  <b>&lt;input type="radio" name="size" id="large" value="large"&gt;</b>
+<b>&lt;/fieldset&gt;</b>
+</pre>
+
+<fieldset>
+  <legend>Pizza Size:</legend>   
+  <label for="small">Small</label>
+  <input type="radio" name="size" id="small" value="small">
+  <label for="medium">Medium</label>
+  <input type="radio" name="size" id="medium" value="medium">
+  <label for="large">Large</label>
+  <input type="radio" name="size" id="large" value="large">
+</fieldset>
+
+     </section>
+    
+    <section> 
+     <header><h2>The select element</h2></header> 
+      
+     <!--<p>The <code>select</code> element used with the <code>option</code> element produces a dropdown of options for the user to pick from.</p>-->
+<pre>
+&lt;label for="crust"&gt;Crust type:&lt;/label&gt;
+<b>&lt;select name="crust" id="crust"&gt;
+  &lt;option value="thin"&gt;Thin&lt;/option&gt;
+  &lt;option value="thick"&gt;Thick&lt;/option&gt;
+  &lt;option value="cheese"&gt;Cheese&lt;/option&gt;
+&lt;/select&gt;</b>
+</pre>
+
+<label>Crust type:
+<select name="crust">
+  <option value="thin">Thin</option>
+  <option value="thick">Thick</option>
+  <option value="cheese">Cheese</option>
+</select>
+</label>
+
+    </section>
+    
+   
+    
+    
+    
+    <section> 
+     <header><h2>Textarea element</h2></header> 
+      
+     <!--<p>To let the user specify multiple lines of text, use the <code>textarea</code> element, and specify <code>cols</code> or <code>rows</code> to specify a specific size.</p>-->
+<pre>
+&lt;label&gt;Delivery instructions: &lt;br&gt;
+<b>&lt;textarea name="delivery"&gt;&lt;/textarea&gt;</b>
+&lt;/label&gt;
+</pre>
+<label>Delivery instructions:<br><textarea></textarea></label>
+
+<pre>
+&lt;label&gt;Write a haiku on your love for pizza: &lt;br&gt;
+<b>&lt;textarea name="haiku" rows="3" cols="40"&gt;&lt;/textarea&gt;</b>
+&lt;/label&gt;
+</pre>
+<label>Write a haiku on your love for pizza: <br>
+<textarea rows="3" cols="40"></textarea>
+</label>
+    </section>
+    
+    <section>
+      <section>
+      <header><h2>Forms in HTML5</h1></header>
+      </section>
+        <section>
+          <pre>&lt;input type="email" placeholder="bla@email.com"&gt;</pre> <br>
+          <input type="email" placeholder="bla@email.com"/>
+          <br><br>
+        </section>
+
+        <section>
+          <pre>&lt;input type="range" min="0" max="50" value="10"&gt;</pre> <br>
+          <input type="range" min="0" max="50" value="10" />
+          <br><br>
+        </section>
+
+        <section>
+          <pre>&lt;input type="search" results autosave&gt;</pre> <br>
+          <input type="search" results autosave/>
+          <br><br>
+        </section>
+        <section>
+        <pre>&lt;input type="color"&gt;</pre> <br>
+          <input type="color"/>
+          <br><br>
+        </section>
+        <section>
+        <pre>&lt;input type="date" min="2010-08-14" max="2011-08-14"&gt;</pre> <br>
+        <input type="date" min="2010-08-14" max="2011-08-14"/>
+        </section>
+    </section>
+
+    <section> 
+     <header><h2>Exercise Time</h2></header> 
+      
+     <a href="exercise_descrip.html">Exercise: Forms</a>
+    </section>
+    
+    
+    
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+
+    <script>
+
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        rollingLinks: false,
+
+        theme: 'serif', // available themes are in /css/theme
+        transition:  'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+          // { src: 'plugin/leap/leap.js', async: true }
+          // { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+          // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>
