@@ -1,0 +1,79 @@
+Dashboard
+"Dashing"
+Daniel Beauchamp
+Norwegian
+Oh my god, stuff is orange. Something must happen.
+(Show Gridster too)
+I am not going to tell you what to monitor
+Shopify
+
+Examples of it in use
+"It doesnt do what I want"
+"Yet another dashboard tool."
+
+- Be completely customizable (show geckoboard)
+- multiple widgets
+- Custom security
+- <3 Open Source
+- Simple
+
+Ruby + Coffeescript
+API -> Dashing -> Clients
+
+Show curling action
+Energizer!
+
+Server sent events before they were cool
+
+Show picture of how there is no glue code
+Batman.js (and other mvc frameworks)
+
+
+Start a dashboard
+walk through files
+  - show widget
+  - show dashboard
+  - explain config
+build a widget
+
+
+curl -d '{ "auth_token": "YOUR_AUTH_TOKEN", "value": 300 }' \http://localhost:3030/widgets/response_time
+
+
+add a job
+add animated value
+add a second widget
+make the title a binding
+modify threshold
+swap the order and save
+Push to heroku....yippeeeeee!
+SmartTV App
+
+
+
+Fitbit
+Baconify
+Dashing challenge!
+http://dashing.challengepost.com/submissions/17374-baconify
+
+Next Steps:
+Mobile
+
+TODO:
+SmartTV thing
+http://www.fusonic.net/en/blog/2013/07/31/diy-info-screen-using-raspberry-pi-dashing/
+
+
+
+gem install dashing
+dashing new monitorama
+cd monitorama
+bundle 
+dashing start alert
+
+
+
+dashing generate
+You can see all the things you can generate
+dashing generate dashboard ops
+dashing generate widget alert
