@@ -1,0 +1,576 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>JavaScript</title>
+
+    <meta name="description" content="Slides on Dashing for monitoramaEU 2013">
+    <meta name="author" content="Daniel Beauchamp">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/moon.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <script type="text/javascript" src="js/snowstorm.js"></script>
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+      document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+
+    <style type="text/css">
+      .reveal .slides section {
+        min-height: 600px !important;
+      }
+
+      table, th, td {
+        border: 1px solid black !important;
+      }
+
+      pre {
+        font-size: 35px !important;
+      }
+      pre code {
+        /*height: 800px !important;*/
+        max-height: 800px !important;
+      }
+      .header {
+        position: relative;
+        top: -500px;
+
+      }
+    </style>
+
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+
+      <div class="slides">
+  
+        <section>
+         <header><hgroup> 
+          <h1>JavaScript</h1> 
+          <h3>f#ck yeah!</h3>
+         </hgroup></header>
+        </section>
+
+
+        <section> 
+          <header><h1>Anatomy of a Website</h1></header> 
+          <code style="text-align: left">
+            <p><b>Content</b>: Text, Media 
+            <p>+&nbsp;&nbsp;<b>HTML</b>: Structure</p>
+            <p>+&nbsp;&nbsp;&nbsp;<b>CSS</b>: Presentation + Design</p>
+            <p>+&nbsp;&nbsp;&nbsp;&nbsp;<b>JS</b>: Interactivity + Logic</p>
+            <p>= <b>Your Website</b></p>
+          </code>
+        </section>
+
+        <section>
+
+          <section>
+           <header><hgroup> 
+            <h1 style="font-size: 350px">1999</h1> 
+           </hgroup></header>
+          </section>
+
+          <section>
+           <header><hgroup> 
+            <h1 style="font-size: 350px">2005</h1> 
+           </hgroup></header>
+          </section>
+
+          <section>
+           <header><hgroup> 
+            <h1 style="font-size: 350px">2013</h1> 
+           </hgroup></header>
+          </section>
+
+        </section>
+
+        <section>
+          <h2>How JavaScript is used today</h2>
+          <h3>(outside the browser)</h3>
+          <ul>
+            <li class="fragment"><a href="http://nodejs.org/" target="_blank">Running Servers (node.js)</a></li>
+            <li class="fragment"><a href="http://www.smashingmagazine.com/2013/07/25/introduction-to-photoshop-scripting/" target="_blank">Photoshop Scripts</a></li>
+            <li class="fragment"><a href="http://tessel.io/" target="_blank">Powering microcontrollers</a></li>
+            <li class="fragment"><a href="http://www.youtube.com/watch?v=ezmAP1fshfo" target="_blank">Controlling Drones</a></li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>We won't be controlling quadcopters :(</h2>
+          <img src="images/noneed.gif" width=700>
+        </section>
+
+        <section>
+          <h2>We will need JavaScript to:</h2>
+          <ul>
+            <li class="fragment">Animate things on the page</li>
+            <li class="fragment">Fetch data & update the page</li>
+            <li class="fragment">Push data</li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>The Basics</h1>
+          <h2>Where do I write JavaScript?</h2>
+        </section>
+
+        <section>
+          <h1>The Basics</h1>
+          <pre>
+<code>
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;My Website&lt;/title&gt;
+  &lt;style&gt;
+     body { background: red }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code>
+          </pre>
+        </section>
+
+        <section>
+<h6>Test this HTML out in your browser</h6>
+<pre>
+<code>
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;My Website&lt;/title&gt;
+  &lt;style&gt;
+     body { background: red }
+  &lt;/style&gt;
+  &lt;script type="text/javascript"&gt;
+     alert("HEJ!!!!");
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code>
+</pre>
+        </section>
+
+
+
+        <section>
+          <h3>You might have seen this before with Google Analytics</h3>
+<pre>
+<code style="font-size:23px">
+<script>
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-XXXXX-X']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script');
+    ga.type = 'text/javascript';
+    ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</code>
+</pre>
+        </section>
+
+        <section>
+          <h2>You can also include it as a separate .js file</h2>
+          <h3>(Like you did with CSS)</h3>
+<pre>
+<code style="font-size:23px">
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;My Website&lt;/title&gt;
+  &lt;script type='text/javascript' src="js/main.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code>
+</pre>
+        </section>
+
+        <section>
+          <h2>You can also write stuff in the console</h2>
+          <img src="images/console.png">
+          <h5>(Check for the console in the browser you use.)</h5>
+        </section>
+
+        <section>
+          <h2>Variables</h2>
+ <p>Use variables to store values.</p>
+<div class="fragment">
+  <p>Declare, then initialize in 2 statements:</p>
+  <pre><code>
+  var x;
+  x = 5;
+  alert(x);
+  </code></pre>
+</div>
+
+<div class="fragment">
+  <p>Or declare and initialize in one statement:</p>
+  <pre><code>
+  var y = 2;
+  alert(y);
+  </code></pre>
+</div>
+
+<div class="fragment"><p>Re-assign the value later:</p>
+<pre><code>
+var x = 5;
+x = 1;
+</code></pre>
+</div>
+        </section>
+
+
+<section>
+  <h2>Logging to the console</h2>
+  <pre><code>console.log("hey!")</pre></code>
+  Check out an example <a href="../console.html" target="_blank">here</a>
+</section>
+
+<section>
+  <h1>Data Types</h1>
+     <p style="display:none;">Variables can store different "types" of data, like:</p>
+<ul>
+ <li class="fragment"><b>string:</b> a string of characters:
+<pre><code>var greeting = 'Hej hej';
+var restaurant = "Daniel's Place";
+</code></pre>
+ <li class="fragment"><b>number:</b> whole (6, -102) or floating point (5.8737): 
+<pre><code>var myAge = 28;
+var pi = 3.14;
+</code></pre>
+ <li class="fragment"><b>boolean:</b> Represents logical values true or false:
+<pre><code>var catsAreBest = true;
+var dogsRule = false;
+</code></pre>
+ <li class="fragment"><b>undefined:</b> Represents a value that hasn't been defined.
+<pre><code>var notDefinedYet;</code></pre>
+ <li class="fragment"><b>null:</b> Represents an explicitly empty value.
+<pre><code>var goodPickupLines = null;</code></pre>
+</ul>
+
+
+
+</section>
+
+<section>
+     <h1>Expressions</h1>
+     <p>Variables can also store the result of any "expression":</p>
+<pre ><code>
+var x = 2 + 2;
+var y = x * 3;
+</code></pre>
+
+<pre class="fragment"><code>
+var name = 'Daniel';
+var greeting = 'Hello ' + name;
+var title = 'your majesty';
+</code></pre>
+
+</section>
+
+<section>
+<h1>Functions</h1>
+     <p>Functions are re-usable collections of statements.</p>
+
+<p>First declare the function:</p>
+<pre class="fragment"><code>
+function sayMyName() {
+  console.log('Hej Daniel!');
+}
+</code></pre>
+<p class="fragment">Then call it (as many times as you want):</p>
+<pre class="fragment"><code>
+sayMyName();
+sayMyName();
+sayMyName();
+</code></pre>
+
+
+</section>
+
+
+
+</section>
+
+<section>
+<h2>Function Arguments</h2>
+     <p>Functions can accept any number of named arguments:</p>
+<pre><code>
+function sayMyName(name) {
+  console.log('Hej, ' + name);
+}
+
+sayMyName('Daniel');
+sayMyName('Sven Svenson');
+</code></pre>
+
+<pre class="fragment"><code>
+function addNumbers(num1, num2) {
+  var result = num1 + num2;
+  console.log(result);
+}
+
+addNumbers(7, 21);
+addNumbers(3, 10);
+</code></pre>
+
+
+
+</section>
+
+<section>
+<h2>Function Return Values</h2>
+     <p>The return keyword returns a value to whoever calls the function (and exits the function):</p>
+<pre><code>
+function addNumbers(num1, num2) {
+  var result = num1 + num2;
+  return result;
+}
+
+var sum = addNumbers(5, 2);
+</code></pre>
+<div class='fragment'>
+<p>You can use function calls in expressions:</p>
+<pre><code style='font-size: 25px'>
+var biggerSum = addNumbers(2, 5) + addNumbers(3, 2);
+</code></pre>
+</div>
+<div class="fragment">
+<p>You can even call functions inside function calls:</p>
+<pre><code style='font-size: 20px'>
+var hugeSum = addNumbers(addNumbers(5, 2), addNumbers(3, 7));
+</code></pre>
+</div>
+
+
+
+
+</section>
+
+
+<section>
+
+<h1>The if statement</h1>
+     <p>Use <code>if</code> to tell JS which statements to execute, based on a condition.</p>
+
+<pre style="border:3px dotted black;"><code>
+if (condition) {
+  // statements to execute
+}
+</code></pre>
+
+<pre class="fragment"><code>
+var x = 5;
+
+if (x > 0) {
+  console.log('x is a positive number!');
+}
+</code></pre>
+
+
+</section>
+
+
+<section>
+ <h3>Comparison Operators</h3>
+     <p>Use these operators to compare two values for equality, inequality, or difference.</p>
+
+<pre><code>
+  var myAge = 28;
+</code></pre>
+<br>
+<center>
+<table border="1" cellspacing="5" cellpadding="5" style="font-size: 16px; line-height: 1em; background: white; color: black">
+  <thead>
+  <tr><td>Operator  <td>Meaning <td>True expressions
+  <tbody>
+  <tr><td>==    <td>Equality <td><code>myAge == 28</code> <br> <code>myAge == '28'</code> <br> <code>28 == '28'</code>
+  <tr><td>===  <td>Strict equality <td><code>myAge === 28</code>     
+  <tr><td>!=     <td>Inequality <td><code>myAge != 29</code>      
+  <tr><td>!==   <td>Strict inequality <td><code>myAge != '28'</code> <br> <code>28 != '28'</code>
+  <tr><td>&gt;  <td>Greater than <td><code>myAge &gt; 25</code> <br> <code>'28' &gt; 25</code>   
+  <tr><td>&gt;=<td>Greater than or equal <td><code>myAge &gt;= 28</code> <br> <code>'28' &gt;= 25</code>
+  <tr><td>&lt;   <td>Less than <td><code>myAge &lt; 30</code>  <br> <code>'28' &lt; 30</code>
+  <tr><td>&lt;= <td>Less than or equal <td><code>myAge &lt;= 28</code>  <br> <code>'28' &lt;= 28 </code>
+</table>
+</center>
+
+<p><b>Common mistake</b>: Do not confuse <code>=</code> (the assignment operator) with <code>==</code>.</p>
+</section>
+
+<section>
+  <h1>The if/else statement</h1>
+     <p>Use <code>else</code> to give JS an alternative statement to execute.
+</p>
+
+<pre><code>
+var age = 28;
+if (age > 16) {
+  console.log('Yay, you can drive!');
+} else {
+  console.log('Sorry, but you have to be ' + (16 - age) + ' years old till you can drive.');
+}
+</code></pre>
+</section>
+
+<section>
+  <h1>Loops</h1>
+  <h2>(Doing something lots of times)</h2>
+</section>
+
+<section>
+
+ <h1>The while loop</h1>
+     <p>The <code>while</code> loop tells JS to repeat statements until a condition is true:</p>
+
+<pre style="border:3px dotted black;"><code>
+while (condition) {
+  // statements to repeat
+}
+</code></pre>
+
+<pre><code>
+var x = 0;
+while (x < 5) {
+  console.log(x);
+  x = x + 1;
+}
+</code></pre>
+
+<p>
+<b>Beware:</b> It's easy to accidentally cause an "infinite loop." 
+</p>
+
+</section>
+
+<section>
+
+ <h1>The for loop</h1>
+     <p>The <code>for</code> loop is another way of repeating statements, more specialized than <code>while</code>:
+
+<pre style="border:3px dotted black;"><code>
+for (initialize; condition; update) {
+  // statements to repeat
+}
+</code></pre>
+
+<pre><code>
+for (var i = 0; i < 5; i = i + 1) {
+  console.log(i);
+}
+</code></pre>
+
+
+</section>
+
+
+<section>
+<h1>The Array</h1>
+     <p>An array is a type of data-type that holds an ordered list of values, of any type:
+</p>
+<pre style="border:3px dotted black;"><code style="font-size: 25px">
+var arrayName = [element0, element1, ...];
+</code></pre>
+<pre class="fragment"><code style="font-size: 15px">
+var rainbowColors = ['Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Indigo', 'Violet'];
+var raceWinners = [33, 72, 64];
+var myFavoriteThings = ['Broccoli', 60481, 'Love Actually'];
+</code></pre>
+<p class="fragment">The <code>length</code> property reports the size of the array:</p>
+<pre class="fragment"><code>
+console.log(rainbowColors.length);
+</code></pre>
+
+
+</section>
+
+
+<section>
+<h1>Array access</h1>
+     <p>You can access items with "bracket notation". The index starts at 0.</p>
+<pre style="border:3px dotted black;"><code>
+var arrayItem = arrayName[indexNum];
+</code></pre>
+<pre class="fragment"><code style="font-size: 15px">
+var rainbowColors = ['Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Indigo', 'Violet'];
+var firstColor = rainbowColors[0];
+var lastColor = rainbowColors[6];
+</code></pre>
+
+
+
+</section>
+
+</section>
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+
+    <script>
+
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        rollingLinks: false,
+
+        theme: 'night', // available themes are in /css/theme
+        transition:  'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+          // { src: 'plugin/leap/leap.js', async: true }
+          // { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+          // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>
