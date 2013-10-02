@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>jQuery</title>
+
+    <meta name="description" content="Slides for jQuery workshop at Hyper Island">
+    <meta name="author" content="Daniel Beauchamp">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/moon.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/snowstorm.js"></script>
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+      document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+
+    <style type="text/css">
+      .reveal .slides section {
+        min-height: 600px !important;
+      }
+
+      table, th, td {
+        border: 1px solid black !important;
+        background: #222;
+      }
+
+      pre {
+        font-size: 35px !important;
+        border: none;
+        box-shadow: none !important;
+      }
+      table pre {
+        font-size: 25px !important;
+      }
+      pre code {
+        /*height: 800px !important;*/
+        max-height: 800px !important;
+      }
+      .header {
+        position: relative;
+        top: -500px;
+
+      }
+
+      .special {
+        border: 20px solid red !important;
+      }
+    </style>
+
+    <script type="text/javascript">
+function sayHej() {
+  alert("HEJ!");
+}
+
+
+    </script>
+
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+
+      <div class="slides">
+  
+        <section>
+         <header><hgroup> 
+          <h1>jQuery</h1> 
+         </hgroup></header>
+        </section>
+
+        <section>
+          <img src="images/scared.gif" width=100%>
+        </section>
+
+        <section>
+          <img src="images/shh.jpg" width=100%>
+        </section>
+
+        <section>
+          <a href="http://hyperisland.com" target="_blank"> Have you seen the new hyper website?</a>
+        </section>
+
+        <section>
+          <h2>jQuery handles:</h2>
+          <ul>
+            <li class="fragment">Effects & Animations</li>
+            <li class="fragment">Reacting to user input</li>
+            <li class="fragment">AJAX (getting data)</li>
+          </ul>
+          <br><br>
+          <h3 class="fragment">Wait...isn't that what JavaScript is for?</h3></h3>
+        </section>
+
+        <section>
+          <h2>jQuery is:</h2>
+          <ul>
+            <li class="fragment">written ALL in JavaScript</li>
+            <li class="fragment">A library of functions</li>
+            <li class="fragment">Like the "bootstrap" of JavaScript</li>
+            <li class="fragment">Not included in your browser by default.</li>
+            <li class="fragment">Insanely popular</li>
+            <li class="fragment">Your new best friend</li>
+
+          </ul>
+        </section>
+
+        <section>
+          <h1>Write less</h1>
+          <h1 class="fragment"><a>Do more</a></h1>
+        </section>
+
+
+        <section style="top: -400px !important">
+          <h4>Let's hide Mufasa</h4>
+<style type="text/css">
+  .lion {
+    width: 170px;
+  }
+</style>
+<img class="lion" src="images/moofy.jpg">
+<img class="lion" src="images/moofy.jpg">
+<img class="lion" src="images/moofy.jpg"><br>
+&lt;img class=&quot;lion&quot; src=&quot;images/mufasa.jpeg&quot;&gt;<br/>
+<br>
+<h3 >Using only JavaScript</h3>
+          <pre class="fragment"><code style="font-size: 20px">var images = document.getElementsByClassName("lion");
+for (var i = 0; i < images.length; i++) {
+  images[i].style.display = "none";</code></pre>
+
+<h3 class="fragment">Using jQuery</h3>
+<pre class="fragment"><code>$(".lion").hide();</code></pre>
+        </section>
+
+        <style type="text/css">
+          .snippet {
+            width: 50%;
+            border: 5px solid white;
+            margin: 0px auto;
+            padding: 0px;
+            float: left;
+            cursor: pointer;
+          }
+
+          img {
+            transition: none !important;
+            -webkit-transition: none !important;
+          }
+        </style>
+
+        <script>
+        $(function(){
+          $('.snippet').click(function() {
+            var command = $(this).text();
+            eval(command);
+          });
+          $("#myButton").on('click', sayHej);
+          $(".pippi").on('click', sayHej);
+
+        });
+        </script>
+        <section style="top: -100px; position: fixed; clear: both">
+          <h2>Effects</h2>
+          <div style="width: 800px; margin: 0px auto;">
+            <div class="snippet">
+              <pre><code style="font-size: 20px">$('.bamse').fadeOut();</pre></code>
+       </div>
+       <div class="snippet">
+         <pre><code style="font-size: 20px;">$('.bamse').fadeIn();</code></pre>
+       </div>
+       <div class="snippet">
+         <pre><code style="font-size: 20px">$('.bamse').show();</code></pre>
+       </div>
+       <div class="snippet">
+         <pre><code style="font-size: 20px">$('.bamse').hide();</code></pre>
+       </div>
+       <div class="snippet">
+         <pre><code style="font-size: 20px">$('.bamse').slideUp();</code></pre>
+       </div>
+       <div class="snippet">
+         <pre><code style="font-size: 20px">$('.bamse').slideDown();</pre></code>
+            </div>
+          </div>
+          <img class="bamse" src="images/bamse.jpeg" width=200>
+          <div style="clear: both;font-size: 20px">
+          &lt;img class=&quot;bamse&quot; src=&quot;images/bamse.jpeg&quot;&gt;<br/>
+        </div>
+        </section>
+
+        <style type="text/css">
+          img {
+            border: none !important;
+            background: none !important;
+          }
+        </style>
+        <section>
+          <img src="images/instruct1.png">
+          <img class="fragment" src="images/instruct2.png">
+          <br><br>
+          <p class="fragment">Find all elements in the html with a class of "bamse", and add the class "special" to each one.</p>
+          <br>
+          <small class="fragment">Small hint: If you don't want to type '$', you can write 'jQuery' instead.</small>
+
+        </section>
+
+        <section>
+          <h4>Here is a css file where the class 'special' is defined</h4>
+          <pre><code>.special {
+  border: 2px solid red;
+}</code></pre>
+
+        <div class="fragment">
+          <h4>Click the buttons below to add/remove the class</h4>
+
+          <div style=" margin: 0px auto;">
+            <div class="snippet">
+              <pre><code style="font-size: 20px">$('.bamse').addClass('special');</pre></code>
+            </div>
+            <div class="snippet">
+              <pre><code style="font-size: 20px">$('.bamse').removeClass('special');</pre></code>
+            </div>
+
+          </div>
+
+          <img class="bamse" src="images/bamse.jpeg" width=350>
+          <img class="bamse" src="images/bamse.jpeg" width=350>
+        </div>
+        </section>
+
+        <section>
+
+            <h2>Finding Elements</h2>
+            <p style="text-align:center">All CSS selectors are valid, plus more. <a href="http://api.jquery.com/category/selectors/">Read the docs.</a></p>
+            <br>
+            <table style="width:100%">
+              <thead>
+                <tr>
+                  <th>With this HTML..</th>
+                  <th>We find it this way:
+                </th></tr>
+              </thead>
+              <tbody><tr>
+                <td class="code-cell"><pre class="prettyprint" tabindex="0"><span class="tag">&lt;p&gt;</span><span class="pln">Welcome!</span><span class="tag">&lt;/p&gt;</span></pre><br></td>
+                <td class="code-cell"><pre class="prettyprint" tabindex="0"><span class="pln">$</span><span class="pun">(</span><span class="str">'p'</span><span class="pun">)</span></pre><br></td>
+              </tr>
+              <tr>
+                <td class="code-cell"><pre class="prettyprint" tabindex="0"><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"main"</span><span class="tag">&gt;</span><span class="pln">Welcome!</span><span class="tag">&lt;/div&gt;</span></pre><br></td>
+                <td class="code-cell"><pre class="prettyprint" tabindex="0"><span class="pln">$</span><span class="pun">(</span><span class="str">'#main'</span><span class="pun">)</span></pre><br></td>
+              </tr>
+              <tr>
+                <td class="code-cell"><pre class="prettyprint" tabindex="0"><span class="tag">&lt;p</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"intro"</span><span class="tag">&gt;</span><span class="pln">Welcome!</span><span class="tag">&lt;/p&gt;</span></pre><br></td>
+                <td class="code-cell"><pre class="prettyprint" tabindex="0"><span class="pln">$</span><span class="pun">(</span><span class="str">'.intro'</span><span class="pun">)</span></pre><br></td>
+              </tr>
+              <tr>
+                <td class="code-cell"><pre class="prettyprint" tabindex="0"><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"main"</span><span class="tag">&gt;</span><span class="pln"><br></span><span class="tag">&nbsp;&nbsp;&lt;p</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"intro"</span><span class="tag">&gt;</span><span class="pln">Welcome!</span><span class="tag">&lt;/p&gt;</span><span class="pln"><br></span><span class="tag">&lt;/div&gt;</span></pre></td>
+                <td class="code-cell"><pre class="prettyprint" tabindex="0"><span class="pln">$</span><span class="pun">(</span><span class="str">'#main .intro'</span><span class="pun">)</span></pre></td>
+              </tr>
+            </tbody></table>
+
+
+        </section>
+
+        <section>
+          <h2>Changing Elements</h2>
+
+          <a id="myLink" target="_blank" href="http://hyperisland.com">Hey I'm a link. Click on the scripts below...</a>
+          <pre class="snippet"><code>$('#myLink').html('WHOA!!!');</code></pre>
+          <pre class="snippet"><code style="font-size: 30px">$('#myLink').attr('href', 'http://sports.com')</code></pre>
+          <pre class="snippet"><code>$('#myLink').css({'color': 'red'});</code></pre>
+
+          <div class="fragment" style="clear: both">
+            <h4>Or do it all on one line...</h4>
+          <pre class="snippet"><code style="font-size: 20px">$('#myLink').html('change everything at once!').attr('href', 'http://www.giffrey.com/surprise.html').css({'color': 'green'});</code></pre>
+          </div>
+        </section>
+
+        <section>
+          <h1 class="fragment">And now</h1>
+          <h1 class="fragment">the <a>moment</a></h1>
+          <h1 class="fragment">you've been</h1>
+          <h1 class="fragment">waiting for</h1>
+        </section>
+
+        <section>
+          <h1><a>Interactivity!</a></h1>
+        </section>
+
+        <section>
+          <h4>I want this to say "HEJ!" when I press it.</h4>
+          <button style="width: 800px; height: 200px; font-size: 80px">Click me</button>
+        </section>
+
+        <section>
+          <h4>I want this to say "HEJ!" when I press it.</h4>
+          <button id="myButton" style="width: 800px; height: 200px; font-size: 80px">Click me</button>
+          <pre><code>function sayHej() {
+  alert("HEJ!");
+}</code></pre>
+<br>
+<div class="fragment">
+<h4>When I click "myButton", it will call the function sayHej</h4>
+<pre><code>$("#myButton").on('click', sayHej);</code></pre>
+</div>
+        </section>
+
+        <section>
+          <h2>It's not just for buttons!</h2>
+          <pre><code>$(".pippi").on('click', sayHej);</code></pre>
+          <img class="pippi" src="images/pippi.jpg"><img class="pippi" src="images/pippi.jpg">
+        </section>
+
+        <section>
+          <h2>It's not just for 'clicks'!</h2>
+          <pre><code>$(".pippi").on('hover', sayHej);</code></pre>
+
+          <a class="fragment" href="http://api.jquery.com/category/events/" target="_blank"><ul style="font-size: 30px;list-style-type: none">
+          <li>hover</li>
+          <li>change</li>
+          <li>dblclick</li>
+          <li>mouseout</li>
+          <li>mousemove</li>
+          <li>keydown</li>
+          <li>keyup</li>
+          <li>and more...</li>
+        </ul></a>
+        <br><br>
+        <h3 class="fragment">These are called "<a href="http://api.jquery.com/category/events/" target="_blank">events</a>"</h3>
+        </section>
+
+        <section>
+          <iframe width="420" height="315" src="//www.youtube.com/embed/9CS7j5I6aOc" frameborder="0" allowfullscreen></iframe>
+        </section>
+
+        <section>
+          <h1>How do I get it?!</h1>
+          <a href="http://jquery.com/download/" target="_blank">Pssst...Over here</a>
+          <br><br>
+          <p class="fragment">Look under the section "Using jQuery with a CDN"</p>
+        </section>
+
+        <section>
+          <h1>Workshop Time!</h1>
+          <a href="../workshop" target="_blank">Right over here....</a>
+        </section>
+
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+
+    <script>
+
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        rollingLinks: false,
+
+        theme: 'night', // available themes are in /css/theme
+        transition:  'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+          // { src: 'plugin/leap/leap.js', async: true }
+          // { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+          // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+
+Reveal.addEventListener( 'slidechanged', function( event ) {
+  $('.bamse').removeClass('special');
+  $('.bamse').show();
+} );
+
+
+    </script>
+
+  </body>
+</html>
