@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>jQuery Workshop</title>
+    <title>jQuery Workshop Part II</title>
 
     <!--  CSS  -->
     <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -18,14 +18,13 @@
 
   <body>
     <div class="jumbotron">
-      <h1>jQuery Workshop</h1>
+      <h1>jQuery Workshop Part II</h1>
       <p>The one and only.</p>
       <hr>
     </div>
     <div class="container-narrow">
       <section>
         <h1>Getting started</h1>
-        <p>You're going to be working on your own github fork of this website</p>
         <ol>
           <li>Download a copy of this workshop <a href="workshop.zip">over here</a>. Open the index.html file up in your browser.</li>
           <li>Write your answers in the <i>main.js</i> file in the <i>js</i> directory. You ARE allowed to modify the html too...</li>
@@ -36,78 +35,71 @@
       <hr>
 
       <section>
-        <h1>Exercise 0: Setup</h1>
-        <p>Oh dear...it appears I've forgotten to include jQuery in this page. Can you link it in for me?</p>
-        <p>If you see a jquery logo under this line, then you have passed this exercise:</p>
-        <img id="jquery-powered" src="img/jquery.png" width=200>
-      </section>
-      <hr>
-
-      <section>
-        <h1>Exercise 1: Remember remember</h1>
-        <p>Hmmm, this button doesn't work. I swore it did!! Hmm....<br> Where's the first place you should look when stuff doesn't work in javascript?</p>
-        <button class="btn btn-large btn-danger" type="button">Click me</button>
-      </section>
-      <hr>
-
-      <section>
-        <h1>Exercise 2: Buttons!</h1>
+        <h1>Exercise 1: Buttons!</h1>
+        <h3>My to-do list</h3>
+        <ul></ul>
         <p>Ok let's make the button actually do something.</p>
-        <button id="exercise2Button" class="btn btn-large btn-primary" type="button">Click me</button>
+        <div class="input-append">
+          <input class="span2" id="appendedInputButtons" type="text">
+          <button id="addTodo" class="btn" type="button">Add todo</button>
+        </div>
         <p><strong>Make it so that when you click on the button, an alert message pops up.</strong></p>
         <p>It can say anything you want, but it should probably be motivating, funny, charming, and with a dash of wit.</p>
       </section>
       <hr>
 
       <section>
-        <h1>Exercise 3: Web Wizardry</h1>
-        <h3>&ldquo;Fade out&rdquo; spell</h3>
-        <p>Harry Potter is having a guest over, and wants to make his embarassing collection of dolls disappear. Can you help him?</p>
-        <p>Make it so that when you click on the button, the dolls <strong>fade out</strong>.</p>
-        <center>
-          <img src="img/harry.png">
-          <button id="disappear" class="btn btn-info" type="button">&ldquo;Evanesco!&rdquo;</button>
-          <img class="dolls" width="300" src="img/dolls.jpg">
-        </center>
+        <h1>Exercise 2: A to-do list!</h1>
+        <p>Behold! The only to-do list you will ever need!</p>
+        <h3>My to-do list</h3>
+        <ul id="todos">
+          <li>Learn French</li>
+          <li>Get a pet monkey</li>
+        </ul>
+        <div class="input-append">
+          <input  id="newTodo" class="span2" type="text">
+          <button id="addTodoBtn" class="btn" type="button">Add todo</button>
+        </div>
+        <p>Make it so that when you type something in the box and press "Add todo", it adds it to the todo list above.</p>
+        <small>(Hint: Using jQuery, you need to get the value inside the text field. Google it to find out how :))</small><br>
 
-        <h3>&ldquo;Fade in&rdquo; spell</h3>
-        <p>Harry Potter is finally alone again wants to make his dolls come back. How does he do that?</p>
-        <p>Make it so that when you click on the button below, the dolls <strong>fade in</strong>.</p>
-        <center>
-          <img src="img/harry.png">
-          <button id="appear" class="btn btn-info" type="button">&ldquo;Appearo!&rdquo;</button>
-          <img class="dolls" style="display: none" width="300" src="img/dolls.jpg">
-        </center>
+      </section>
+      <hr>
 
-        <h3>&ldquo;Transformation&rdquo; spell</h3>
-        <p>Voldemort is trying to ruin Princess Madeleine's wedding!!!! OH NO!.</p>
-        <p>Make it so that when you click on the button below, Voldemort <strong>fades out</strong>, and then <strong>fades into</strong> a cute bunch of cats</strong>.</p>
-        <small>(Hint: Look at the code where the image of Voldemort is. You will need the 2 "spells" you used above)</small>
-        <img width="400" src="img/madeleine.jpg">
-        <center>
-          <img src="img/harry.png">
-          <button id="transform" class="btn btn-info" type="button">&ldquo;Felinicus!&rdquo;</button>
-          <img id="voldemort" width="400" src="img/voldemort.jpg">
-          <!-- These are the cats. They are hidden by default, but should be faded in after Voldemort is faded out. -->
-          <img id="cats" width="400" style="display:none" src="img/cats.jpg">
-        </center>
+      <style type="text/css">
 
-        <h3>&ldquo;Hover&rdquo; spell</h3>
-        <p>Oh look, it's <a href="http://en.wikipedia.org/wiki/Carola_H%C3%A4ggkvist" target="_blank">Carola!.</a></p>
-        <p>During the finale at Carola's most recent concert, Harry Potter has promised to make her levitate.</p>
-        <p>But he's fed up of pressing buttons. He wants it so when you <strong>hover</strong> your mouse over the button, Carola will levitate. When you take your mouse off the button (called "hovering off") she should stop levitating.</p>
-        <small>(Hint: To make Carola levitate, add the class <code>levitating</code> to the <code>img</code> of her. To make her stop, remove that class.)</small>
-        <br>
-        <small>(Hint: Look at JQuery documentation for adding/removing classes.)</small>
-        <br>
-        <small>(Hint: You aren't using <code>click</code> anymore. You will use <code>hover</code>)</small>
-        <center>
-          <img src="img/harry.png">
-          <button id="levitate" class="btn btn-inverse" type="button">&ldquo;Wingardium Leviosa&rdquo;</button>
-          <img id="carola" width="300" src="img/carola.png">
-          <!-- These are the cats. They are hidden by default, but should be faded in after Voldemort is faded out. -->
-          <img width="400" style="display:none" src="img/cats.jpg">
-        </center>
+      #contactCard {
+        width: 400px;
+        height: 150px;
+        padding: 20px;
+        border: 1px solid #bbb;
+        box-shadow: 2px 2px #eee;
+      }
+
+      #contactCard img {
+        border: 1px solid black;
+        width: 70px;
+        height: 70px;
+      }
+      </style>
+
+      <section>
+        <h1>Exercise 3: Modifying the page</h1>
+        <div id="contactCard">
+          <div class="row">
+            <div class="span1">
+              <img class="profilePic">
+            </div>
+            <div class="span4">
+              Name: <span class="name"></span><br>
+              Age: <span class="age"></span><br>
+              Gender: <span class="gender"></span><br> 
+              Occupation: <span class="occupation"></span>
+            </div>
+          </div>
+        </div>
+
+        <img src="images/card.png">
       </section>
       <hr>
 
