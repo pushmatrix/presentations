@@ -346,19 +346,79 @@ function sayHej() {
         </section>
 
         <section>
-          <img src="images/api.png">
+          <h1>WARNING:</h1>
+          <h2>It is pronounced A-P-I</h2>
+          <h2>NOT "app-ee"</h2>
         </section>
 
         <section>
+          <img src="images/api.png">
+        </section>
+
+
+        <section>
+          <h2>Image as an API</h2>
+          <a href="
+http://maps.google.com/maps/api/staticmap?
+center=45.123664,-123.113775&
+zoom=18&
+maptype=satellite&
+size=250x300&
+sensor=false"><img src="
+http://maps.google.com/maps/api/staticmap?
+center=45.123664,-123.113775&
+zoom=18&
+maptype=satellite&
+size=250x300&
+sensor=false"></a>
+  
+          <pre><code>
+<img src="
+http://maps.google.com/maps/api/staticmap?
+center=45.123664,-123.113775&
+zoom=18&
+maptype=satellite&
+size=250x300&
+sensor=false">
+          </code></pre>
+        </section>
+
+ 
+
+
+        <section>
           <h2>A twitter feed on my website</h2>
+          <h3>Using an Iframe</h3>
           <a class="twitter-timeline" href="https://twitter.com/SeinfeldToday" data-widget-id="385634344527593472">Tweets by @SeinfeldToday</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+        </section>
+
+        <section>
+          <h2>Steps are generally:</h2>
+          <ul>
+            <li>Go to some url</li>
+            <li>Get data</li>
+          </ul>
+
+          <div class="fragment">
+            <br><br>OR! <br><br>
+            <ul>
+            <li>Go to some url</li>
+            <li>Push data</li>
+          </ul>
+          </div>
+
         </section>
 
 
         <section>
           <h2>But what if I want full flexibility?</h2>
-          <h3><a href="https://dev.twitter.com/docs/api/1.1/get/search/tweets" target="_blank">The Twitter API</h3></h3>
+          <a href="http://www.flickr.com/services/feeds/docs/photos_public/" target="_blank">Flickr API Documentation</a><br>
+          <a href="http://api.flickr.com/services/feeds/photos_public.gne?&format=json&tags=hyperisland" target="_blank">Sample Request</a>
+          <br><br>
+          <div class="fragment">
+            If you're using chrome, download <a href="https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc" target="_blank">the JSON view plugin</a>
+          </div>
         </section>
 
 
@@ -507,7 +567,7 @@ var people = [
         </section>
 
         <section>
-          <h2>Another Example</h2>
+          <h2>Back to our flickr example...</h2>
           <a href="http://api.flickr.com/services/feeds/photos_public.gne?&format=json&tags=hyperisland" target="_blank">The Flickr API</a>
         </section>
 
@@ -535,6 +595,11 @@ $.getJSON(url, processImages);
           </div>
         </section>
 
+        <section>
+          <h1>Workshop Time/ Homework</h1>
+          <a href="../workshop/api.zip">Download this file.</a><br>
+          Open the index.html file in it.
+        </section>
 
       </div>
 

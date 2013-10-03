@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+console.log("OK")
   /////////
   // EXERCISE 1
 
