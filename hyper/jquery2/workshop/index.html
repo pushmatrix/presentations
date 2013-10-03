@@ -35,21 +35,19 @@
       <hr>
 
       <section>
-        <h1>Exercise 1: Buttons!</h1>
-        <h3>My to-do list</h3>
-        <ul></ul>
-        <p>Ok let's make the button actually do something.</p>
-        <div class="input-append">
-          <input class="span2" id="appendedInputButtons" type="text">
-          <button id="addTodo" class="btn" type="button">Add todo</button>
+        <h1>Exercise 1: Making Friends!</h1>
+        <p>You are a lonely individual...That's ok, I can help.</p>
+        <p>Write a loop using JavaScript & jQuery that adds Barbapappa(that pink blob below) 30 times to the page.</p>
+        <p>You are not allowed to modify the HTML file manually...</p>
+        <div><code>&lt;img src='img/pappa.jpg'&gt;</code></div>
+        <div id="friends">
+          <img src="img/pappa.jpg">
         </div>
-        <p><strong>Make it so that when you click on the button, an alert message pops up.</strong></p>
-        <p>It can say anything you want, but it should probably be motivating, funny, charming, and with a dash of wit.</p>
       </section>
       <hr>
 
       <section>
-        <h1>Exercise 2: A to-do list!</h1>
+        <h1>Exercise 2: A to-do list</h1>
         <p>Behold! The only to-do list you will ever need!</p>
         <h3>My to-do list</h3>
         <ul id="todos">
@@ -64,7 +62,18 @@
         <small>(Hint: Using jQuery, you need to get the value inside the text field. Google it to find out how :))</small><br>
 
       </section>
+
+      <section>
+        <h1>Exercise 3: A delete button</h1>
+        Add a button to the previous exercise that lets you clear all the todos in the list.
+      </section>
       <hr>
+      <section>
+        <h1>Exercise 4: Are you sure?</h1>
+        Make it when you click on the button from exercise 3, it asks whether you are sure you want to delete all todos. 
+        If you press "ok", it deletes them all. If you press "cancel", it does nothing. <br>
+        <small>Hint: Look up <code>"javascript confirm"</code> on google for a popup box that has an "ok" and "cancel" options.</small>
+      </section>
 
       <style type="text/css">
 
@@ -83,7 +92,7 @@
       }
       </style>
 
-      <section>
+    <!--   <section>
         <h1>Exercise 3: Modifying the page</h1>
         <div id="contactCard">
           <div class="row">
@@ -98,73 +107,8 @@
             </div>
           </div>
         </div>
-
-        <img src="images/card.png">
-      </section>
-      <hr>
-
-      <section>
-        <h1>Exercise 4: What the hell is that good for?</h1>
-        <p>Ok I get it. You might not need to make Carola levitate on every website you make...</p>
-        <p>So let's pretend you just started a webshop selling steak, bourbon and diapers.</p>
-        <p>Make it so when you <strong>hover</strong> over each image, the product description is displayed</p>
-        <small>(Hint: All the product descriptions are in the HTML, but are hidden. You should fade in the one corresponding to the image you are hovering on.)</small>
-        <div class="row-fluid text-center">
-          <div class="span4">
-            <img id="steak" class="product" src="img/steak.jpg">
-          </div>
-          <div class="span4">
-            <img id="bourbon" class="product" src="img/bourbon.jpg">
-          </div>
-          <div class="span4">
-            <img id="diapers" class="product" src="img/diapers.gif">
-          </div>
-        </div>
-        <br>
-        <div id="steak-description" class="product-description text-center">
-          <h2>High quality steak</h2>
-          <p>Delicious steak infused with the hint of lemon and roadkill.</p>
-        </div>
-        <div id="bourbon-description" class="product-description text-center">
-          <h2>Special Juice</h2>
-          <p>Perfect for any occasion. Filtered through old leather bound books to get permeated with the sensual flavours of elderly musk.</p>
-        </div>
-        <div id="diapers-description" class="product-description text-center">
-          <h2>Diapers</h2>
-          <p>Soft fluffy pillows for your body.</p>
-        </div>
-      </section>
-      <hr>
-
-      <section>
-        <h1>Exercise 5: Shopping Cartz</h1>
-        <p id="cart"><i class="icon-shopping-cart"></i>&nbsp;Your cart (<span id="cart-quantity">0</span> items)</p>
-        <p>Wow! This site is a store!? What can I buy!? <strong>IKEA HOTDOGS*</strong></p>
-        <img src="img/hotdog.jpg">
-        <button id="add-to-cart" class="btn btn-large btn-success" type="button">Add to cart</button>
-        <ol>
-          <li>There is a function in the javascript file called <code>addToCart</code>. Make it so when you click the 'Add to cart' button, it calls that function. You know you got it right if in your javascript console, it says <code>added an item!</code> each time you press the button.</li>
-          <li>Modify the <code>addToCart</code> function so that when you press the button, the <img src="img/cart.png"> fades out and in. This gets the user's attention and shows them that something was added.</li>
-          <li>Modify the <code>addToCart</code> function so that when you press the button, the number of items in the cart is updated. The variable <code>numItems</code> represents the number of items in the cart. The html for the cart needs to be updated with this number.</li>
-        </ol>
-        <small>* Like the <a href="http://theranaplaza.com/" target="_blank">The Rana Plaza</a>, you won't get anything you buy on this website.&Dagger;</small>
-        <br>
-        <small>&Dagger; But this time, nothing is donated to charity.</small>
-      </section>
-      <hr>
-
-      <section>
-        <h1>Exercise 6: Using Plugins</h1>
-        <p>If you want to create an animation, effect, or UI component, chances are pretty good that someone has done the work for you already. These are called jQuery plugins, and they can be added to your site. <a href="http://plugins.jquery.com/" target="_blank"> Here's</a> a good place to look for plugins. </p>
-        <p>For this exercise, we are going to use a plugin called <a href="http://bxslider.com/" target="_blank">bxSlider</a>. It allows you to have a nice looking carousel on your page. See an example <a href="http://bxslider.com/examples/image-slideshow-captions" target="_blank"> here.</a> </p>
-        <p>Follow the instructions on the bxslider homepage for installing the plugin. The effect should be that the wonderful gifs below will be in a slideshow (only one gif shown at a time). Like <a href="http://bxslider.com/examples/image-slideshow-captions" target="_blank"> this example.</a></p>
-        <ul class="bxslider">
-          <li><img src="img/pic1.gif"/></li>
-          <li><img src="img/pic2.gif"/></li>
-          <li><img src="img/pic3.gif"/></li>
-          <li><img src="img/pic4.gif"/></li>
-          <li><img src="img/pic5.gif"/></li>
-        </ul>
+ -->
+        <!-- <img src="images/card.png"> -->
       </section>
       <hr>
 

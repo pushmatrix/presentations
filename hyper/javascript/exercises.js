@@ -7,6 +7,9 @@
 
   ex: Daniel is awesome!
 */
+var name = "Daniel"
+var adjective = "super cool"
+console.log(name + adjective)
 console.log("Exercise 1");
 
 /*
