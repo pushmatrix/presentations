@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>HTML</title>
+
+    <meta name="description" content="Slides on Dashing for monitoramaEU 2013">
+    <meta name="author" content="Daniel Beauchamp">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/moon.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+      document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+
+    <style type="text/css">
+      .reveal .slides section {
+        min-height: 600px !important;
+      }
+
+      table, th, td {
+        border: 1px solid black !important;
+      }
+
+      img {
+        border: none !important;
+      }
+
+      pre {
+        background: #eee;
+        text-align: left;
+        background: #eee !important;
+        padding: 10px 20px !important;
+      }
+      pre b {
+        font-weight: normal;
+        color: #c61800;
+        text-shadow: #c61800 0 0 1px;
+        letter-spacing: -1px;
+      } 
+
+    </style>
+
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+
+      <div class="slides">
+  
+        <section>
+         <header><hgroup> 
+          <h1>Intro to HTML</h1> 
+          <h2></h2>
+         </hgroup></header>
+        </section>
+    
+        <section> 
+          <header><h1>Anatomy of a Website</h1></header> 
+          <code style="text-align: left">
+<p><b>Content</b>: Text, Media 
+<p>+&nbsp;&nbsp;<b>HTML</b>: Structure</p>
+<p>+&nbsp;&nbsp;&nbsp;<b>CSS</b>: Presentation + Design</p>
+<p>+&nbsp;&nbsp;&nbsp;&nbsp;<b>JS</b>: Interactivity + Logic</p>
+<p>= <b>Your Website</b></p>
+          </code>
+
+        </section>
+
+
+        <section> 
+         <header><h2>HTML: "<b>H</b>yper<b>T</b>ext <b>M</b>arkup <b>L</b>anguage"</h2></header> 
+    
+         <p>
+          <img src="http://icons.iconarchive.com/icons/deleket/adobe-cs4/128/File-Adobe-Dreamweaver-HTML-01-icon.png"
+          style="float:right;border:none;box-shadow:none; width:200px;">
+          It is:
+         </p>
+         <p>
+         - A text file that is "marked up" with tags<br>
+         - Saved with <code>.html</code> extension<br>
+         - The native language of web browsers.<br>
+        </p>
+         <br><br>
+    
+    
+    
+        </section>
+
+        <section>
+          <h2>HTML is formatted with <u>Tags</u>.</h2>
+          <h3>(Not whitespace!)</h3>
+        </section>
+
+        <section> 
+          <header><h2>Anatomy of an HTML tag</h2></header> 
+          <p>Each tag has a "start tag", "end tag", some content in between, and optional attributes.</p>
+
+<pre>
+&lt;<span style="color:blue">tagname</span> <span style="color:red">attribute="value"</span>&gt;
+  content
+&lt;/<span style="color:blue">tagname</span>&gt;
+
+&lt;<span style="color:blue">a</span> <span style="color:red">href="http://www.google.com"</span> &gt;
+  Google
+&lt;/<span style="color:blue">a</a>&gt;
+</pre>
+
+          <p>Think of a tag as a "command" to the browser and of the attributes as modifiers of that command.</p>
+
+        </section>
+
+        <section>
+          <h2>There are nearly 100 tags...</h2>
+          <h2><a target="_blank" href="http://www.99lime.com/_bak/topics/you-only-need-10-tags/">But only 10 are really used</a></h2>
+        </section>
+
+
+        
+        <section> 
+         <header><h2>The Basic HTML file</h2></header> 
+    <pre>
+    &lt;!DOCTYPE html&gt;
+    &lt;html&gt;
+    &lt;/html&gt;
+    </pre>
+
+        <p class="fragment">The doctype isn't an actual tag, but it needs to be at start at every HTML page to tell browser which version of HTML you're using (HTML5 here).</p>
+        <p class="fragment">The <code>html</code> tag is always the first, root tag in the page.</p>
+
+        </section>
+
+
+    <section> 
+     <header><h1>Head</h1></header> 
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+ <strong>&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;Title of your page goes here&lt;/title&gt;
+ &lt;/head&gt;</strong>
+&lt;/html&gt; 
+</pre>
+     <p>The head contains "meta" information about the page, information that the browser needs before rendering.</p>
+
+    </section>
+
+    <section> 
+     <header><h1>The Body</h1></header> 
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+ &lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;Title of your page goes here&lt;/title&gt;
+ &lt;/head&gt;
+ <strong>&lt;body&gt;
+  Bulk of your content here.
+ &lt;/body&gt;</strong>
+&lt;/html&gt; 
+</pre>
+<p>The body contains the actual content of the page.</p>
+    </section>
+
+
+
+    
+    <section> 
+     <header><h1>What goes in the body?</header>
+    </section> 
+    
+    
+   
+    
+    
+    
+    <section> 
+     <header><h1>Headlines</h1></header> 
+     <pre>
+<b>&lt;h1&gt;</b>Header 1<b>&lt;/h1&gt;</b>
+<b>&lt;h2&gt;</b>Header 2<b>&lt;/h2&gt;</b>
+...
+<b>&lt;h6&gt;</b>Header 6<b>&lt;/h6&gt;</b>
+</pre>
+
+<h1>Header 1</h1>
+<h2>Header 2</h2>
+...
+<h6>Header 6</h6>
+    </section>
+    
+   
+    
+    
+    
+    <section> 
+     <header><h1>Paragraphs</h1></header> 
+     <pre>
+<b>&lt;p&gt;</b>Paragraph 1<b>&lt;/p&gt;</b>
+<b>&lt;p&gt;</b>Paragraph 2<b>&lt;/p&gt;</b>
+<b>&lt;p&gt;</b>Paragraph 3<b>&lt;/p&gt;</b>
+</pre>
+
+<p>Paragraph 1</p>
+<p>Paragraph 2</p>
+<p>Paragraph 3</p>
+     </section>
+    </section>
+    
+   
+    
+    
+    
+    <section> 
+     <header><h1>Line Breaks</h1></header>      
+<pre>
+&lt;p&gt;
+Imagine there's no Heaven <b>&lt;br&gt;</b>
+It's easy if you try <b>&lt;br&gt;</b>
+No hell below us  <b>&lt;br&gt;</b>
+Above us only sky <b>&lt;br&gt;</b>
+&lt;/p&gt;
+</pre>
+
+<p>
+Imagine there's no Heaven <br>
+It's easy if you try <br>
+No hell below us  <br>
+Above us only sky <br>
+</p>
+
+<p>Notice: This tag does not need to be closed, since it doesn't encapsulate anything.</p>
+
+    </section>
+    
+   
+    
+    
+    
+    <section> 
+     <header><h1>Lists</h1></header> 
+     <pre>
+<b>&lt;ul&gt;</b>
+  <b>&lt;li&gt;</b>Item 1<b>&lt;/li&gt;</b>
+  <b>&lt;li&gt;</b>Item 2<b>&lt;/li&gt;</b>
+  ...
+<b>&lt;/ul&gt;</b>
+</pre>
+
+<ul>
+  <li>Item 1</li>
+  <li>Item 2</li>
+  ...
+</ul>
+    </section>
+    
+   
+    
+    
+    
+    <section> 
+     <header><h1>Ordered Lists</h1></header> 
+     <pre>
+<b>&lt;ol&gt;</b>
+  <b>&lt;li&gt;</b>Item 1<b>&lt;/li&gt;</b>
+  <b>&lt;li&gt;</b>Item 2<b>&lt;/li&gt;</b>
+  ...
+<b>&lt;/ol&gt;</b>
+</pre>
+
+<ol>
+  <li>Item 1</li>
+  <li>Item 2</li>
+  ...
+</ol>
+    </section>
+    
+    <section> 
+     <header><h1>Images</h1></header> 
+     <pre class="fragment"><code>
+&lt;img src="http://www.google.com/images/srpr/logo1w.png" 
+  alt="Google"&gt;
+</code></pre>
+
+<img class="fragment" src="http://www.google.com/images/srpr/logo1w.png" 
+  alt="Google">
+
+     <pre class="fragment"><code>
+&lt;img src="http://www.google.com/images/srpr/logo1w.png" 
+  alt="Google" height="50"&gt;
+</code></pre>
+
+<img class="fragment" src="http://www.google.com/images/srpr/logo1w.png" 
+  alt="Google" height="50">
+
+      <pre class="fragment"><code>
+&lt;img src="http://www.myspacegraphicsandanimations.com/images/
+lights-christmas-graphic55.gif" alt=""&gt;</code></pre>
+<img class="fragment" src="http://www.myspacegraphicsandanimations.com/images/lights-christmas-graphic55.gif" alt="">
+    </section>
+    
+   
+    
+    
+    
+    <section> 
+     <header><h1>Links</h1></header> 
+<pre>
+<b>&lt;a href="http://www.google.com"&gt;</b>Google<b>&lt;/a&gt;</b>
+</pre>
+
+<a href="http://www.google.com">Google</a>
+
+<pre>
+<b>&lt;a href="http://www.google.com"&gt;</b>
+  &lt;img src="http://www.google.com/images/srpr/logo1w.png" 
+    alt="Google"&gt;
+<b>&lt;/a&gt;</b>
+</pre>
+
+<a href="http://www.google.com">
+<img src="http://www.google.com/images/srpr/logo1w.png" alt="Google">
+</a>
+
+<pre>
+&lt;a href="http://www.google.com" <b>target="_blank"</b>&gt;Google&lt;/a&gt;
+</pre>
+<a href="http://www.google.com" target="_blank">Google (in new window)</a>
+
+<br><br>
+&#9758; <a href="http://uxmovement.com/navigation/why-external-links-should-open-in-new-tabs/" target="_blank">
+Why External Links Should Open in New Tabs</a>
+    </section>
+
+
+
+    <section>
+     <h1>Iframes</h1>
+    </section> 
+    
+    <section> 
+     <header><h2>Iframe embeds: Social widgets</h2></header> 
+     
+
+      <p>Many social widgets are implemented as tiny iframes.</p>
+
+      <p>
+      <a href="https://dev.twitter.com/docs/tweet-button">Twitter</a>:
+      <img src="http://dl.dropbox.com/u/10998095/Screenshots/fztnjs~trigb.png" style="vertical-align:middle">
+      </p>
+
+      <p>
+      <a href="http://developers.facebook.com/docs/reference/plugins/like/">Facebook</a>:
+      <img src="http://dl.dropbox.com/u/10998095/Screenshots/n_410cnvf_t7.png"  style="vertical-align:middle">
+      </p>
+
+      <p>
+      <a href="http://www.disqus.com">Disqus</a>:<br>
+      <img src="http://dl.dropbox.com/u/10998095/Screenshots/mxbm3wtb70ew.png"  style="vertical-align:middle">
+      </p>
+
+    </section>
+    
+
+
+    <section>
+      <h2>Embed video using iframes</h2>
+      <iframe src="http://player.vimeo.com/video/42193906" width="1280" height="800" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+    </section>
+
+
+    <section> 
+     <header><h2>The table element</h2></header> 
+      
+     <p>The <code>TABLE</code> element contains all the elements that make up a table - the header, rows, and columns. 
+This example shows a table of monthly savings.
+</p>
+
+<pre>
+<strong>&lt;table</strong> border="1"&gt;
+  &lt;thead&gt;
+   &lt;tr&gt;
+    &lt;th&gt;Month &lt;/th&gt;
+    &lt;th&gt;Savings &lt;/th&gt;
+   &lt;/tr&gt;
+  &lt;tbody&gt;
+   &lt;tr&gt;
+    &lt;td&gt;January &lt;/td&gt;
+    &lt;td&gt;$100 &lt;/td&gt;
+   &lt;/tr&gt;
+   &hellip;
+<strong>&lt;/table&gt;</strong>
+</pre>
+
+<table style="font-size:110%">
+  <thead>
+   <tr>
+    <th>Month</th>
+    <th>Savings</th>
+   </tr>
+  <tbody>
+   <tr>
+    <td>January</td>
+    <td>$100</td>
+   </tr>
+</table>
+
+    </section>
+    
+
+
+    <section data-background="images/joke3.jpg">
+    </section>
+
+    <section data-background="images/joke4.jpg">
+    </section>
+
+    <section data-background="images/joke5.jpg">
+    </section>
+
+    <section data-background="images/joke6.jpg">
+    </section>
+
+    <section>
+      <div>
+        For more information about tags: http://www.w3schools.com/html/default.asp
+      </div>
+      <br>
+      <br>
+      <br>
+      <div>
+        To learn more:<br>
+        http://www.codecademy.com/courses/html-one-o-one/0/1
+      </div>
+    </section>
+
+    <section>
+      <h2>Exercise Time</h2>
+      <ul>
+        <li>Open the index.liquid file in Shopify</li>
+        <li>
+          Add some HTML to the top of the file
+          <ul>
+            <li>Add a header</li>
+            <li>Add a list</li>
+            <li>Add a link</li>
+            <li>Add an image</li>
+            <li>Add a youtube video (optional)</li>
+            <li><a href="https://developers.facebook.com/docs/plugins/like-button/" target="_blank">Add a facebook like button (optional)</a></li>
+          </ul>
+        </li>
+        <a href="http://bleeplaaap.myshopify.com/" target="_blank">Here's an example</a>
+
+      </ul>
+    </section>
+
+    
+    
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+
+    <script>
+
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        rollingLinks: false,
+
+        theme: 'serif', // available themes are in /css/theme
+        transition:  'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+          // { src: 'plugin/leap/leap.js', async: true }
+          // { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+          // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>
