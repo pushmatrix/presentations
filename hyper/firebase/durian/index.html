@@ -1,0 +1,87 @@
+<html>
+<head>
+  <!-- Add the stylesheet to the page. This is CSS  -->
+  <!-- You can find the CSS in the style.css file that is in the same folder as this fiel -->
+  <!-- Feel free to edit it! -->
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+  <!-- Add javascript libraries to this page -->
+  <!-- Firebase is a library that lets us use a database in the cloud -->
+  <!-- JQuery is a library lets us easily manipulate things on the page -->
+  <script src="https://cdn.firebase.com/v0/firebase.js"></script>
+  <script type="text/javascript" src="../main.js"></script>
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
+
+  <!-- This shows up in the tab of your browser -->
+  <title>The Durian Barn</title>
+</head>
+<body>
+  <h1>The Durian Barn</h1>
+  <p>Thanks for stopping by <i>The Durian Barn</i>. Please let us know of your latest experience! You could win a garlic durian sundae!</p>
+  <!-- This is where people type in their name -->
+  <input type='text' id='nameInput' placeholder='Your Name'>
+  <!-- This is where people type in the message they want to send -->
+  <textarea id='messageInput' placeholder='Write your review here...'></textarea>
+  <!-- The select box where you can pick a rating from 1-5 -->
+  Rating: 
+  <select id='rating'>
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
+  </select>
+  <!-- The button to click on to submit a review -->
+  <input type='button' id='messageSubmit' value='Submit Review!'>
+  <!-- This is where the reviews will appear -->
+  <h2>Past Reviews</h2>
+  <div id='ratings'></div>
+
+  <!-- HERE IS WHERE OUR CODE GOES! -->
+  <script>
+    // Connect to your database
+    // Be sure to replace 'superreviews' with a name for your database. It can be anything you want.
+    // Protip: Make sure the name doesn't have any spaces in it!
+    var database = new Firebase('https://superreviews.firebaseio-demo.com');
+  
+    // When you have selected the input field with id=messageInput
+    // and you have pressed a key on your keyboard, this function will run.
+    $('#messageSubmit').click(function (e) {
+      // Save the message to the database.
+      // The message has two parts:
+      //   - the name (who posted it)
+      //   - the text (what the message says)
+      database.push({
+        name: $('#nameInput').val(), // Get the value of the input field with id = nameInput, and save that as the "name"
+        text: $('#messageInput').val(), // Get the value of the input field with id = messageInput, and save that as the "name"
+        rating: $('#rating').val(), // Get the value of the select box
+        time: Firebase.ServerValue.TIMESTAMP // This tells Firebase to store the time the review was saved at
+      });
+  
+      // Set the value of the input field with id = messageInput to be ""
+      // Remember that "" means an empty string.
+      $('#messageInput').val("");
+    });
+  
+    // Everything between the curly braces { } will be run whenever our database gets new data.
+    // It will also be run when we load our page.
+    whenDataIsReceived(function(data) {
+      // Create a new div!
+      var newRatingDiv = $("<div/>");
+      // For the new message div, we are going to associate a class to it called 'message'
+      // Then, in CSS we can then style what each div with class = 'rating' should look like.
+      newRatingDiv.addClass('rating');
+      // Add the text of the rating to the div.
+      newRatingDiv.append(data.text);
+      // Add when the rating was posted, and who posted it to the div. And post the rating.
+      newRatingDiv.append("<p class='details'>Rating: " + data.rating + " - Posted by " + data.name + " on " + formattedDate(data.time) + "</p>");
+
+      // Add the new div to the message box.
+      // Note that we are using 'prepend' here instead of 'append' from the chat example.
+      // This puts new messages on top instead of on the bottom, so we see latest reviews first.
+      $('#ratings').prepend(newRatingDiv);
+    });
+  
+  </script>
+</body>
+</html>

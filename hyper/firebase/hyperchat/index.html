@@ -1,0 +1,74 @@
+<html>
+<head>
+  <!-- Add the stylesheet to the page. This is CSS  -->
+  <!-- You can find the CSS in the style.css file that is in the same folder as this fiel -->
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+  <!-- Add javascript libraries to this page -->
+  <!-- Firebase is a library that lets us use a database in the cloud -->
+  <!-- JQuery is a library lets us easily manipulate things on the page -->
+  <script src="https://cdn.firebase.com/v0/firebase.js"></script>
+  <script type="text/javascript" src="../main.js"></script>
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
+
+  <!-- This shows up in the tab of your browser -->
+  <title>Hyper Chat!</title>
+</head>
+<body>
+  <h1>Hyper Island Chat</h1>
+  <!-- This is where the chat messages will appear -->
+  <div id='messageBox'></div>
+  <!-- This is where people type in their name -->
+  <input type='text' id='nameInput' placeholder='Name'>
+  <!-- This is where people type in the message they want to send -->
+  <input type='text' id='messageInput' placeholder='Message...'>
+
+  <!-- HERE IS WHERE OUR CODE GOES! -->
+  <script>
+    // Connect to your database
+    // Be sure to replace YOURNAMEHERE with a name for your database. It can be anything you want.
+    // Protip: Make sure the name doesn't have any spaces in it!
+    var database = new Firebase('https://YOURNAMEHERE.firebaseio-demo.com');
+  
+    // When you have selected the input field with id=messageInput
+    // and you have pressed a key on your keyboard, this function will run.
+    $('#messageInput').keypress(function (e) {
+      // If the key that you pressed is the ENTER key, then do the following stuff.
+      // Note: '13' is the code for enter. You can find other key codes here: http://www.cambiaresearch.com/articles/15/javascript-char-codes-key-codes
+      if (e.keyCode == 13) {
+        
+        // Save the message to the database.
+        // The message has two parts:
+        //   - the name (who posted it)
+        //   - the text (what the message says)
+        database.push({
+          name: $('#nameInput').val(), // Get the value of the input field with id = nameInput, and save that as the "name"
+          text: $('#messageInput').val() // Get the value of the input field with id = messageInput, and save that as the "name"
+        });
+  
+        // Set the value of the input field with id = messageInput to be ""
+        // Remember that "" means an empty string.
+        $('#messageInput').val("");
+      }
+    });
+  
+    // Everything between the curly braces { } will be run whenever our database gets new data.
+    // It will also be run when we load our page.
+    whenDataIsReceived(function(data) {
+      // Create a new div!
+      var newMessageDiv = $("<div/>");
+      // For the new message div, we are going to associate a class to it called 'message'
+      // Then, in CSS we can then style what each div with class = 'message' should look like.
+      newMessageDiv.addClass('message')
+      // Make the div contain text of the name of who posted the message,
+      // and also the text that is posted.
+      newMessageDiv.text(data.name + ': ' + data.text);
+      // Add the div to the messageBox.
+      $('#messageBox').append(newMessageDiv);
+      // This makes sure that the message box is always scrolled down to the last message posted.
+      $('#messageBox')[0].scrollTop = $('#messageBox')[0].scrollHeight;
+    });
+  
+  </script>
+</body>
+</html>
