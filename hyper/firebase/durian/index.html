@@ -44,13 +44,14 @@
     // Protip: Make sure the name doesn't have any spaces in it!
     var database = new Firebase('https://superreviews.firebaseio-demo.com');
   
-    // When you have selected the input field with id=messageInput
-    // and you have pressed a key on your keyboard, this function will run.
+    // When you have clicked on the messageSubmit button, this function will run.
     $('#messageSubmit').click(function (e) {
       // Save the message to the database.
-      // The message has two parts:
+      // The message has 4 parts:
       //   - the name (who posted it)
       //   - the text (what the message says)
+      //   - the rating (1-5)
+      //   - the time you posted it.
       database.push({
         name: $('#nameInput').val(), // Get the value of the input field with id = nameInput, and save that as the "name"
         text: $('#messageInput').val(), // Get the value of the input field with id = messageInput, and save that as the "name"
