@@ -1,0 +1,2506 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0086)https://sites.google.com/site/fusiontablestalks/talks/fusion-tables-where-2-0-workshop -->
+<html xmlns="http://www.w3.org/1999/xhtml" itemscope="" itemtype="http://schema.org/WebPage" xmlns:jot="http://www.google.com/ns/jotspot/srvtmpl/">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <script src="./Fusion Tables Workshop - Google Fusion Tables_files/cb=gapi.loaded_0" async=""></script>
+    <script async="" src="./Fusion Tables Workshop - Google Fusion Tables_files/analytics.js"></script>
+    <script type="text/javascript">
+    /* Copyright 2008 Google. */
+    (function() {
+        var b = window,
+            e = "tick",
+            f = "wtsrt_",
+            g = "tbsd_",
+            h = "tbnd_",
+            k = "start",
+            m = "_wtsrt",
+            n = "_tbnd";
+        (function() {
+            function l(a) {
+                this.t = {};
+                this.tick = function(a, c, d) {
+                    this.t[a] = [void 0 != d ? d : (new Date).getTime(), c]
+                };
+                this[e](k, null, a)
+            }
+            var a = new l;
+            b.jstiming = {
+                Timer: l,
+                load: a
+            };
+            if (b.performance && b.performance.timing) {
+                var a = b.performance.timing,
+                    c = b.jstiming.load,
+                    d = a.navigationStart,
+                    a = a.responseStart;
+                0 < d && a >= d && (c[e](m, void 0, d), c[e](f, m, a), c[e](g, f))
+            }
+            try {
+                a = null, b.chrome && b.chrome.csi && (a = Math.floor(b.chrome.csi().pageT), c && 0 < d && (c[e](n, void 0, b.chrome.csi().startE), c[e](h, n, d))), null == a && b.gtbExternal && (a =
+                    b.gtbExternal.pageT()), null == a && b.external && (a = b.external.pageT, c && 0 < d && (c[e](n, void 0, b.external.startE), c[e](h, n, d))), a && (b.jstiming.pt = a)
+            } catch (p) {}
+        })();
+    })()
+    </script>
+    <link rel="shortcut icon" type="image/x-icon" href="https://www.google.com/images/icons/product/sites-16.ico">
+    <link rel="apple-touch-icon" href="https://ssl.gstatic.com/sites/p/987cce/system/app/images/apple-touch-icon.png" type="image/png">
+    <script type="text/javascript">
+    /* Copyright 2008 Google. */
+    (function() {
+        var d = window,
+            e = "length",
+            h = "",
+            k = "__duration__",
+            l = "function";
+
+        function m(c) {
+            return document.getElementById(c)
+        }
+        d.byId = m;
+
+        function n(c) {
+            return c.replace(/^\s+|\s+$/g, h)
+        }
+        d.trim = n;
+        var p = [],
+            q = 0;
+        d.JOT_addListener = function(c, a, b) {
+            var f = new String(q++);
+            c = {
+                eventName: c,
+                handler: a,
+                compId: b,
+                key: f
+            };
+            p.push(c);
+            return f
+        };
+        d.JOT_removeListenerByKey = function(c) {
+            for (var a = 0; a < p[e]; a++)
+                if (p[a].key == c) {
+                    p.splice(a, 1);
+                    break
+                }
+        };
+        d.JOT_removeAllListenersForName = function(c) {
+            for (var a = 0; a < p[e]; a++) p[a].eventName == c && p.splice(a, 1)
+        };
+        d.JOT_postEvent = function(c, a, b) {
+            var f = {
+                eventName: c,
+                eventSrc: a || {},
+                payload: b || {}
+            };
+            if (d.JOT_fullyLoaded)
+                for (a = p[e], b = 0; b < a && b < p[e]; b++) {
+                    var g = p[b];
+                    g && g.eventName == c && (f.listenerCompId = g.compId || h, (g = typeof g.handler == l ? g.handler : d[g.handler]) && g(f))
+                } else d.JOT_delayedEvents.push({
+                    eventName: c,
+                    eventSrc: a,
+                    payload: b
+                })
+        };
+        d.JOT_delayedEvents = [];
+        d.JOT_fullyLoaded = !1;
+        d.JOT_formatRelativeToNow = function(c, a) {
+            var b = ((new Date).getTime() - c) / 6E4;
+            if (1440 <= b || 0 > b) return null;
+            var f = 0;
+            60 <= b && (b /= 60, f = 2);
+            2 <= b && f++;
+            return a ? d.JOT_siteRelTimeStrs[f].replace(k, Math.floor(b)) : d.JOT_userRelTimeStrs[f].replace(k, Math.floor(b))
+        };
+    })()
+    </script>
+    <script>
+    var webspace = {
+        "scottyUrl": "/_/upload",
+        "isConsumer": true,
+        "canPublishScriptToAnyone": true,
+        "serverFlags": {
+            "cajaBaseUrl": "//www.gstatic.com/caja",
+            "cajaDebugMode": false
+        },
+        "sharingUrlPrefix": "/_/sharing",
+        "csiReportUri": "https://gg.google.com/csi",
+        "sharingPolicy": "OPENED",
+        "analyticsAccountId": "UA-9117623-6",
+        "baseUri": "/site/fusiontablestalks",
+        "name": "fusiontablestalks",
+        "domain": "defaultdomain",
+        "features": {
+            "asyncPermanentDelete": false,
+            "horizontalNavLayout": true,
+            "folderEmbed": true,
+            "scottyForTrogImageUpload": false,
+            "flipFolderUrls": false,
+            "animateNavigation": true,
+            "skiThemeIsDefault": true,
+            "pdfEmbedSupport": false,
+            "siteChromeSidebarWidgetsEditDialog": true,
+            "animateToc": true,
+            "canonicalLinkTagInHead": false,
+            "driveImageEmbed": true,
+            "plusOneButtonOptions": true,
+            "siteChromeSystemFooterDialog": true,
+            "plusOneButton": true,
+            "colorsAndFontsRefactor": true,
+            "photoAlbumsInOnePick": true,
+            "docosHideNotificationSettings": true,
+            "newInsertMenu": false,
+            "skiTheme": true,
+            "siteChromeDialogsToolbar": true,
+            "plusBadge": false,
+            "siteChromeHorizontalNavigationDialog": true,
+            "youTubeEmbedSize": true,
+            "adSenseDeprecateMsg": false,
+            "htmlEmbed": true,
+            "siteChromeHeaderDialog": true
+        },
+        "adsensePublisherId": null,
+        "gvizVersion": 1,
+        "siteTitle": "Google Fusion Tables",
+        "pageSharingId": "jotspot_page",
+        "plusPageId": "",
+        "termsUrl": "http://sites.google.com/site/sites/system/app/pages/meta/terms",
+        "enableAnalytics": true,
+        "isPublic": true,
+        "plusPageUrl": "",
+        "homePath": "/",
+        "sharingId": "jotspot",
+        "isAdsenseEnabled": true,
+        "adsensePromoClickedOrSiteIneligible": true,
+        "isStartPageEnabled": false,
+        "domainAnalyticsAccountId": ""
+    };
+
+
+
+    webspace.gadgets = {
+        "baseUri": "/site/fusiontablestalks/system/app/pages/gadgets"
+    };
+
+
+    webspace.user = {
+        "uid": "",
+        "renderMobile": false,
+        "primaryEmail": "guest",
+        "sessionIndex": "",
+        "namespaceUser": false,
+        "displayNameOrEmail": "guest",
+        "namespace": "",
+        "hasAdminAccess": false,
+        "guest_": true,
+        "keyboardShortcuts": true,
+        "domain": "",
+        "hasWriteAccess": false,
+        "dasherUser": false,
+        "userName": "guest"
+    };
+
+    webspace.page = {
+        "canDeleteWebspace": null,
+        "locale": "en",
+        "state": "",
+        "wuid": "wuid:gx:249fcc3eb2979ac2",
+        "pageInheritsPermissions": null,
+        "timeZone": "America/Los_Angeles",
+        "properties": {},
+        "type": "text",
+        "canChangePath": true,
+        "parentWuid": "wuid:gx:3a654a8d7f1da173",
+        "revision": 28,
+        "title": "Fusion Tables Workshop",
+        "isRtlLocale": false,
+        "bidiEnabled": false,
+        "siteLocale": "en",
+        "name": "fusion-tables-where-2-0-workshop",
+        "path": "/talks/fusion-tables-where-2-0-workshop",
+        "isSiteRtlLocale": false,
+        "parentPath": "/talks"
+    };
+    webspace.page.breadcrumbs = [{
+        "title": "Talks \u0026 Papers",
+        "dir": "ltr",
+        "path": "/site/fusiontablestalks/talks",
+        "deleted": false
+    }, {
+        "title": "Fusion Tables Workshop",
+        "dir": "ltr",
+        "path": "/site/fusiontablestalks/talks/fusion-tables-where-2-0-workshop",
+        "deleted": false
+    }];
+
+
+    webspace.editorResources = {
+        text: [
+            'https://ssl.gstatic.com/sites/p/987cce/system/js/codemirror.js',
+            'https://ssl.gstatic.com/sites/p/987cce/system/app/css/codemirror_css.css',
+            'https://ssl.gstatic.com/sites/p/987cce/system/js/trog_edit__en.js',
+            'https://ssl.gstatic.com/sites/p/987cce/system/app/css/trogedit.css',
+            '/site/fusiontablestalks/_/rsrc/1373543058000/system/app/css/editor.css',
+            'https://ssl.gstatic.com/sites/p/987cce/system/app/css/codeeditor.css',
+            '/site/fusiontablestalks/_/rsrc/1373543058000/system/app/css/camelot/editor-jfk.css'
+        ],
+        sitelayout: [
+            'https://ssl.gstatic.com/sites/p/987cce/system/app/css/sitelayouteditor.css'
+        ]
+    };
+
+    var JOT_clearDotPath = 'https://ssl.gstatic.com/sites/p/987cce/system/app/images/cleardot.gif';
+
+
+    var JOT_userRelTimeStrs = ["a minute ago", "__duration__ minutes ago", "an hour ago", "__duration__ hours ago"];
+
+
+    webspace.siteTemplateId = false;
+
+
+    webspace.page.currentTemplate = {
+        "title": "Web Page",
+        "path": "/system/app/pagetemplates/text"
+    };
+
+
+
+    var JOT_siteRelTimeStrs = ["a minute ago", "__duration__ minutes ago", "an hour ago", "__duration__ hours ago"];
+    </script>
+    <script type="text/javascript">
+    window.jstiming.load.tick('scl');
+    </script>
+    <meta name="title" content="Fusion Tables Workshop - Google Fusion Tables">
+    <meta itemprop="name" content="Fusion Tables Workshop - Google Fusion Tables">
+    <meta property="og:title" content="Fusion Tables Workshop - Google Fusion Tables">
+    <meta itemprop="image" content="/site/fusiontablestalks/_/rsrc/1339718052760/config/customLogo.gif?revision=5">
+    <meta property="og:image" content="/site/fusiontablestalks/_/rsrc/1339718052760/config/customLogo.gif?revision=5">
+    <style type="text/css">
+    @font-face {
+        font-family:'Open Sans';
+        font-style: italic;
+        font-weight: 700;
+        src: local('Open Sans Bold Italic'), local('OpenSans-BoldItalic'), url('//themes.googleusercontent.com/static/fonts/opensans/v6/PRmiXeptR36kaC0GEAetxhbnBKKEOwRKgsHDreGcocg.woff') format('woff');
+    }
+    @font-face {
+        font-family:'Open Sans';
+        font-style: normal;
+        font-weight: 400;
+        src: local('Open Sans'), local('OpenSans'), url('//themes.googleusercontent.com/static/fonts/opensans/v6/cJZKeOuBrn4kERxqtaUH3bO3LdcAZYWl9Si6vvxL-qU.woff') format('woff');
+    }
+    @font-face {
+        font-family:'Open Sans';
+        font-style: normal;
+        font-weight: 700;
+        src: local('Open Sans Bold'), local('OpenSans-Bold'), url('//themes.googleusercontent.com/static/fonts/opensans/v6/k3k702ZOKiLJc3WVjuplzKRDOzjiPcYnFooOUGCOsRk.woff') format('woff');
+    }
+    @font-face {
+        font-family:'Open Sans';
+        font-style: italic;
+        font-weight: 400;
+        src: local('Open Sans Italic'), local('OpenSans-Italic'), url('//themes.googleusercontent.com/static/fonts/opensans/v6/xjAJXh38I15wypJXxuGMBrrIa-7acMAeDBVuclsi6Gc.woff') format('woff');
+    }
+    </style>
+    <link rel="stylesheet" type="text/css" href="./Fusion Tables Workshop - Google Fusion Tables_files/standard-css-simplywhite-ltr-ltr.css">
+    <link rel="stylesheet" type="text/css" href="./Fusion Tables Workshop - Google Fusion Tables_files/overlay.css">
+    <link rel="stylesheet" type="text/css" href="./Fusion Tables Workshop - Google Fusion Tables_files/allthemes-view.css">
+    <!--[if IE]>
+          <link rel="stylesheet" type="text/css" href="/site/fusiontablestalks/system/app/css/camelot/allthemes%2die.css" />
+        <![endif]-->
+    <title>Fusion Tables Workshop - Google Fusion Tables</title>
+    <script type="text/javascript">
+    window.jstiming.load.tick('cl');
+    </script>
+    <script type="text/javascript" charset="UTF-8" src="./Fusion Tables Workshop - Google Fusion Tables_files/js"></script>
+    <link rel="canonical" href="./Fusion Tables Workshop - Google Fusion Tables_files/Fusion Tables Workshop - Google Fusion Tables.html">
+    <style>
+    .dcs-o-dcs-ig-dcs-jg {
+        position:relative;
+        display:-moz-inline-box;
+        display:inline-block
+    }
+    * html .dcs-o-dcs-ig-dcs-jg {
+        display:inline
+    }
+    *:first-child+html .dcs-o-dcs-ig-dcs-jg {
+        display:inline
+    }
+    .dcs-j-dcs-yb {
+        -webkit-border-radius:2px;
+        -moz-border-radius:2px;
+        border-radius:2px;
+        cursor:default;
+        font-size:11px;
+        font-weight:bold;
+        text-align:center;
+        white-space:nowrap;
+        margin-right:16px;
+        height:27px;
+        line-height:27px;
+        min-width:54px;
+        outline:0px;
+        padding:0 8px
+    }
+    .dcs-j-dcs-yb-dcs-eh {
+        -webkit-box-shadow:0 1px 1px rgba(0, 0, 0, .1);
+        -moz-box-shadow:0 1px 1px rgba(0, 0, 0, .1);
+        box-shadow:0 1px 1px rgba(0, 0, 0, .1)
+    }
+    .dcs-j-dcs-yb-dcs-qe {
+        -webkit-box-shadow:inset 0px 1px 2px rgba(0, 0, 0, 0.1);
+        -moz-box-shadow:inset 0px 1px 2px rgba(0, 0, 0, 0.1);
+        box-shadow:inset 0px 1px 2px rgba(0, 0, 0, 0.1)
+    }
+    .dcs-j-dcs-yb .dcs-j-dcs-yb-dcs-df {
+        margin-top:-3px;
+        vertical-align:middle
+    }
+    .dcs-j-dcs-yb-dcs-ag {
+        margin-left:5px
+    }
+    .dcs-j-dcs-yb-dcs-ad {
+        min-width:34px;
+        padding:0
+    }
+    .dcs-j-dcs-yb-dcs-bc-dcs-bd, .dcs-j-dcs-yb-dcs-bc-dcs-zf {
+        z-index:1
+    }
+    .dcs-j-dcs-yb-dcs-bc-dcs-bd.dcs-j-dcs-yb-dcs-fe {
+        z-index:0
+    }
+    .dcs-j-dcs-yb-dcs-hd.dcs-j-dcs-yb-dcs-bc-dcs-bd, .dcs-j-dcs-yb-dcs-hd.dcs-j-dcs-yb-dcs-bc-dcs-zf {
+        z-index:2
+    }
+    .dcs-j-dcs-yb-dcs-bc-dcs-bd:focus, .dcs-j-dcs-yb-dcs-bc-dcs-zf:focus, .dcs-j-dcs-yb-dcs-eh.dcs-j-dcs-yb-dcs-bc-dcs-bd, .dcs-j-dcs-yb-dcs-eh.dcs-j-dcs-yb-dcs-bc-dcs-zf {
+        z-index:3
+    }
+    .dcs-j-dcs-yb-dcs-bc-dcs-bd {
+        margin-left:-1px;
+        -moz-border-radius-bottomleft:0;
+        -moz-border-radius-topleft:0;
+        -webkit-border-bottom-left-radius:0;
+        -webkit-border-top-left-radius:0;
+        border-bottom-left-radius:0;
+        border-top-left-radius:0
+    }
+    .dcs-j-dcs-yb-dcs-bc-dcs-zf {
+        margin-right:0px;
+        -moz-border-radius-topright:0;
+        -moz-border-radius-bottomright:0;
+        -webkit-border-top-right-radius:0;
+        -webkit-border-bottom-right-radius:0;
+        border-top-right-radius:0;
+        border-bottom-right-radius:0
+    }
+    .dcs-j-dcs-yb.dcs-j-dcs-yb-dcs-fe:active {
+        -webkit-box-shadow:none;
+        -moz-box-shadow:none;
+        box-shadow:none
+    }
+    .dcs-j-dcs-yb-dcs-zb {
+        -webkit-box-shadow:none;
+        -moz-box-shadow:none;
+        box-shadow:none;
+        background-color:#4d90fe;
+        background-image:-webkit-linear-gradient(top, #4d90fe, #4787ed);
+        background-image:-moz-linear-gradient(top, #4d90fe, #4787ed);
+        background-image:-ms-linear-gradient(top, #4d90fe, #4787ed);
+        background-image:-o-linear-gradient(top, #4d90fe, #4787ed);
+        background-image:linear-gradient(top, #4d90fe, #4787ed);
+        border:1px solid #3079ed;
+        color:#fff
+    }
+    .dcs-j-dcs-yb-dcs-zb.dcs-j-dcs-yb-dcs-eh {
+        -webkit-box-shadow:none;
+        -moz-box-shadow:none;
+        box-shadow:none;
+        background-color:#357ae8;
+        background-image:-webkit-linear-gradient(top, #4d90fe, #357ae8);
+        background-image:-moz-linear-gradient(top, #4d90fe, #357ae8);
+        background-image:-ms-linear-gradient(top, #4d90fe, #357ae8);
+        background-image:-o-linear-gradient(top, #4d90fe, #357ae8);
+        background-image:linear-gradient(top, #4d90fe, #357ae8);
+        border:1px solid #2f5bb7;
+        border-bottom-color:#2f5bb7
+    }
+    .dcs-j-dcs-yb-dcs-zb:focus {
+        -webkit-box-shadow:inset 0 0 0 1px #fff;
+        -moz-box-shadow:inset 0 0 0 1px #fff;
+        box-shadow:inset 0 0 0 1px #fff;
+        border:1px solid #fff;
+        border:1px solid rgba(0, 0, 0, 0);
+        outline:1px solid #4d90fe;
+        outline:0 rgba(0, 0, 0, 0)
+    }
+    .dcs-j-dcs-yb-dcs-zb.dcs-j-dcs-yb-dcs-kf-dcs-lf {
+        -webkit-box-shadow:none;
+        -moz-box-shadow:none;
+        box-shadow:none;
+        outline:none
+    }
+    .dcs-j-dcs-yb-dcs-zb:active {
+        -webkit-box-shadow:inset 0 1px 2px rgba(0, 0, 0, 0.3);
+        -moz-box-shadow:inset 0 1px 2px rgba(0, 0, 0, 0.3);
+        box-shadow:inset 0 1px 2px rgba(0, 0, 0, 0.3);
+        background:#357ae8;
+        border:1px solid #2f5bb7;
+        border-top:1px solid #2f5bb7
+    }
+    .dcs-j-dcs-yb-dcs-zb.dcs-j-dcs-yb-dcs-fe {
+        background:#4d90fe;
+        filter:alpha(opacity=50);
+        opacity:0.5
+    }
+    .dcs-j-dcs-yb-dcs-he {
+        -webkit-box-shadow:none;
+        -moz-box-shadow:none;
+        box-shadow:none;
+        background-color:#f5f5f5;
+        background-image:-webkit-linear-gradient(top, #f5f5f5, #f1f1f1);
+        background-image:-moz-linear-gradient(top, #f5f5f5, #f1f1f1);
+        background-image:-ms-linear-gradient(top, #f5f5f5, #f1f1f1);
+        background-image:-o-linear-gradient(top, #f5f5f5, #f1f1f1);
+        background-image:linear-gradient(top, #f5f5f5, #f1f1f1);
+        color:#444;
+        border:1px solid #dcdcdc;
+        border:1px solid rgba(0, 0, 0, 0.1)
+    }
+    .dcs-j-dcs-yb-dcs-he.dcs-j-dcs-yb-dcs-eh, .dcs-j-dcs-yb-dcs-he.dcs-j-dcs-yb-dcs-kf-dcs-lf.dcs-j-dcs-yb-dcs-eh {
+        -webkit-box-shadow:none;
+        -moz-box-shadow:none;
+        box-shadow:none;
+        background-color:#f8f8f8;
+        background-image:-webkit-linear-gradient(top, #f8f8f8, #f1f1f1);
+        background-image:-moz-linear-gradient(top, #f8f8f8, #f1f1f1);
+        background-image:-ms-linear-gradient(top, #f8f8f8, #f1f1f1);
+        background-image:-o-linear-gradient(top, #f8f8f8, #f1f1f1);
+        background-image:linear-gradient(top, #f8f8f8, #f1f1f1);
+        border:1px solid #c6c6c6;
+        color:#333
+    }
+    .dcs-j-dcs-yb-dcs-he:active, .dcs-j-dcs-yb-dcs-he.dcs-j-dcs-yb-dcs-eh:active {
+        -webkit-box-shadow:inset 0 1px 2px rgba(0, 0, 0, .1);
+        -moz-box-shadow:inset 0 1px 2px rgba(0, 0, 0, .1);
+        box-shadow:inset 0 1px 2px rgba(0, 0, 0, .1);
+        background:#f8f8f8;
+        color:#333
+    }
+    .dcs-j-dcs-yb-dcs-he.dcs-j-dcs-yb-dcs-qe, .dcs-j-dcs-yb-dcs-he.dcs-j-dcs-yb-dcs-kf-dcs-lf.dcs-j-dcs-yb-dcs-qe {
+        background-color:#eee;
+        background-image:-webkit-linear-gradient(top, #f8f8f8, #f1f1f1);
+        background-image:-moz-linear-gradient(top, #f8f8f8, #f1f1f1);
+        background-image:-ms-linear-gradient(top, #f8f8f8, #f1f1f1);
+        background-image:-o-linear-gradient(top, #f8f8f8, #f1f1f1);
+        background-image:linear-gradient(top, #f8f8f8, #f1f1f1);
+        border:1px solid #ccc;
+        color:#333
+    }
+    .dcs-j-dcs-yb-dcs-he.dcs-j-dcs-yb-dcs-hd, .dcs-j-dcs-yb-dcs-he.dcs-j-dcs-yb-dcs-kf-dcs-lf.dcs-j-dcs-yb-dcs-hd {
+        -webkit-box-shadow:inset 0 1px 2px rgba(0, 0, 0, .1);
+        -moz-box-shadow:inset 0 1px 2px rgba(0, 0, 0, .1);
+        box-shadow:inset 0 1px 2px rgba(0, 0, 0, .1);
+        background-color:#eee;
+        background-image:-webkit-linear-gradient(top, #eee, #e0e0e0);
+        background-image:-moz-linear-gradient(top, #eee, #e0e0e0);
+        background-image:-ms-linear-gradient(top, #eee, #e0e0e0);
+        background-image:-o-linear-gradient(top, #eee, #e0e0e0);
+        background-image:linear-gradient(top, #eee, #e0e0e0);
+        border:1px solid #ccc;
+        color:#333
+    }
+    .dcs-j-dcs-yb-dcs-he:focus {
+        border:1px solid #4d90fe;
+        outline:none
+    }
+    .dcs-j-dcs-yb-dcs-he.dcs-j-dcs-yb-dcs-kf-dcs-lf {
+        border:1px solid #dcdcdc;
+        outline:none
+    }
+    .dcs-j-dcs-yb-dcs-he.dcs-j-dcs-yb-dcs-fe {
+        background:#fff;
+        border:1px solid #f3f3f3;
+        border:1px solid rgba(0, 0, 0, 0.05);
+        color:#b8b8b8
+    }
+    .dcs-j-dcs-yb-dcs-he .dcs-j-dcs-yb-dcs-df {
+        opacity:.55
+    }
+    .dcs-j-dcs-yb-dcs-he.dcs-j-dcs-yb-dcs-hd .dcs-j-dcs-yb-dcs-df, .dcs-j-dcs-yb-dcs-he.dcs-j-dcs-yb-dcs-qe .dcs-j-dcs-yb-dcs-df, .dcs-j-dcs-yb-dcs-he.dcs-j-dcs-yb-dcs-eh .dcs-j-dcs-yb-dcs-df {
+        opacity:0.9
+    }
+    .dcs-j-dcs-yb-dcs-he.dcs-j-dcs-yb-dcs-fe .dcs-j-dcs-yb-dcs-df {
+        filter:alpha(opacity=33);
+        opacity:0.333
+    }
+    .dcs-o-dcs-ng, .dcs-td-dcs-ud {
+        -webkit-box-shadow:0 4px 16px rgba(0, 0, 0, .2);
+        -moz-box-shadow:0 4px 16px rgba(0, 0, 0, .2);
+        box-shadow:0 4px 16px rgba(0, 0, 0, .2);
+        background:#fff;
+        background-clip:padding-box;
+        border:1px solid #acacac;
+        border:1px solid rgba(0, 0, 0, .333);
+        outline:0;
+        position:absolute
+    }
+    .dcs-o-dcs-ng-dcs-sd, .dcs-td-dcs-ud-dcs-sd {
+        background:#fff;
+        left:0;
+        position:absolute;
+        top:0
+    }
+    div.dcs-o-dcs-ng-dcs-sd, div.dcs-td-dcs-ud-dcs-sd {
+        filter:alpha(opacity=75);
+        -moz-opacity:.75;
+        opacity:.75
+    }
+    .dcs-td-dcs-ud {
+        color:#000;
+        padding:30px 42px
+    }
+    .dcs-td-dcs-ud-dcs-te {
+        background-color:#fff;
+        color:#000;
+        cursor:default;
+        font-size:16px;
+        font-weight:normal;
+        line-height:24px;
+        margin:0 0 16px
+    }
+    .dcs-td-dcs-ud-dcs-te-dcs-wf {
+        height:11px;
+        opacity:0.7;
+        padding:17px;
+        position:absolute;
+        right:0px;
+        top:0px;
+        width:11px
+    }
+    .dcs-td-dcs-ud-dcs-te-dcs-wf:after {
+        content:'';
+        background:url(//ssl.gstatic.com/ui/v1/dialog/close-x.png);
+        position:absolute;
+        height:11px;
+        width:11px;
+        right:17px
+    }
+    .dcs-td-dcs-ud-dcs-te-dcs-wf:hover {
+        opacity:1
+    }
+    .dcs-td-dcs-ud-dcs-u {
+        background-color:#fff;
+        line-height:1.4em
+    }
+    .dcs-td-dcs-ud-dcs-tc {
+        margin-top:16px
+    }
+    .dcs-td-dcs-ud-dcs-tc button {
+        -webkit-border-radius:2px;
+        -moz-border-radius:2px;
+        border-radius:2px;
+        background-color:#f5f5f5;
+        background-image:-webkit-linear-gradient(top, #f5f5f5, #f1f1f1);
+        background-image:-moz-linear-gradient(top, #f5f5f5, #f1f1f1);
+        background-image:-ms-linear-gradient(top, #f5f5f5, #f1f1f1);
+        background-image:-o-linear-gradient(top, #f5f5f5, #f1f1f1);
+        background-image:linear-gradient(top, #f5f5f5, #f1f1f1);
+        border:1px solid #dcdcdc;
+        border:1px solid rgba(0, 0, 0, 0.1);
+        color:#444;
+        cursor:default;
+        font-size:11px;
+        font-weight:bold;
+        height:29px;
+        line-height:27px;
+        margin:0 16px 0 0;
+        min-width:72px;
+        outline:0;
+        padding:0 8px
+    }
+    .dcs-td-dcs-ud-dcs-tc button:hover, .dcs-td-dcs-ud-dcs-tc button:active {
+        -webkit-box-shadow:0px 1px 1px rgba(0, 0, 0, 0.1);
+        -moz-box-shadow:0px 1px 1px rgba(0, 0, 0, 0.1);
+        box-shadow:0px 1px 1px rgba(0, 0, 0, 0.1);
+        background-color:#f8f8f8;
+        background-image:-webkit-linear-gradient(top, #f8f8f8, #f1f1f1);
+        background-image:-moz-linear-gradient(top, #f8f8f8, #f1f1f1);
+        background-image:-ms-linear-gradient(top, #f8f8f8, #f1f1f1);
+        background-image:-o-linear-gradient(top, #f8f8f8, #f1f1f1);
+        background-image:linear-gradient(top, #f8f8f8, #f1f1f1);
+        border:1px solid #c6c6c6;
+        color:#333
+    }
+    .dcs-td-dcs-ud-dcs-tc button:active {
+        -webkit-box-shadow:inset 0 1px 2px rgba(0, 0, 0, .1);
+        -moz-box-shadow:inset 0 1px 2px rgba(0, 0, 0, .1);
+        box-shadow:inset 0 1px 2px rgba(0, 0, 0, .1)
+    }
+    .dcs-td-dcs-ud-dcs-tc button:focus {
+        border:1px solid #4d90fe
+    }
+    .dcs-td-dcs-ud-dcs-tc button[disabled] {
+        -webkit-box-shadow:none;
+        -moz-box-shadow:none;
+        box-shadow:none;
+        background:#fff;
+        background-image:none;
+        border:1px solid #f3f3f3;
+        border:1px solid rgba(0, 0, 0, 0.05);
+        color:#b8b8b8
+    }
+    .dcs-td-dcs-ud-dcs-tc .dcs-o-dcs-pe-dcs-zb {
+        background-color:#4d90fe;
+        background-image:-webkit-linear-gradient(top, #4d90fe, #4787ed);
+        background-image:-moz-linear-gradient(top, #4d90fe, #4787ed);
+        background-image:-ms-linear-gradient(top, #4d90fe, #4787ed);
+        background-image:-o-linear-gradient(top, #4d90fe, #4787ed);
+        background-image:linear-gradient(top, #4d90fe, #4787ed);
+        border:1px solid #3079ed;
+        color:#fff
+    }
+    .dcs-td-dcs-ud-dcs-tc .dcs-o-dcs-pe-dcs-zb:hover, .dcs-td-dcs-ud-dcs-tc .dcs-o-dcs-pe-dcs-zb:active {
+        background-color:#357ae8;
+        background-image:-webkit-linear-gradient(top, #4d90fe, #357ae8);
+        background-image:-moz-linear-gradient(top, #4d90fe, #357ae8);
+        background-image:-ms-linear-gradient(top, #4d90fe, #357ae8);
+        background-image:-o-linear-gradient(top, #4d90fe, #357ae8);
+        background-image:linear-gradient(top, #4d90fe, #357ae8);
+        border:1px solid #2f5bb7;
+        color:#fff
+    }
+    .dcs-td-dcs-ud-dcs-tc .dcs-o-dcs-pe-dcs-zb:active {
+        -webkit-box-shadow:inset 0 1px 2px rgba(0, 0, 0, 0.3);
+        -moz-box-shadow:inset 0 1px 2px rgba(0, 0, 0, 0.3);
+        box-shadow:inset 0 1px 2px rgba(0, 0, 0, 0.3)
+    }
+    .dcs-td-dcs-ud-dcs-tc .dcs-o-dcs-pe-dcs-zb:focus {
+        -webkit-box-shadow:inset 0 0 0 1px #fff;
+        -moz-box-shadow:inset 0 0 0 1px #fff;
+        box-shadow:inset 0 0 0 1px #fff;
+        border:1px solid #fff;
+        border:1px solid rgba(0, 0, 0, 0);
+        outline:1px solid #4d90fe;
+        outline:0 rgba(0, 0, 0, 0)
+    }
+    .dcs-td-dcs-ud-dcs-tc .dcs-o-dcs-pe-dcs-zb[disabled] {
+        -webkit-box-shadow:none;
+        -moz-box-shadow:none;
+        box-shadow:none;
+        background:#4d90fe;
+        color:#fff;
+        filter:alpha(opacity=50);
+        opacity:0.5
+    }
+    .dcs-j-dcs-hg, .dcs-j-dcs-qd, .dcs-j-dcs-k {
+        width:512px
+    }
+    .dcs-o-dcs-jf {
+        -webkit-border-radius:0;
+        -moz-border-radius:0;
+        border-radius:0;
+        -webkit-box-shadow:0 2px 4px rgba(0, 0, 0, 0.2);
+        -moz-box-shadow:0 2px 4px rgba(0, 0, 0, 0.2);
+        box-shadow:0 2px 4px rgba(0, 0, 0, 0.2);
+        -webkit-transition:opacity 0.218s;
+        -moz-transition:opacity 0.218s;
+        -o-transition:opacity 0.218s;
+        transition:opacity 0.218s;
+        background:#fff;
+        border:1px solid #ccc;
+        border:1px solid rgba(0, 0, 0, .2);
+        cursor:default;
+        font-size:13px;
+        margin:0;
+        outline:none;
+        padding:6px 0;
+        position:absolute
+    }
+    .dcs-o-dcs-ee-dcs-jf-dcs-yb {
+        -webkit-border-radius:2px;
+        -moz-border-radius:2px;
+        border-radius:2px;
+        background-color:#f5f5f5;
+        background-image:-webkit-linear-gradient(top, #f5f5f5, #f1f1f1);
+        background-image:-moz-linear-gradient(top, #f5f5f5, #f1f1f1);
+        background-image:-ms-linear-gradient(top, #f5f5f5, #f1f1f1);
+        background-image:-o-linear-gradient(top, #f5f5f5, #f1f1f1);
+        background-image:linear-gradient(top, #f5f5f5, #f1f1f1);
+        border:1px solid #dcdcdc;
+        color:#444;
+        cursor:default;
+        font-size:11px;
+        font-weight:bold;
+        line-height:27px;
+        list-style:none;
+        margin:0 2px;
+        min-width:46px;
+        outline:none;
+        padding:0 18px 0 6px;
+        text-align:center;
+        text-decoration:none
+    }
+    .dcs-o-dcs-ee-dcs-jf-dcs-yb-dcs-fe {
+        background-color:#fff;
+        border-color:#f3f3f3;
+        color:#b8b8b8
+    }
+    .dcs-o-dcs-ee-dcs-jf-dcs-yb.dcs-o-dcs-ee-dcs-jf-dcs-yb-dcs-eh {
+        background-color:#f8f8f8;
+        background-image:-webkit-linear-gradient(top, #f8f8f8, #f1f1f1);
+        background-image:-moz-linear-gradient(top, #f8f8f8, #f1f1f1);
+        background-image:-ms-linear-gradient(top, #f8f8f8, #f1f1f1);
+        background-image:-o-linear-gradient(top, #f8f8f8, #f1f1f1);
+        background-image:linear-gradient(top, #f8f8f8, #f1f1f1);
+        -webkit-box-shadow:0 1px 1px rgba(0, 0, 0, .1);
+        -moz-box-shadow:0 1px 1px rgba(0, 0, 0, .1);
+        box-shadow:0 1px 1px rgba(0, 0, 0, .1);
+        border-color:#c6c6c6;
+        color:#333
+    }
+    .dcs-o-dcs-ee-dcs-jf-dcs-yb.dcs-o-dcs-ee-dcs-jf-dcs-yb-dcs-lg {
+        border-color:#4d90fe
+    }
+    .dcs-o-dcs-ee-dcs-jf-dcs-yb.dcs-o-dcs-ee-dcs-jf-dcs-yb-dcs-gf, .dcs-o-dcs-ee-dcs-jf-dcs-yb.dcs-o-dcs-ee-dcs-jf-dcs-yb-dcs-be {
+        -webkit-box-shadow:inset 0 1px 2px rgba(0, 0, 0, .1);
+        -moz-box-shadow:inset 0 1px 2px rgba(0, 0, 0, .1);
+        box-shadow:inset 0 1px 2px rgba(0, 0, 0, .1);
+        background-color:#eee;
+        background-image:-webkit-linear-gradient(top, #eee, #e0e0e0);
+        background-image:-moz-linear-gradient(top, #eee, #e0e0e0);
+        background-image:-ms-linear-gradient(top, #eee, #e0e0e0);
+        background-image:-o-linear-gradient(top, #eee, #e0e0e0);
+        background-image:linear-gradient(top, #eee, #e0e0e0);
+        border:1px solid #ccc;
+        color:#333;
+        z-index:2
+    }
+    .dcs-o-dcs-ee-dcs-jf-dcs-yb-dcs-mc {
+        vertical-align:top;
+        white-space:nowrap
+    }
+    .dcs-o-dcs-ee-dcs-jf-dcs-yb-dcs-gb {
+        border-color:#777 transparent;
+        border-style:solid;
+        border-width:4px 4px 0 4px;
+        height:0;
+        width:0;
+        position:absolute;
+        right:5px;
+        top:12px
+    }
+    .dcs-o-dcs-ee-dcs-jf-dcs-yb .dcs-o-dcs-ee-dcs-jf-dcs-yb-dcs-df {
+        margin-top:-3px;
+        opacity:.55;
+        vertical-align:middle
+    }
+    .dcs-o-dcs-ee-dcs-jf-dcs-yb-dcs-be .dcs-o-dcs-ee-dcs-jf-dcs-yb-dcs-df, .dcs-o-dcs-ee-dcs-jf-dcs-yb-dcs-gf .dcs-o-dcs-ee-dcs-jf-dcs-yb-dcs-df, .dcs-o-dcs-ee-dcs-jf-dcs-yb-dcs-qe .dcs-o-dcs-ee-dcs-jf-dcs-yb-dcs-df, .dcs-o-dcs-ee-dcs-jf-dcs-yb-dcs-eh .dcs-o-dcs-ee-dcs-jf-dcs-yb-dcs-df {
+        opacity:0.9
+    }
+    .dcs-o-dcs-ee-dcs-jf-dcs-yb-dcs-be .dcs-o-dcs-ee-dcs-jf-dcs-yb-dcs-gb, .dcs-o-dcs-ee-dcs-jf-dcs-yb-dcs-gf .dcs-o-dcs-ee-dcs-jf-dcs-yb-dcs-gb, .dcs-o-dcs-ee-dcs-jf-dcs-yb-dcs-qe .dcs-o-dcs-ee-dcs-jf-dcs-yb-dcs-gb, .dcs-o-dcs-ee-dcs-jf-dcs-yb-dcs-eh .dcs-o-dcs-ee-dcs-jf-dcs-yb-dcs-gb {
+        border-color:#595959 transparent
+    }
+    .dcs-o-dcs-ee-dcs-jf-dcs-yb-dcs-bd, .dcs-o-dcs-ee-dcs-jf-dcs-yb-dcs-zf {
+        z-index:1
+    }
+    .dcs-o-dcs-ee-dcs-jf-dcs-yb-dcs-bd.dcs-o-dcs-ee-dcs-jf-dcs-yb-dcs-fe {
+        z-index:0
+    }
+    .dcs-o-dcs-ee-dcs-jf-dcs-yb-dcs-zf:focus, .dcs-o-dcs-ee-dcs-jf-dcs-yb-dcs-eh.dcs-o-dcs-ee-dcs-jf-dcs-yb-dcs-bc-dcs-zf {
+        z-index:2
+    }
+    .dcs-o-dcs-ee-dcs-jf-dcs-yb-dcs-bd:focus, .dcs-o-dcs-ee-dcs-jf-dcs-yb-dcs-eh.dcs-o-dcs-ee-dcs-jf-dcs-yb-dcs-bc-dcs-bd {
+        z-index:2
+    }
+    .dcs-o-dcs-ee-dcs-jf-dcs-yb-dcs-bc-dcs-bd {
+        margin-left:-1px;
+        -moz-border-radius-bottomleft:0;
+        -moz-border-radius-topleft:0;
+        -webkit-border-bottom-left-radius:0;
+        -webkit-border-top-left-radius:0;
+        border-bottom-left-radius:0;
+        border-top-left-radius:0;
+        min-width:0;
+        padding-left:0;
+        vertical-align:top
+    }
+    .dcs-o-dcs-ee-dcs-jf-dcs-yb-dcs-bc-dcs-zf {
+        margin-right:0px;
+        -moz-border-radius-topright:0;
+        -moz-border-radius-bottomright:0;
+        -webkit-border-top-right-radius:0;
+        -webkit-border-bottom-right-radius:0;
+        border-top-right-radius:0;
+        border-bottom-right-radius:0
+    }
+    .dcs-o-dcs-p, .dcs-o-dcs-hh, .dcs-o-dcs-ih {
+        position:relative;
+        color:#333;
+        cursor:pointer;
+        list-style:none;
+        margin:0;
+        padding:6px 8em 6px 30px;
+        white-space:nowrap
+    }
+    .dcs-o-dcs-jf-dcs-jh .dcs-o-dcs-p, .dcs-o-dcs-jf-dcs-kh .dcs-o-dcs-p {
+        padding-left:16px;
+        vertical-align:middle
+    }
+    .dcs-o-dcs-jf-dcs-lh .dcs-o-dcs-p {
+        padding-right:44px
+    }
+    .dcs-o-dcs-p-dcs-fe {
+        cursor:default
+    }
+    .dcs-o-dcs-p-dcs-fe .dcs-o-dcs-p-dcs-pc, .dcs-o-dcs-p-dcs-fe .dcs-o-dcs-p-dcs-u {
+        color:#ccc!important
+    }
+    .dcs-o-dcs-p-dcs-fe .dcs-o-dcs-p-dcs-eb {
+        filter:alpha(opacity=30);
+        opacity:0.3
+    }
+    .dcs-o-dcs-p-dcs-ef, .dcs-o-dcs-p-dcs-eh {
+        background-color:#eee;
+        border-color:#eee;
+        border-style:dotted;
+        border-width:1px 0;
+        padding-top:5px;
+        padding-bottom:5px
+    }
+    .dcs-o-dcs-p-dcs-ef .dcs-o-dcs-p-dcs-u, .dcs-o-dcs-p-dcs-eh .dcs-o-dcs-p-dcs-u {
+        color:#333
+    }
+    .dcs-o-dcs-p-dcs-ye, .dcs-o-dcs-p-dcs-eb {
+        background-repeat:no-repeat;
+        height:21px;
+        left:3px;
+        position:absolute;
+        right:auto;
+        top:3px;
+        vertical-align:middle;
+        width:21px
+    }
+    .dcs-o-dcs-ie-dcs-qe {
+        background-image:url(//ssl.gstatic.com/ui/v1/menu/checkmark.png);
+        background-repeat:no-repeat;
+        background-position:left center
+    }
+    .dcs-o-dcs-ie-dcs-qe .dcs-o-dcs-p-dcs-u, .dcs-o-dcs-ie-dcs-qe .dcs-o-dcs-p-dcs-u {
+        color:#333
+    }
+    .dcs-o-dcs-p-dcs-pc {
+        color:#777;
+        direction:ltr;
+        left:auto;
+        padding:0 6px;
+        position:absolute;
+        right:0;
+        text-align:right
+    }
+    .dcs-o-dcs-p-dcs-vd-dcs-mh {
+        text-decoration:underline
+    }
+    .dcs-o-dcs-p-dcs-vd-dcs-wd {
+        color:#777;
+        font-size:12px;
+        padding-left:4px
+    }
+    .dcs-j-dcs-qg::-webkit-scrollbar {
+        height:16px;
+        overflow:visible;
+        width:16px
+    }
+    .dcs-j-dcs-qg::-webkit-scrollbar-button {
+        height:0;
+        width:0
+    }
+    .dcs-j-dcs-qg::-webkit-scrollbar-track {
+        background-clip:padding-box;
+        border:solid transparent;
+        border-width:0 0 0 4px
+    }
+    .dcs-j-dcs-qg::-webkit-scrollbar-track:horizontal {
+        border-width:4px 0 0
+    }
+    .dcs-j-dcs-qg::-webkit-scrollbar-track:hover {
+        background-color:rgba(0, 0, 0, .05);
+        box-shadow:inset 1px 0 0 rgba(0, 0, 0, .1)
+    }
+    .dcs-j-dcs-qg::-webkit-scrollbar-track:horizontal:hover {
+        box-shadow:inset 0 1px 0 rgba(0, 0, 0, .1)
+    }
+    .dcs-j-dcs-qg::-webkit-scrollbar-track:active {
+        background-color:rgba(0, 0, 0, .05);
+        box-shadow:inset 1px 0 0 rgba(0, 0, 0, .14), inset -1px 0 0 rgba(0, 0, 0, .07)
+    }
+    .dcs-j-dcs-qg::-webkit-scrollbar-track:horizontal:active {
+        box-shadow:inset 0 1px 0 rgba(0, 0, 0, .14), inset 0 -1px 0 rgba(0, 0, 0, .07)
+    }
+    .dcs-j-dcs-qg-dcs-nh.dcs-j-dcs-qg::-webkit-scrollbar-track:hover {
+        background-color:rgba(255, 255, 255, .1);
+        box-shadow:inset 1px 0 0 rgba(255, 255, 255, .2)
+    }
+    .dcs-j-dcs-qg-dcs-nh.dcs-j-dcs-qg::-webkit-scrollbar-track:horizontal:hover {
+        box-shadow:inset 0 1px 0 rgba(255, 255, 255, .2)
+    }
+    .dcs-j-dcs-qg-dcs-nh.dcs-j-dcs-qg::-webkit-scrollbar-track:active {
+        background-color:rgba(255, 255, 255, .1);
+        box-shadow:inset 1px 0 0 rgba(255, 255, 255, .25), inset -1px 0 0 rgba(255, 255, 255, .15)
+    }
+    .dcs-j-dcs-qg-dcs-nh.dcs-j-dcs-qg::-webkit-scrollbar-track:horizontal:active {
+        box-shadow:inset 0 1px 0 rgba(255, 255, 255, .25), inset 0 -1px 0 rgba(255, 255, 255, .15)
+    }
+    .dcs-j-dcs-qg::-webkit-scrollbar-thumb {
+        background-color:rgba(0, 0, 0, .2);
+        background-clip:padding-box;
+        border:solid transparent;
+        border-width:1px 1px 1px 6px;
+        min-height:28px;
+        padding:100px 0 0;
+        box-shadow:inset 1px 1px 0 rgba(0, 0, 0, .1), inset 0 -1px 0 rgba(0, 0, 0, .07)
+    }
+    .dcs-j-dcs-qg::-webkit-scrollbar-thumb:horizontal {
+        border-width:6px 1px 1px;
+        padding:0 0 0 100px;
+        box-shadow:inset 1px 1px 0 rgba(0, 0, 0, .1), inset -1px 0 0 rgba(0, 0, 0, .07)
+    }
+    .dcs-j-dcs-qg::-webkit-scrollbar-thumb:hover {
+        background-color:rgba(0, 0, 0, .4);
+        box-shadow:inset 1px 1px 1px rgba(0, 0, 0, .25)
+    }
+    .dcs-j-dcs-qg::-webkit-scrollbar-thumb:active {
+        background-color:rgba(0, 0, 0, 0.5);
+        box-shadow:inset 1px 1px 3px rgba(0, 0, 0, 0.35)
+    }
+    .dcs-j-dcs-qg-dcs-nh.dcs-j-dcs-qg::-webkit-scrollbar-thumb {
+        background-color:rgba(255, 255, 255, .3);
+        box-shadow:inset 1px 1px 0 rgba(255, 255, 255, .15), inset 0 -1px 0 rgba(255, 255, 255, .1)
+    }
+    .dcs-j-dcs-qg-dcs-nh.dcs-j-dcs-qg::-webkit-scrollbar-thumb:horizontal {
+        box-shadow:inset 1px 1px 0 rgba(255, 255, 255, .15), inset -1px 0 0 rgba(255, 255, 255, .1)
+    }
+    .dcs-j-dcs-qg-dcs-nh.dcs-j-dcs-qg::-webkit-scrollbar-thumb:hover {
+        background-color:rgba(255, 255, 255, .6);
+        box-shadow:inset 1px 1px 1px rgba(255, 255, 255, .37)
+    }
+    .dcs-j-dcs-qg-dcs-nh.dcs-j-dcs-qg::-webkit-scrollbar-thumb:active {
+        background-color:rgba(255, 255, 255, .75);
+        box-shadow:inset 1px 1px 3px rgba(255, 255, 255, .5)
+    }
+    .dcs-j-dcs-qg-dcs-oh.dcs-j-dcs-qg::-webkit-scrollbar-track {
+        border-width:0 1px 0 6px
+    }
+    .dcs-j-dcs-qg-dcs-oh.dcs-j-dcs-qg::-webkit-scrollbar-track:horizontal {
+        border-width:6px 0 1px
+    }
+    .dcs-j-dcs-qg-dcs-oh.dcs-j-dcs-qg::-webkit-scrollbar-track:hover {
+        background-color:rgba(0, 0, 0, .035);
+        box-shadow:inset 1px 1px 0 rgba(0, 0, 0, .14), inset -1px -1px 0 rgba(0, 0, 0, .07)
+    }
+    .dcs-j-dcs-qg-dcs-oh.dcs-j-dcs-qg-dcs-nh.dcs-j-dcs-qg::-webkit-scrollbar-track:hover {
+        background-color:rgba(255, 255, 255, .07);
+        box-shadow:inset 1px 1px 0 rgba(255, 255, 255, .25), inset -1px -1px 0 rgba(255, 255, 255, .15)
+    }
+    .dcs-j-dcs-qg-dcs-oh.dcs-j-dcs-qg::-webkit-scrollbar-thumb {
+        border-width:0 1px 0 6px
+    }
+    .dcs-j-dcs-qg-dcs-oh.dcs-j-dcs-qg::-webkit-scrollbar-thumb:horizontal {
+        border-width:6px 0 1px
+    }
+    .dcs-j-dcs-qg::-webkit-scrollbar-corner {
+        background:transparent
+    }
+    body.dcs-j-dcs-qg::-webkit-scrollbar-track-piece {
+        background-clip:padding-box;
+        background-color:#f5f5f5;
+        border:solid #fff;
+        border-width:0 0 0 3px;
+        box-shadow:inset 1px 0 0 rgba(0, 0, 0, .14), inset -1px 0 0 rgba(0, 0, 0, .07)
+    }
+    body.dcs-j-dcs-qg::-webkit-scrollbar-track-piece:horizontal {
+        border-width:3px 0 0;
+        box-shadow:inset 0 1px 0 rgba(0, 0, 0, .14), inset 0 -1px 0 rgba(0, 0, 0, .07)
+    }
+    body.dcs-j-dcs-qg::-webkit-scrollbar-thumb {
+        border-width:1px 1px 1px 5px
+    }
+    body.dcs-j-dcs-qg::-webkit-scrollbar-thumb:horizontal {
+        border-width:5px 1px 1px
+    }
+    body.dcs-j-dcs-qg::-webkit-scrollbar-corner {
+        background-clip:padding-box;
+        background-color:#f5f5f5;
+        border:solid #fff;
+        border-width:3px 0 0 3px;
+        box-shadow:inset 1px 1px 0 rgba(0, 0, 0, .14)
+    }
+    .dcs-j-dcs-ne {
+        background-color:#2a2a2a;
+        border:1px solid #fff;
+        color:#fff;
+        cursor:default;
+        display:block;
+        font-size:11px;
+        font-weight:bold;
+        opacity:1;
+        padding:7px 9px;
+        position:absolute;
+        -webkit-transition:visibility 0, opacity .13s ease-in;
+        -moz-transition:visibility 0, opacity .13s ease-in;
+        -o-transition:visibility 0, opacity .13s ease-in;
+        transition:visibility 0, opacity .13s ease-in;
+        visibility:visible;
+        word-break:break-all;
+        word-break:break-word
+    }
+    .dcs-j-dcs-ne-dcs-oe {
+        left:20px!important;
+        top:20px!important;
+        opacity:0;
+        -webkit-transition:visibility .13s, opacity .13s ease-out, left 0 linear .13s, top 0 linear .13s;
+        -moz-transition:visibility .13s, opacity .13s ease-out, left 0 linear .13s, top 0 linear .13s;
+        -o-transition:visibility .13s, opacity .13s ease-out, left 0 linear .13s, top 0 linear .13s;
+        transition:visibility .13s, opacity .13s ease-out, left 0 linear .13s, top 0 linear .13s;
+        visibility:hidden
+    }
+    .dcs-j-dcs-ne-dcs-g {
+        pointer-events:none;
+        position:absolute
+    }
+    .dcs-j-dcs-ne-dcs-g .dcs-j-dcs-ne-dcs-qb, .dcs-j-dcs-ne-dcs-g .dcs-j-dcs-ne-dcs-w {
+        content:'';
+        display:block;
+        height:0;
+        position:absolute;
+        width:0
+    }
+    .dcs-j-dcs-ne-dcs-g .dcs-j-dcs-ne-dcs-qb {
+        border:6px solid
+    }
+    .dcs-j-dcs-ne-dcs-g .dcs-j-dcs-ne-dcs-w {
+        border:5px solid
+    }
+    .dcs-j-dcs-ne-dcs-id {
+        bottom:0
+    }
+    .dcs-j-dcs-ne-dcs-og {
+        top:-6px
+    }
+    .dcs-j-dcs-ne-dcs-kc {
+        left:-6px
+    }
+    .dcs-j-dcs-ne-dcs-ve {
+        right:0
+    }
+    .dcs-j-dcs-ne-dcs-id .dcs-j-dcs-ne-dcs-qb, .dcs-j-dcs-ne-dcs-og .dcs-j-dcs-ne-dcs-qb {
+        border-color:#fff transparent;
+        left:-6px
+    }
+    .dcs-j-dcs-ne-dcs-id .dcs-j-dcs-ne-dcs-w, .dcs-j-dcs-ne-dcs-og .dcs-j-dcs-ne-dcs-w {
+        border-color:#2a2a2a transparent;
+        left:-5px
+    }
+    .dcs-j-dcs-ne-dcs-id .dcs-j-dcs-ne-dcs-qb {
+        border-bottom-width:0
+    }
+    .dcs-j-dcs-ne-dcs-id .dcs-j-dcs-ne-dcs-w {
+        border-bottom-width:0
+    }
+    .dcs-j-dcs-ne-dcs-og .dcs-j-dcs-ne-dcs-qb {
+        border-top-width:0
+    }
+    .dcs-j-dcs-ne-dcs-og .dcs-j-dcs-ne-dcs-w {
+        border-top-width:0;
+        top:1px
+    }
+    .dcs-j-dcs-ne-dcs-kc .dcs-j-dcs-ne-dcs-qb, .dcs-j-dcs-ne-dcs-ve .dcs-j-dcs-ne-dcs-qb {
+        border-color:transparent #fff;
+        top:-6px
+    }
+    .dcs-j-dcs-ne-dcs-kc .dcs-j-dcs-ne-dcs-w, .dcs-j-dcs-ne-dcs-ve .dcs-j-dcs-ne-dcs-w {
+        border-color:transparent #2a2a2a;
+        top:-5px
+    }
+    .dcs-j-dcs-ne-dcs-kc .dcs-j-dcs-ne-dcs-qb {
+        border-left-width:0
+    }
+    .dcs-j-dcs-ne-dcs-kc .dcs-j-dcs-ne-dcs-w {
+        border-left-width:0;
+        left:1px
+    }
+    .dcs-j-dcs-ne-dcs-ve .dcs-j-dcs-ne-dcs-qb {
+        border-right-width:0
+    }
+    .dcs-j-dcs-ne-dcs-ve .dcs-j-dcs-ne-dcs-w {
+        border-right-width:0
+    }
+    .dcs-td-dcs-ud {
+        z-index:1001
+    }
+    .dcs-td-dcs-ud-dcs-sd {
+        z-index:1000
+    }
+    .dcs-td-dcs-ud-dcs-te-dcs-wf {
+        background-image:none
+    }
+    .dcs-o-dcs-jf {
+        z-index:1001
+    }
+    .dcs-a-dcs-qc-dcs-ob {
+        width:12px;
+        height:12px;
+        vertical-align:baseline
+    }
+    .dcs-a-dcs-qc-dcs-gb {
+        background:none;
+        background-image:none!important;
+        border:none;
+        font-size:10px;
+        height:11px;
+        left:0;
+        margin:auto;
+        position:absolute;
+        top:3px;
+        width:12px
+    }
+    .dcs-a-dcs-qc-dcs-gb-dcs-r-dcs-v, .dcs-a-dcs-qc-dcs-gb-dcs-ob-dcs-v {
+        border:none!important;
+        height:11px;
+        margin:0;
+        padding:0;
+        width:12px
+    }
+    .dcs-a-dcs-qc {
+        padding:3px
+    }
+    .dcs-a-dcs-qc>.dcs-o-dcs-p {
+        padding:3px
+    }
+    .dcs-a-dcs-qc>.dcs-o-dcs-p.dcs-o-dcs-ie-dcs-qe {
+        padding-left:22px
+    }
+    .dcs-a-dcs-qc>.dcs-o-dcs-p-dcs-ef, .dcs-a-dcs-qc>.dcs-o-dcs-p-dcs-eh {
+        padding:2px 3px
+    }
+    .dcs-a-dcs-qc>.dcs-o-dcs-p>.dcs-o-dcs-p-dcs-u {
+        font-size:12px
+    }
+    .dcs-a-dcs-b {
+        background-color:#fff;
+        cursor:pointer;
+        direction:ltr;
+        position:relative;
+        width:210px
+    }
+    .dcs-a-dcs-b:hover, .dcs-a-dcs-dc-dcs-re.dcs-a-dcs-b {
+        background-color:#f1f1f1!important;
+        border-color:#c6c6c6!important;
+        background:-webkit-gradient(linear, 0 0, 0 60, from(#f8f8f8), to(#f1f1f1))!important;
+        background:-moz-linear-gradient(top, #f8f8f8 0, #f1f1f1 60px)!important
+    }
+    .dcs-a-dcs-b:focus, .dcs-a-dcs-b:active {
+        outline:0
+    }
+    .dcs-a-dcs-b-dcs-g-dcs-r, .dcs-a-dcs-b-dcs-g-dcs-ob {
+        display:none
+    }
+    .dcs-a-dcs-dc-dcs-be.dcs-a-dcs-b, .dcs-a-dcs-dc-dcs-be.dcs-a-dcs-b:hover {
+        background:#fcfac6!important;
+        border-color:#ffe572!important
+    }
+    .dcs-a-dcs-b-dcs-ub-dcs-yb {
+        display:none;
+        font-size:10px;
+        right:0;
+        padding-left:2px;
+        position:absolute;
+        top:0
+    }
+    .dcs-a-dcs-dc-dcs-be.dcs-a-dcs-b .dcs-a-dcs-b-dcs-ub-dcs-yb {
+        display:block;
+        opacity:0.3;
+        filter:alpha(opacity=30)
+    }
+    .dcs-a-dcs-dc-dcs-be.dcs-a-dcs-b:hover .dcs-a-dcs-b-dcs-ub-dcs-yb {
+        opacity:1;
+        filter:alpha(opacity=100)
+    }
+    .dcs-a-dcs-b-dcs-pg {
+        max-height:inherit;
+        overflow-y:auto
+    }
+    .dcs-a-dcs-b-dcs-u {
+        overflow-y:auto
+    }
+    .dcs-a-dcs-b-dcs-c-dcs-d {
+        border-top:1px solid #f0f0f0;
+        display:none;
+        padding:7px
+    }
+    .dcs-a-dcs-dc-dcs-be.dcs-a-dcs-b .dcs-a-dcs-b-dcs-c-dcs-d {
+        border-top:1px solid #feef9c;
+        display:block
+    }
+    .dcs-a-dcs-b-dcs-c-dcs-d .dcs-a-dcs-c-dcs-zd {
+        height:23px
+    }
+    .dcs-a-dcs-b-dcs-c-dcs-d .dcs-a-dcs-c-dcs-tc {
+        text-align:left
+    }
+    .dcs-a-dcs-rf-dcs-c-dcs-d {
+        border-top:none!important;
+        padding-top:0
+    }
+    .dcs-a-dcs-b .dcs-a-dcs-c-dcs-rb-dcs-sb-dcs-tb {
+        color:#999;
+        font-size:11px
+    }
+    .dcs-a-dcs-b .dcs-a-dcs-b-dcs-nb {
+        border-top:1px solid #feef9c;
+        bottom:0;
+        left:0;
+        padding-top:6px;
+        position:relative;
+        width:100%
+    }
+    .dcs-a-dcs-b .dcs-a-dcs-nb-dcs-se {
+        font-weight:bold;
+        margin-right:6px;
+        padding:2px 0
+    }
+    .dcs-a-dcs-e-dcs-ah .dcs-a-dcs-b {
+        border:1px solid #d9d9d9;
+        position:absolute;
+        -moz-user-select:text;
+        z-index:500
+    }
+    .dcs-a-dcs-e-dcs-ah .dcs-a-dcs-dc-dcs-be.dcs-a-dcs-b {
+        border:1px solid #ffe764;
+        z-index:501
+    }
+    .dcs-a-dcs-e-dcs-ah-dcs-dh .dcs-a-dcs-b {
+        box-shadow:2px 2px 6px #888
+    }
+    .dcs-a-dcs-e-dcs-f .dcs-a-dcs-b-dcs-g-dcs-r, .dcs-a-dcs-b-dcs-g-dcs-ob {
+        height:0;
+        position:absolute;
+        width:0
+    }
+    .dcs-a-dcs-e-dcs-f .dcs-a-dcs-b-dcs-g-dcs-r {
+        border-top:none;
+        border-bottom:14px solid transparent;
+        border-left:none;
+        border-right:14px solid #fcfac6;
+        left:-13px;
+        top:0
+    }
+    .dcs-a-dcs-e-dcs-f .dcs-a-dcs-b-dcs-g-dcs-ob {
+        border-top:none;
+        border-bottom:14px solid transparent;
+        border-left:none;
+        border-right:14px solid #ffe572;
+        left:-15px;
+        top:-1px
+    }
+    .dcs-a-dcs-e-dcs-f .dcs-a-dcs-dc-dcs-be.dcs-a-dcs-b>.dcs-a-dcs-b-dcs-g-dcs-r, .dcs-a-dcs-e-dcs-f .dcs-a-dcs-dc-dcs-be.dcs-a-dcs-b>.dcs-a-dcs-b-dcs-g-dcs-ob {
+        display:block
+    }
+    .dcs-a-dcs-b-dcs-ub-dcs-yb>.dcs-j-dcs-yb {
+        height:17px;
+        line-height:17px;
+        margin:2px 2px 0 0
+    }
+    .dcs-a-dcs-cb, .dcs-a-dcs-ec {
+        border-top:1px solid #f0f0f0;
+        padding:7px;
+        position:relative;
+        zoom:1
+    }
+    .dcs-a-dcs-cb-dcs-l {
+        left:7px!important
+    }
+    .dcs-a-dcs-cb.dcs-a-dcs-lb-dcs-qf {
+        border-top:none!important
+    }
+    .dcs-a-dcs-dc-dcs-be.dcs-a-dcs-b .dcs-a-dcs-cb, .dcs-a-dcs-dc-dcs-be.dcs-a-dcs-b .dcs-a-dcs-ec {
+        border-top:1px solid #feef9c
+    }
+    .dcs-a-dcs-cb-dcs-ic {
+        font-weight:bold;
+        margin-left:32px
+    }
+    .dcs-a-dcs-cb-dcs-db {
+        word-wrap:break-word;
+        color:#666;
+        padding-top:3px;
+        padding-bottom:3px
+    }
+    .dcs-a-dcs-cb-dcs-ae {
+        color:#666;
+        font-size:10px;
+        margin:3px 0 0 32px
+    }
+    .dcs-a-dcs-wb-dcs-xb, .dcs-a-dcs-je-dcs-xb {
+        height:24px;
+        margin:0;
+        min-width:25px;
+        opacity:0.8;
+        padding:0;
+        position:absolute;
+        top:6px;
+        width:25px
+    }
+    .dcs-a-dcs-wb-dcs-xb {
+        border-radius:3px 0 0 3px;
+        right:32px
+    }
+    .dcs-a-dcs-je-dcs-xb {
+        border-radius:0 3px 3px 0;
+        right:6px
+    }
+    .dcs-a-dcs-sg-dcs-eb {
+        margin:2px
+    }
+    .dcs-a-dcs-cb .dcs-a-dcs-lb-dcs-vb {
+        display:none
+    }
+    .dcs-a-dcs-dc-dcs-be.dcs-a-dcs-b .dcs-a-dcs-lb-dcs-vb, .dcs-a-dcs-dc-dcs-be.dcs-a-dcs-ec .dcs-a-dcs-lb-dcs-vb {
+        display:block
+    }
+    .dcs-a-dcs-ec-dcs-fc {
+        word-wrap:break-word;
+        color:#15c
+    }
+    .dcs-a-dcs-ec-dcs-fc:hover, .dcs-a-dcs-b:hover .dcs-a-dcs-ec-dcs-fc {
+        text-decoration:underline
+    }
+    .dcs-a-dcs-hc-dcs-lb {
+        position:relative
+    }
+    .dcs-a-dcs-fc-dcs-lb {
+        height:150px;
+        overflow:hidden
+    }
+    .dcs-a-dcs-ib-dcs-cf, .dcs-a-dcs-ib-dcs-bh {
+        color:#15c;
+        display:none;
+        opacity:1;
+        width:100%
+    }
+    .dcs-a-dcs-ib-dcs-cf {
+        bottom:0;
+        padding-top:16px;
+        position:absolute;
+        right:0
+    }
+    .dcs-a-dcs-ib-dcs-bh {
+        background:#fff;
+        padding:2px 0
+    }
+    .dcs-a-dcs-ib-dcs-cf:hover, .dcs-a-dcs-ib-dcs-bh:hover {
+        text-decoration:underline
+    }
+    .dcs-a-dcs-b.dcs-a-dcs-dc:hover .dcs-a-dcs-ib-dcs-cf {
+        background:#f1f1f1;
+        background:-webkit-gradient(linear, 0 0, 0 16, from(rgba(241, 241, 241, 0)), to(rgba(241, 241, 241, 1)));
+        background:-moz-linear-gradient(top, rgba(241, 241, 241, 0), #f1f1f1 16px);
+        -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0, FinishOpacity=100, Style=1, StartY=0, FinishY=50, StartX=0, FinishX=0)";
+        filter:alpha(Opacity=0, FinishOpacity=100, Style=1, StartY=0, FinishY=50, StartX=0, FinishX=0)
+    }
+    .dcs-a-dcs-b.dcs-a-dcs-dc-dcs-be .dcs-a-dcs-ib-dcs-cf, .dcs-a-dcs-b.dcs-a-dcs-dc-dcs-be:hover .dcs-a-dcs-ib-dcs-cf {
+        background:#fcfac6;
+        background:-webkit-gradient(linear, 0 0, 0 16, from(rgba(252, 250, 198, 0)), to(rgba(252, 250, 198, 1)));
+        background:-moz-linear-gradient(top, rgba(252, 250, 198, 0), #fcfac6 16px);
+        -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0, FinishOpacity=100, StartY=0, FinishY=50, Style=1, StartX=0, FinishX=0)";
+        filter:alpha(Opacity=0, FinishOpacity=100, Style=1, StartY=0, FinishY=50, StartX=0, FinishX=0)
+    }
+    .dcs-a-dcs-ib-dcs-cf {
+        background:#fff;
+        background:-webkit-gradient(linear, 0 0, 0 16, from(rgba(255, 255, 255, 0)), to(rgba(255, 255, 255, 1)));
+        background:-moz-linear-gradient(top, rgba(255, 255, 255, 0), #fff 16px);
+        -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0, FinishOpacity=100, StartY=0, FinishY=50, Style=1, StartX=0, FinishX=0)";
+        filter:alpha(Opacity=0, FinishOpacity=100, Style=1, StartY=0, FinishY=50, StartX=0, FinishX=0)
+    }
+    .dcs-a-dcs-fc-dcs-lb>.dcs-a-dcs-ib-dcs-cf {
+        display:block!important
+    }
+    .dcs-a-dcs-b.dcs-a-dcs-dc-dcs-be .dcs-a-dcs-ib-dcs-bh {
+        background:#fcfac6!important
+    }
+    .dcs-a-dcs-b:hover .dcs-a-dcs-ib-dcs-bh {
+        background:#f1f1f1
+    }
+    .dcs-a-dcs-m {
+        background:#e0ecff;
+        border:1px solid #666;
+        color:#00c;
+        font-family:Arial;
+        margin:0px 0px;
+        padding:0px 0px 1px 0px;
+        position:absolute;
+        z-index:900
+    }
+    .dcs-a-dcs-m div {
+        cursor:pointer;
+        margin:2px;
+        padding:0px 10px
+    }
+    .dcs-a-dcs-m div b {
+        color:#00f
+    }
+    .dcs-a-dcs-m .dcs-m-dcs-n {
+        height:auto
+    }
+    .dcs-a-dcs-m div.dcs-be {
+        background:#c3d9ff
+    }
+    .dcs-a-dcs-l {
+        left:0;
+        position:absolute
+    }
+    .dcs-a-dcs-xf-dcs-yf {
+        font:10px/12px Arial;
+        color:#bbb;
+        text-align:right;
+        padding-right:30px
+    }
+    .dcs-a-dcs-xf-dcs-yf a {
+        color:#bbb
+    }
+    .dcs-a-dcs-rc-dcs-sc {
+        width:620px
+    }
+    .dcs-a {
+        color:black;
+        font-family:Arial, sans-serif, sans;
+        font-size:13px;
+        white-space:normal
+    }
+    .dcs-a-dcs-eb {
+        background-image:url(//ssl.gstatic.com/docs/common/d-icons15.png);
+        background-repeat:no-repeat
+    }
+    .dcs-a-dcs-eb-dcs-ub-dcs-od {
+        background-position:0 -89px;
+        height:37px;
+        position:absolute;
+        width:37px
+    }
+    .dcs-a-dcs-eb-dcs-ub-dcs-od-dcs-pd {
+        background-position:0 -126px;
+        height:27px;
+        position:absolute;
+        width:27px
+    }
+    .dcs-a-dcs-eb-dcs-fb-dcs-gb {
+        background-position:-22px -54px;
+        height:11px;
+        width:12px
+    }
+    .dcs-a-dcs-eb-dcs-fb-dcs-gb:hover, .dcs-o-dcs-jf-dcs-yb-dcs-gf .dcs-a-dcs-eb-dcs-fb-dcs-gb {
+        background-position:-22px -43px;
+        height:11px;
+        width:12px
+    }
+    .dcs-a-dcs-eb-dcs-af {
+        background-position:-6px -71px;
+        height:13px;
+        width:11px
+    }
+    .dcs-a-dcs-eb-dcs-xg-dcs-xc {
+        background-position:-1px -49px;
+        height:14px;
+        width:18px
+    }
+    .dcs-a-dcs-eb-dcs-wb-dcs-xb-dcs-od {
+        background-position:0 0;
+        height:21px;
+        width:21px
+    }
+    .dcs-a-dcs-eb-dcs-je-dcs-xb-dcs-ze {
+        background-position:0 -25px;
+        height:21px;
+        width:21px
+    }
+    .dcs-a-dcs-c {
+        position:relative;
+        zoom:1
+    }
+    .dcs-a-dcs-c.dcs-a-dcs-c-dcs-yc {
+        display:block!important
+    }
+    .dcs-a-dcs-c-dcs-q-dcs-r {
+        border-top:7px solid transparent;
+        border-right:8px solid #fff;
+        border-bottom:7px solid transparent;
+        height:0;
+        left:-6px;
+        position:absolute;
+        top:3px
+    }
+    .dcs-a-dcs-c-dcs-q-dcs-ob {
+        border-top:7px solid transparent;
+        border-right:8px solid #c8c8c8;
+        border-bottom:7px solid transparent;
+        height:0;
+        left:-7px;
+        position:absolute;
+        top:3px
+    }
+    .dcs-a-dcs-c-dcs-zd {
+        border:1px solid #c8c8c8;
+        box-sizing:border-box;
+        -moz-box-sizing:border-box;
+        -ms-box-sizing:border-box;
+        -webkit-box-sizing:border-box;
+        color:#999;
+        font-family:Arial, sans-serif;
+        font-size:13px;
+        margin:0;
+        overflow-x:hidden;
+        overflow-y:hidden;
+        outline-width:0!important;
+        padding:4px;
+        resize:none;
+        width:100%
+    }
+    .dcs-a-dcs-c-dcs-zd:disabled {
+        background-color:#eee!important
+    }
+    *:first-child+html .dcs-a-dcs-c-dcs-zd {
+        width:95%
+    }
+    .dcs-a-dcs-c-dcs-tc {
+        display:none;
+        zoom:1
+    }
+    .dcs-a-dcs-c-dcs-tc-dcs-mf {
+        font-weight:bold
+    }
+    .dcs-a-dcs-c-dcs-cd>.dcs-a-dcs-c-dcs-zd {
+        color:#000
+    }
+    .dcs-a-dcs-c-dcs-cd>.dcs-a-dcs-c-dcs-tc {
+        display:block
+    }
+    .dcs-a-dcs-lc-dcs-mc-dcs-eb {
+        display:inline-block;
+        vertical-align:middle;
+        margin:4px 5px 5px 2px
+    }
+    .dcs-a-dcs-lc-dcs-mc {
+        text-align:left
+    }
+    .dcs-a-dcs-lc-dcs-mc-dcs-nc {
+        display:inline-block;
+        height:17px
+    }
+    .dcs-a-dcs-lc-dcs-mc-dcs-ph {
+        visibility:hidden
+    }
+    .dcs-a-dcs-de-dcs-u {
+        width:500px
+    }
+    .dcs-a-dcs-de-dcs-ag {
+        padding:0 3px 0 8px
+    }
+    .dcs-a-dcs-de-dcs-vb {
+        padding-left:3px
+    }
+    .dcs-a-dcs-de-dcs-uf {
+        position:absolute;
+        right:20px
+    }
+    .dcs-a-dcs-de-dcs-rg {
+        background-color:#c1d9ff;
+        border:0;
+        color:#c1d9ff;
+        height:1px;
+        margin:10px 0 10px 0
+    }
+    .dcs-a-dcs-kb .dcs-oe-dcs-jb-dcs-kb {
+        display:none!important
+    }
+    .dcs-ib-dcs-jb-dcs-kb {
+        display:none
+    }
+    .dcs-a-dcs-kb .dcs-ib-dcs-jb-dcs-kb {
+        display:inline-block!important
+    }
+    .dcs-a-dcs-ub-dcs-ef {
+        border:1px solid rgba(0, 0, 0, 0.2)
+    }
+    .dcs-a-dcs-ub-dcs-cg {
+        -webkit-transition:all 270ms ease-out;
+        -moz-transition:all 270ms ease-out;
+        -o-transition:all 270ms ease-out;
+        transition:all 270ms ease-out;
+        -webkit-transform:scale(0.3);
+        -moz-transform:scale(0.3);
+        -o-transform:scale(0.3);
+        transform:scale(0.3);
+        -webkit-transform-origin:center top;
+        -moz-transform-origin:center top;
+        -o-transform-origin:center top;
+        transform-origin:center top;
+        opacity:0.3
+    }
+    #docos-shadow {
+        background:#000;
+        background:rgba(0, 0, 0, 0.7);
+        color:#fff;
+        position:absolute;
+        z-index:700;
+        left:0;
+        top:0
+    }
+    #docos-shadow, .dcs-a-dcs-x-dcs-y {
+        height:100%;
+        width:100%
+    }
+    #docos-shadow-description {
+        font-weight:bold
+    }
+    #docos-shadow-confirm, #docos-shadow-delete {
+        margin:2px 7px
+    }
+    .dcs-a-dcs-z .dcs-a-dcs-c-dcs-tc {
+        padding-bottom:6px
+    }
+    .dcs-a-dcs-z .dcs-a-dcs-c-dcs-mf {
+        margin:0 4px 0 0
+    }
+    .dcs-a-dcs-z .dcs-a-dcs-c-dcs-hb {
+        background:none
+    }
+    .dcs-a-dcs-h {
+        border-top:1px solid #e8e8e8;
+        font-family:Arial, sans-serif;
+        font-size:12px;
+        padding:18px 0 7px 0;
+        position:relative;
+        outline:none;
+        zoom:1
+    }
+    .dcs-a-dcs-h:last-child {
+        padding-bottom:0
+    }
+    .dcs-a-dcs-h:last-child .dcs-a-dcs-h-dcs-hf {
+        padding-bottom:0
+    }
+    .dcs-a-dcs-h .dcs-a-dcs-dc-dcs-gh {
+        min-height:48px
+    }
+    .dcs-a-dcs-fg {
+        margin-right:12px;
+        min-height:51px;
+        padding:0 6px;
+        position:relative;
+        top:-3px
+    }
+    .dcs-a-dcs-dc-dcs-be .dcs-a-dcs-fg {
+        background-color:#fffbe1
+    }
+    .dcs-a-dcs-dc-dcs-be.dcs-a-dcs-dc-dcs-ug .dcs-a-dcs-fg {
+        background-color:#f6f6f6
+    }
+    .dcs-a-dcs-h-dcs-u {
+        margin-left:60px;
+        position:relative
+    }
+    .dcs-a-dcs-h-dcs-zc {
+        font-weight:bold
+    }
+    .dcs-a-dcs-h-dcs-db {
+        color:#333;
+        word-wrap:break-word;
+        top:-7px;
+        zoom:1
+    }
+    .dcs-a-dcs-h.dcs-a-dcs-dc-dcs-ug .dcs-a-dcs-h-dcs-db {
+        color:#999
+    }
+    .dcs-a-dcs-h .dcs-a-dcs-eb-dcs-ub-dcs-od-dcs-pd {
+        display:none;
+        right:5px;
+        top:-12px
+    }
+    .dcs-a-dcs-h.dcs-a-dcs-dc-dcs-ug .dcs-a-dcs-eb-dcs-ub-dcs-od-dcs-pd {
+        display:block
+    }
+    .dcs-a-dcs-h-dcs-ae, .dcs-a-dcs-h-dcs-of-dcs-pf {
+        font-size:11px;
+        color:#999;
+        padding:0
+    }
+    .dcs-a-dcs-h-dcs-ae, .dcs-a-dcs-h-dcs-ce-dcs-vb {
+        right:2px
+    }
+    .dcs-a-dcs-h-dcs-s {
+        color:#ccc;
+        font-size:12px;
+        line-height:100%;
+        padding:0 2px
+    }
+    .dcs-a-dcs-h-dcs-hf {
+        padding:4px 0
+    }
+    .dcs-a-dcs-h-dcs-ae:hover {
+        text-decoration:underline;
+        cursor:pointer
+    }
+    .dcs-a-dcs-h-dcs-c-dcs-d {
+        padding-right:6px;
+        margin-left:30px
+    }
+    .dcs-a-dcs-h-dcs-c-dcs-d .dcs-a-dcs-c-dcs-zd {
+        background-color:#fff;
+        border:1px solid #c9d4ec;
+        height:23px;
+        font-size:12px
+    }
+    .dcs-a-dcs-h-dcs-c-dcs-d.dcs-a-dcs-c-dcs-cd .dcs-a-dcs-c-dcs-zd {
+        background-color:#fff
+    }
+    .dcs-a-dcs-h-dcs-i-dcs-d .dcs-a-dcs-c-dcs-zd {
+        height:36px
+    }
+    .dcs-a-dcs-h-dcs-yd, .dcs-a-dcs-h-dcs-ld {
+        margin:4px 12px 3px 0
+    }
+    .dcs-a-dcs-h-dcs-yd {
+        background-color:#eff2f9;
+        -moz-border-radius:0 0 6px 6px;
+        -webkit-border-radius:0 0 6px 6px;
+        border-radius:0 0 6px 6px;
+        padding:6px 0 2px 6px;
+        position:relative;
+        zoom:1
+    }
+    .dcs-a-dcs-dc-dcs-ug .dcs-a-dcs-h-dcs-yd {
+        background-color:#f6f6f6
+    }
+    .dcs-a-dcs-h-dcs-me {
+        position:absolute;
+        right:0;
+        top:0
+    }
+    .dcs-a-dcs-h.dcs-a-dcs-dc-dcs-ug .dcs-a-dcs-h-dcs-me {
+        right:33px
+    }
+    .dcs-a-dcs-h-dcs-nb {
+        background-color:#fe8;
+        bottom:0;
+        left:0;
+        padding:2px 0;
+        position:absolute;
+        width:100%
+    }
+    .dcs-a-dcs-nb-dcs-se {
+        font-weight:bold;
+        margin:0 6px;
+        padding:2px 0
+    }
+    .dcs-a-dcs-h .dcs-a-dcs-qc-dcs-ob {
+        position:absolute;
+        right:-12px;
+        top:0
+    }
+    .dcs-a-dcs-h-dcs-ce-dcs-vb {
+        display:inline
+    }
+    .dcs-a-dcs-h-dcs-ce-dcs-vb>.dcs-a-dcs-dc-dcs-ce {
+        font-size:11px;
+        color:#15c
+    }
+    .dcs-a-dcs-h-dcs-xc-dcs-vb>.dcs-a-dcs-dc-dcs-xc, .dcs-a-dcs-h-dcs-ub-dcs-vb>.dcs-a-dcs-dc-dcs-ub {
+        color:#999;
+        line-height:100%
+    }
+    .dcs-a-dcs-h-dcs-xc-dcs-vb>.dcs-a-dcs-dc-dcs-xc:hover, .dcs-a-dcs-h-dcs-ce-dcs-vb>.dcs-a-dcs-dc-dcs-ce:hover, .dcs-a-dcs-h-dcs-ub-dcs-vb>.dcs-a-dcs-dc-dcs-ub:hover {
+        text-decoration:underline;
+        cursor:pointer
+    }
+    .dcs-a-dcs-fg:hover .dcs-a-dcs-dc-dcs-xc, .dcs-a-dcs-fg:hover .dcs-a-dcs-dc-dcs-ub, .dcs-a-dcs-dc-dcs-be .dcs-a-dcs-dc-dcs-xc, .dcs-a-dcs-dc-dcs-be .dcs-a-dcs-dc-dcs-ub {
+        color:#15c
+    }
+    .dcs-a-dcs-z-dcs-bf {
+        line-height:140%;
+        outline:none
+    }
+    .dcs-a-dcs-z-dcs-u {
+        position:relative
+    }
+    .dcs-a-dcs-z-dcs-ab {
+        color:#15c;
+        cursor:pointer;
+        font-size:12px;
+        position:absolute;
+        right:0;
+        top:-3px
+    }
+    .dcs-a-dcs-z-dcs-ab:hover {
+        text-decoration:underline
+    }
+    .dcs-a-dcs-yg .dcs-a-dcs-z-dcs-ab {
+        color:#999;
+        cursor:default
+    }
+    .dcs-a-dcs-yg .dcs-a-dcs-z-dcs-ab:hover {
+        text-decoration:none
+    }
+    .dcs-a-dcs-z-dcs-ff {
+        bottom:-10px;
+        color:#15c;
+        cursor:pointer;
+        font-size:12px;
+        padding-right:5px;
+        padding-top:5px;
+        position:absolute;
+        right:5px;
+        text-decoration:none
+    }
+    .dcs-a-dcs-yg .dcs-a-dcs-z-dcs-ff {
+        display:none
+    }
+    .dcs-a-dcs-z-dcs-pb {
+        color:#333;
+        padding:12px 0 12px 20px
+    }
+    .dcs-a-dcs-z-dcs-bb {
+        margin:6px 29px 10px 20px;
+        position:relative;
+        zoom:1
+    }
+    .dcs-a-dcs-z-dcs-bb-dcs-u {
+        margin-left:61px;
+        position:relative;
+        zoom:1
+    }
+    .dcs-a-dcs-z-dcs-vf {
+        font-size:12px;
+        font-weight:bold;
+        margin-bottom:3px;
+        top:-3px
+    }
+    .dcs-a-dcs-z-dcs-te {
+        font-size:1.2em;
+        margin:20px 5px 2px
+    }
+    .dcs-a-dcs-z-dcs-c-dcs-d {
+        top:-4px
+    }
+    .dcs-a-dcs-z-dcs-c-dcs-d .dcs-a-dcs-c-dcs-mf {
+        font-weight:bold
+    }
+    .dcs-a-dcs-z-dcs-c-dcs-d .dcs-a-dcs-c-dcs-zd {
+        font-size:12px;
+        height:30px
+    }
+    .dcs-a-dcs-z .dcs-a-dcs-c-dcs-rb-dcs-sb-dcs-tb {
+        color:#666
+    }
+    .dcs-a-dcs-z-dcs-mg {
+        background-color:#dd4b39;
+        border:1px solid #602019;
+        border-radius:4px;
+        color:#fff;
+        margin:6px;
+        padding:6px;
+        text-align:center
+    }
+    .dcs-a-dcs-z-dcs-se {
+        overflow:hidden;
+        padding:10px 29px 10px 20px;
+        background-color:#f5f5f5
+    }
+    .dcs-a-dcs-z-dcs-se .dcs-a-dcs-md-dcs-nd, .dcs-a-dcs-z-dcs-se .dcs-a-dcs-wc-dcs-xc-dcs-yb, .dcs-a-dcs-z-dcs-se .dcs-a-dcs-fh-dcs-yb {
+        display:inline-block;
+        float:right
+    }
+    .dcs-a-dcs-z-dcs-se .dcs-o-dcs-ee-dcs-jf-dcs-yb, .dcs-a-dcs-z-dcs-se .dcs-j-dcs-yb {
+        border-color:transparent;
+        background-color:transparent;
+        background-image:none
+    }
+    .dcs-a-dcs-z-dcs-se .dcs-o-dcs-ee-dcs-jf-dcs-yb-dcs-eh, .dcs-a-dcs-z-dcs-se .dcs-o-dcs-ee-dcs-jf-dcs-yb-dcs-be, .dcs-a-dcs-z-dcs-se .dcs-o-dcs-ee-dcs-jf-dcs-yb-dcs-gf, .dcs-a-dcs-z-dcs-se .dcs-o-dcs-ee-dcs-jf-dcs-yb-dcs-lg, .dcs-a-dcs-z-dcs-se .dcs-j-dcs-yb-dcs-eh, .dcs-a-dcs-z-dcs-se .dcs-j-dcs-yb-dcs-be, .dcs-a-dcs-z-dcs-se .dcs-j-dcs-yb-dcs-lg {
+        border-color:#c6c6c6;
+        background-color:#f8f8f8;
+        background-image:-webkit-linear-gradient(top, #f8f8f8, #f1f1f1);
+        background-image:-moz-linear-gradient(top, #f8f8f8, #f1f1f1);
+        background-image:-ms-linear-gradient(top, #f8f8f8, #f1f1f1);
+        background-image:-o-linear-gradient(top, #f8f8f8, #f1f1f1);
+        background-image:linear-gradient(top, #f8f8f8, #f1f1f1)
+    }
+    .dcs-a-dcs-z-dcs-se .dcs-o-dcs-ee-dcs-jf-dcs-yb-dcs-gb {
+        visibility:hidden
+    }
+    .dcs-a-dcs-z-dcs-se .dcs-o-dcs-ee-dcs-jf-dcs-yb-dcs-eh .dcs-o-dcs-ee-dcs-jf-dcs-yb-dcs-gb, .dcs-a-dcs-z-dcs-se .dcs-o-dcs-ee-dcs-jf-dcs-yb-dcs-be .dcs-o-dcs-ee-dcs-jf-dcs-yb-dcs-gb, .dcs-a-dcs-z-dcs-se .dcs-o-dcs-ee-dcs-jf-dcs-yb-dcs-gf .dcs-o-dcs-ee-dcs-jf-dcs-yb-dcs-gb, .dcs-a-dcs-z-dcs-se .dcs-o-dcs-ee-dcs-jf-dcs-yb-dcs-lg .dcs-o-dcs-ee-dcs-jf-dcs-yb-dcs-gb {
+        visibility:visible
+    }
+    .dcs-a-dcs-z-dcs-se .dcs-o-dcs-ee-dcs-jf-dcs-yb-dcs-fe .dcs-a-dcs-lc-dcs-mc-dcs-eb {
+        opacity:0.3
+    }
+    .dcs-a-dcs-z-dcs-se .dcs-j-dcs-yb-dcs-fe .dcs-a-dcs-wc-dcs-xc-dcs-eb {
+        opacity:0.15
+    }
+    .dcs-a-dcs-z-dcs-se .dcs-a-dcs-wc-dcs-xc-dcs-yb, .dcs-a-dcs-z-dcs-se .dcs-a-dcs-fh-dcs-yb {
+        margin-left:12px;
+        margin-right:0
+    }
+    .dcs-a-dcs-uc-dcs-vc {
+        padding:0 29px 0 20px
+    }
+    .dcs-a-dcs-vg-dcs-wg-dcs-se .dcs-a-dcs-uc-dcs-vc {
+        position:relative;
+        overflow:auto;
+        max-height:450px
+    }
+    .dcs-a-dcs-vg-dcs-wg-dcs-se .dcs-a-dcs-uc-dcs-vc>.dcs-a-dcs-h:first-child {
+        border-top-color:transparent
+    }
+    .dcs-a-dcs-wc-dcs-xc-dcs-eb {
+        display:inline-block;
+        vertical-align:middle;
+        margin:4px 5px 5px 2px;
+        opacity:0.65
+    }
+    .dcs-a-dcs-t {
+        background-color:#eff2f9;
+        color:#666;
+        font-size:12px;
+        padding:6px 6px 0 6px;
+        position:relative;
+        margin-bottom:3px;
+        min-height:24px
+    }
+    .dcs-a-dcs-dc-dcs-ug .dcs-a-dcs-t {
+        background-color:#f6f6f6
+    }
+    .dcs-a-dcs-t-dcs-l {
+        left:6px
+    }
+    .dcs-a-dcs-t-dcs-u {
+        padding-left:30px
+    }
+    .dcs-a-dcs-t-dcs-ic {
+        color:black;
+        font-weight:bold;
+        left:-2px;
+        margin:0 4px;
+        right:-2px
+    }
+    .dcs-a-dcs-t-dcs-db {
+        color:#333;
+        margin:0;
+        top:-4px;
+        width:100%;
+        word-wrap:break-word
+    }
+    .dcs-a-dcs-dc-dcs-ug .dcs-a-dcs-t-dcs-db {
+        color:#999
+    }
+    .dcs-a-dcs-t-dcs-nc, .dcs-a-dcs-t-dcs-ae {
+        position:relative;
+        top:-3px
+    }
+    .dcs-a-dcs-t-dcs-nc {
+        width:100%
+    }
+    .dcs-a-dcs-t-dcs-ae {
+        color:#999;
+        font-size:11px;
+        white-space:pre
+    }
+    .dcs-a-dcs-h .dcs-a-dcs-t .dcs-a-dcs-lb-dcs-vb {
+        display:none;
+        top:-3px
+    }
+    .dcs-a-dcs-h .dcs-a-dcs-t:hover .dcs-a-dcs-lb-dcs-vb {
+        display:inline
+    }
+    .dcs-a-dcs-t-dcs-i-dcs-d .dcs-a-dcs-c-dcs-zd {
+        height:23px
+    }
+    .dcs-a-dcs-h .dcs-a-dcs-lb-dcs-mb {
+        border-left:1px solid #ccc;
+        font-style:italic;
+        padding:3px 10px 3px 10px;
+        position:relative;
+        zoom:1;
+        word-wrap:break-word
+    }
+    .dcs-a-dcs-lb-dcs-mb-dcs-mc {
+        font-size:11px;
+        color:#999;
+        margin-right:2px;
+        padding:0
+    }
+    .dcs-a-dcs-lb-dcs-mb-dcs-fc {
+        overflow:hidden;
+        height:18px
+    }
+    .dcs-a-dcs-lb-dcs-mb-dcs-gc {
+        background:#fff;
+        padding:3px 5px 0 5px;
+        position:absolute;
+        right:0;
+        top:0
+    }
+    .dcs-a-dcs-lb-dcs-mb-dcs-bc, .dcs-a-dcs-lb-dcs-mb-dcs-gc {
+        color:#15c;
+        visibility:hidden
+    }
+    .dcs-a-dcs-dc-dcs-be .dcs-a-dcs-lb-dcs-mb-dcs-bc, .dcs-a-dcs-dc-dcs-be .dcs-a-dcs-lb-dcs-mb-dcs-gc {
+        visibility:visible
+    }
+    .dcs-a-dcs-lb-dcs-mb-dcs-bc {
+        padding-left:3px
+    }
+    .dcs-a-dcs-dc-dcs-be .dcs-a-dcs-lb-dcs-mb-dcs-gc {
+        background:#fffbe1
+    }
+    .dcs-a-dcs-dc-dcs-be.dcs-a-dcs-dc-dcs-ug .dcs-a-dcs-lb-dcs-mb-dcs-gc {
+        background:#f6f6f6
+    }
+    .dcs-a-dcs-lb-dcs-mb-dcs-bc:hover, .dcs-a-dcs-lb-dcs-mb-dcs-gc:hover {
+        cursor:pointer;
+        text-decoration:underline
+    }
+    .dcs-a-dcs-zd {
+        margin:0;
+        padding:2px;
+        font-family:arial, sans-serif;
+        outline-width:0!important;
+        resize:none
+    }
+    .dcs-a-dcs-lb-dcs-rd, .dcs-a-dcs-lb-dcs-i {
+        color:#15c;
+        font-size:11px;
+        margin:0 2px
+    }
+    .dcs-a-dcs-lb-dcs-rd:hover, .dcs-a-dcs-lb-dcs-i:hover {
+        text-decoration:underline;
+        cursor:pointer
+    }
+    .dcs-a-dcs-c-dcs-hb {
+        margin:2px 0
+    }
+    .dcs-a-dcs-c-dcs-mf {
+        margin:2px 7px 2px 0
+    }
+    </style>
+    <script type="text/javascript" charset="UTF-8" src="./Fusion Tables Workshop - Google Fusion Tables_files/api.js" gapi_processed="true"></script>
+    <script src="./Fusion Tables Workshop - Google Fusion Tables_files/ga.js"></script>
+</head>
+
+<body xmlns="http://www.google.com/ns/jotspot" id="body" class=" en            ">
+    <script src="./Fusion Tables Workshop - Google Fusion Tables_files/caja.js">
+    </script>
+    <script src="./Fusion Tables Workshop - Google Fusion Tables_files/jot_caja.js">
+    </script>
+    <div id="sites-page-toolbar" class="sites-header-divider">
+        <div xmlns="http://www.w3.org/1999/xhtml" id="sites-status" class="sites-status" style="display:none;">
+            <div id="sites-notice" class="sites-notice" role="status" aria-live="assertive"></div>
+        </div>
+    </div>
+    <div id="sites-chrome-everything-scrollbar">
+        <div id="sites-chrome-everything">
+            <div id="sites-chrome-page-wrapper" style="direction: ltr">
+                <div id="sites-chrome-page-wrapper-inside">
+                    <div xmlns="http://www.w3.org/1999/xhtml" id="sites-chrome-header-wrapper" style="">
+                        <table id="sites-chrome-header" class="sites-layout-hbox" cellspacing="0" style="">
+                            <tbody>
+                                <tr class="sites-header-primary-row" id="sites-chrome-userheader">
+                                </tr>
+                                <tr class="sites-header-secondary-row" id="sites-chrome-horizontal-nav">
+                                    <td colspan="2" id="sites-chrome-header-horizontal-nav-container">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="sites-chrome-main-wrapper">
+                        <div id="sites-chrome-main-wrapper-inside">
+                            <table id="sites-chrome-main" class="sites-layout-hbox" cellspacing="0" cellpadding="{scmCellpadding}" border="0">
+                                <tbody>
+                                    <tr>
+                                        <td id="sites-canvas-wrapper">
+                                            <div id="sites-canvas">
+                                                <div id="goog-ws-editor-toolbar-container"></div>
+                                                <div xmlns="http://www.w3.org/1999/xhtml" id="title-crumbs" style="">
+                                                </div>
+                                                <h3 xmlns="http://www.w3.org/1999/xhtml" id="sites-page-title-header" style="" align="left">
+                                                    <h1>Fusion Tables Workshop</h1>
+                                                    <i>Based off the notes from <a href="https://sites.google.com/site/fusiontablestalks/talks/fusion-tables-where-2-0-workshop">https://sites.google.com/site/fusiontablestalks/talks/fusion-tables-where-2-0-workshop</a>. Updated for the new Fusion Tables UI</i>
+                                                </h3>
+                                                <div id="sites-canvas-main" class="sites-canvas-main">
+                                                    <div id="sites-canvas-main-content">
+                                                        <p style="font-family:Arial;color:rgb(0,0,0);font-size:medium"><b>Topics covered</b>:
+                                                            <br>
+                                                            <i>Upload data<br>
+Merge tables<br>
+Configure InfoWindow<br>
+Style<br>
+Update permissions<br>
+Embed Map Visualization in web page<br>
+</i>
+                                                        </p>
+                                                        <p style="font-family:Arial;color:rgb(0,0,0);font-size:medium"><b>Advanced Topics</b>:
+                                                            <br>
+                                                            <i>Google Maps API Fusion Tables Layer</i>
+                                                        </p>
+                                                        <h2 style="margin-top:40px;font-family:Arial;color:rgb(0,0,0);font-size:medium">
+                                                            <a name="TOC-Download-the-Data"></a>Download the Data</h2>
+                                                        <ol>
+                                                            <li style="color:rgb(0,0,0);font-family:Arial;font-size:medium;margin-bottom:10px">Download the  file here:&nbsp;<a href="Singapore_population_data 2011_by_Zone.csv">Singapore_population_data 2011_by_Zone.csv</a>.</li>
+                                                
+                                                        </ol>
+                                                        <h2 style="margin-top:40px;font-family:Arial;color:rgb(0,0,0);font-size:medium">
+                                                            <a name="TOC-Upload-Data-to-Fusion-Tables"></a>Upload Data to Fusion Tables</h2>
+                                                        <ol style="font-family:Arial;color:rgb(0,0,0);font-size:medium">
+                                                            <li style="color:rgb(0,0,0);font-family:Arial;font-size:medium;margin-bottom:10px">Go to&nbsp;<a href="http://drive.google.com/">Google Drive</a>
+                                                            </li>
+                                                            <li style="color:rgb(0,0,0);font-family:Arial;font-size:medium;margin-bottom:10px">If you have not already created a Google account, create a Google account and then sign in. Do NOT use your hyper island account or a business account. Fusiontables is only available from personal gmail accounts.</li>
+                                                            <li style="color:rgb(0,0,0);font-family:Arial;font-size:medium;margin-bottom:10px">Select <b>Create -&gt; Fusion Table</b> (If it's not there, you have to press "Connect more apps" and search for fusion tables)
+                                                            </li>
+                                                        </ol>
+                                                        <b style="color:rgb(0,0,0);font-family:Arial;font-size:medium">
+<div style="display:inline!important;text-align:left"><a href="https://sites.google.com/site/fusiontablestalks/talks/fusion-tables-where-2-0-workshop/create_table.tiff?attredirects=0" imageanchor="1"><img border="0" width=300 src="screen1.png"></a></div>
+</b>                                                    
+                                                        <br>
+
+                                                        <ol style="font-family:Arial;color:rgb(0,0,0);font-size:medium">
+                                                            <li>Click&nbsp;<b>Choose File</b>.</li>
+                                                        </ol>
+                                                        <br style="color:rgb(0,0,0);font-family:Arial;font-size:medium">
+                                                        <b style="color:rgb(0,0,0);font-family:Arial;font-size:medium">
+<div style="text-align:left"><a href="https://sites.google.com/site/fusiontablestalks/talks/fusion-tables-where-2-0-workshop/Screen%20shot%202011-04-18%20at%208.22.33%20AM.png?attredirects=0" imageanchor="1"><img border="0" width=700 src="screen2.png"></a></div>
+</b>
+                                                        <ol style="font-family:Arial;color:rgb(0,0,0);font-size:medium">
+                                                            <li style="margin-bottom:10px">Browse to find the XML file that you downloaded.</li>
+                                                            <li style="margin-bottom:10px">Click&nbsp;<b>Next &gt;&gt;</b>.</li>
+                                                            <li style="margin-bottom:10px">Click&nbsp;<b>Next &gt;&gt;</b>&nbsp;again.</li>
+                                                            <li style="margin-bottom:10px">Update the Table name to Singapore Population Data by Zone 2011. Add any attribution data and/or change the description.
+                                                                <br>
+                                                                <br>
+                                                                <b>
+<div style="display:block;text-align:left"><a href="https://sites.google.com/site/fusiontablestalks/talks/fusion-tables-where-2-0-workshop/Screen%20shot%202011-04-18%20at%208.24.49%20AM.png?attredirects=0" imageanchor="1"><img border="0" width=700 src="screen3.png"></a></div>
+<br>
+</b>
+                                                            </li>
+                                                            <li style="margin-bottom:10px">Click&nbsp;<b>Finish</b>.</li>
+                                  
+                                                        </ol>
+                                                        <h2 style="margin-top:40px;font-family:Arial;color:rgb(0,0,0);font-size:medium">
+                                                            <a name="TOC-Merge-tables"></a>Merge tables</h2>
+                                                        <p style="font-family:Arial;color:rgb(0,0,0);font-size:medium">Now that you have the population data in Fusion Tables, we're going to want to visualize it. But the data we have doesn't actual have any actual addresses....All it has is the name of areas. What we can do is find another fusion table that contains the shapes of the areas, and then merge both of them together.</p>
+                                                        <p style="font-family:Arial;color:rgb(0,0,0);font-size:medium"> Check out this table <a href="https://www.google.com/fusiontables/DataSource?docid=1eQvVXJSwwJTISJ4C2FDz99w3ArYUjwXHn97-6nI#rows:id=1" target="_blank">here</a>.<br><br>It contains the shapes of all planning areas in Singapore. Fusion Tables has special handling for KML (Keyhole Markup Language) that is used to represent geographical features such as points, lines and polygons / boundaries. The table containing areas has two columns we are interested in: one for the name of the area labeled "name", and one labeled "geometry" where each cell has KML for the corresponding boundary.
+
+                                                            
+                                                        </p>
+                                                        <ol style="font-family:Arial;color:rgb(0,0,0);font-size:medium">
+                                                            <li style="margin-bottom:10px">Make sure you have the Population table you created open in your browser.</li>
+                                                            <li style="margin-bottom:10px">In the Population table, select&nbsp;<b>File -> Merge</b>.</li>
+                                                            <li style="margin-bottom:10px">paste the following URL&nbsp;in the Text box under&nbsp;<b>Or paste a web address here:</b>:&nbsp;<a href="https://www.google.com/fusiontables/DataSource?docid=1eQvVXJSwwJTISJ4C2FDz99w3ArYUjwXHn97-6nI">https://www.google.com/fusiontables/DataSource?docid=1eQvVXJSwwJTISJ4C2FDz99w3ArYUjwXHn97-6nI</a>
+                                                              <img width=700 src="screen4.png"/>
+                                                            </li>
+
+                                                            <li style="margin-bottom:10px">Click the&nbsp;<b>Next</b>&nbsp;button.</li>
+                                                            <li style="margin-bottom:10px">Select the columns you want to merge on. Make sure the dropdown on the left is set to &nbsp;<b>DGP Zone/Subzone</b>&nbsp;, and the dropdown on the right is set to &nbsp;<b>name</b>&nbsp;. These columns both have names of areas in the same format. Merge works by looking for exact matches in the selected columns and then linking matching rows together.</li>
+                                                            <li style="margin-bottom:10px">Press Next
+                                                                <br>
+                                                                <br>
+                                                                <b>
+</b>
+                                                            </li>
+                                                            <li style="margin-bottom:10px">(Here is where you can optionally discard columns. We don't care about that right now). Click&nbsp;<b>Merge</b></li>
+                                                            <li style="margin-bottom:10px">Select <b>View table</b>. You are now brought to a new table that has all the data merged in. Hooray!</li>
+                                                            <li style="margin-bottom:10px">At the top of the page there is a little red + icon. Click it, and press <b>Add map</b><br/><img width=500 src="screen6.png"/></li>
+                                                            <li style="margin-bottom:10px">You now see a sweet map with the boundaries of Singapore highlighted. Feel free to zoom and move around. Click on one of the polygons on the map to see what is displayed in the InfoWindow.</li>
+                                                        </ol>
+                                                        <h2 style="margin-top:40px;font-family:Arial;color:rgb(0,0,0);font-size:medium">
+                                                            <a name="TOC-Configure-the-InfoWindow"></a>Configure the InfoWindow</h2>
+                                                        <p style="font-family:Arial;color:rgb(0,0,0);font-size:medium">Now let's customize the content in the InfoWindow.</p>
+                                                        <ol>
+                                                            <li style="margin-bottom:10px;font-family:Arial;color:rgb(0,0,0);font-size:medium">On the left hand column, click on Change info window layout...</b>.</li>
+                                                            <li style="margin-bottom:10px;font-family:Arial;color:rgb(0,0,0);font-size:medium">Select the&nbsp;<b>Custom</b>&nbsp;tab.
+                                                                <br>
+                                                                <br>
+                                                                <b>
+<div style="display:block;text-align:left"><a href="https://sites.google.com/site/fusiontablestalks/talks/fusion-tables-where-2-0-workshop/Screen%20shot%202011-04-18%20at%208.52.55%20AM.png?attredirects=0" imageanchor="1"><img width=700 border="0" src="screen7.png"></a></div>
+<br>
+</b>
+                                                            </li>
+                                                            <li style="margin-bottom:10px;font-size:medium">This lets you update what is shown when you click on an area. This is pure HTML. You can play around and format the infowindow as you please.
+                                                            </li>
+                                                            
+                                                        </ol>
+                                                        <h2 style="margin-top:40px;font-family:Arial;color:rgb(0,0,0);font-size:medium">
+                                                            <a name="TOC-Styling"></a>Styling</h2>
+                                                        <p style="font-family:Arial;color:rgb(0,0,0);font-size:medium">Now add some styling to the map to create an interesting visualization of the data.</p>
+                                                        <ol style="font-family:Arial;color:rgb(0,0,0);font-size:medium">
+                                                            <li style="margin-bottom:10px">Click&nbsp;<b>On the left sidebar, select Tools -> Change Feature Styles</b>.</li>
+                                                            <li style="margin-bottom:10px">Select&nbsp;<b>Fill color</b>&nbsp;under&nbsp;<b>Polygons</b>&nbsp;in the left column.</li>
+                                                            <li style="margin-bottom:10px">Select the&nbsp;<b>Gradient</b>&nbsp;tab.</li>
+                                                            <li style="margin-bottom:10px">Select the radio button next to&nbsp;<b>Show a gradient</b>.</li>
+                                                            <li style="margin-bottom:10px">In the drop-down menu next to&nbsp;<b>Column</b>, select&nbsp;<b>Total Population</b>.</li>
+                                                            <li style="margin-bottom:10px">Click on the 'use this range' link
+                                                                <div style="display:block;text-align:left">
+                                                                    <a href="https://sites.google.com/site/fusiontablestalks/talks/fusion-tables-where-2-0-workshop/Screen%20shot%202012-01-19%20at%206.13.26%20PM.jpg?attredirects=0" imageanchor="1">
+                                                                        <img width=700 border="0" src="screen8.png">
+                                                                    </a>
+                                                                </div>
+                                                                <br>
+                                                                <br>
+                                                                <b>
+<br>
+</b>
+                                                            </li>
+                                                            <li style="margin-bottom:10px">Select any colors you want in the drop-down menus or keep the default.</li>
+                                                            <li style="margin-bottom:10px">Click&nbsp;<b>Save</b>&nbsp;when done.</li>
+                                                            <li style="margin-bottom:10px">The map will be updated with the new style.</li>
+                                                        </ol>
+                                                        <h2 style="margin-top:40px;font-family:Arial;color:rgb(0,0,0);font-size:medium">
+                                                            <a name="TOC-Styling"></a>Filtering</h2>
+                                                        <p style="font-family:Arial;color:rgb(0,0,0);font-size:medium">Let's say we only want to display areas with more than 100 000 people. </p>
+                                                        <ol style="font-family:Arial;color:rgb(0,0,0);font-size:medium">
+                                                            <li style="margin-bottom:10px">Click the Filter button at the top left of the map
+                                                            <li style="margin-bottom:10px">Select "total population" as the property you are filtering on.</li>
+                                                            <li style="margin-bottom:10px">Play around with the range and see how it affects the map.</li>
+                                                           
+<br>
+</b>
+   
+                                                        </ol>
+
+
+
+
+
+                                                        <h2 style="margin-top:40px;font-family:Arial;color:rgb(0,0,0);font-size:medium">
+                                                            <a name="TOC-Sharing-and-Permissions"></a>Sharing and Permissions</h2>
+                                                        <div>
+                                                            <span style="font-family:Arial;color:rgb(0,0,0)">
+                                                                <font size="3">New tables are automatically set to Private. The visibility needs to be changed to Unlisted or Public to embed in a web page.</font>
+                                                            </span>
+                                                        </div>
+                                                        <ol style="font-family:Arial;color:rgb(0,0,0);font-size:medium">
+                                                            <li style="margin-bottom:10px">
+                                                                <span style="color:rgb(51,51,51);font-family:Arial,Verdana,sans-serif">
+                                                                    <span style="font-family:Arial;color:rgb(0,0,0)">Click&nbsp;</span>
+                                                                    <span style="font-family:Arial;color:rgb(0,0,0)">the&nbsp;<b>Share</b>&nbsp;button in the top right corner.</span>
+                                                                </span>
+                                                            </li>
+                                                            <li style="margin-bottom:10px">
+                                                                <span style="color:rgb(51,51,51);font-family:Arial,Verdana,sans-serif">
+                                                                    <span style="font-family:Arial;color:rgb(0,0,0)">Selec</span>
+                                                                    <span style="font-family:Arial;color:rgb(0,0,0)">t the link that says <b>Change...</b> under the "Who has access" section. Select &nbsp;<b>Anyone with the link</b>&nbsp;or&nbsp;<b>Public</b>, and then press Save. The visibility will be updated immediately on selection.
+                                                                        <br>
+                                                                    </span>
+                                                                </span>
+                                                                <br>
+                                                            </li>
+                                                            <li style="margin-bottom:10px">
+                                                                <span style="color:rgb(51,51,51);font-family:Arial,Verdana,sans-serif">Close the window by pressing <b>Done</b>.</span>
+                                                            </li>
+                                                        </ol>
+                                                        <div>
+                                                            <font size="3">
+                                                                <h2 style="margin-top:40px;font-family:Arial;color:rgb(0,0,0);font-size:medium">
+                                                                    <a name="TOC-Embedding-a-Fusion-Tables-Map-Visualization-in-an-HTML-page"></a>Embedding a Fusion Tables Map Visualization in an HTML page</h2>
+                                                                <div>As an alternative to viewing a map in the Fusion Tables application, it is possible to embed a view of a Fusion Table based map visualization in an HTML page.</div>
+                                                                <div>
+                                                                    <ol>
+                                                                        <li>Create a new html file on your computer and then inside FusionTables, go to Tools-> Publish, and copy the line under "Paste HTML to embed in a website". Paste that in your html file, save, and then open the html file in your browser. Bravo!</li>
+                                                                  
+                                                                
+                                                                    </ol>
+                                                                </div>
+                                                                <div style="text-align:left">
+                                                                    <br>
+                                                                </div>
+                                                            </font>
+                                                        </div>
+                                                        <h2 style="margin-top:40px;font-family:Arial;color:rgb(0,0,0);font-size:medium">
+                                                            <a name="TOC-Advanced:-Using-the-Google-Maps-API-FusionTablesLayer-to-Display-the-map"></a>Advanced: Using the Google Maps API FusionTablesLayer to Display the map</h2>
+                                                        <div>
+                                                            <font color="#000000" face="Arial" size="3">A more advanced way of embedding a Fusion Tables map into a web page is to use the Fusion Table layer in Google MAPs API. This requires some experience with javascript but has the advantage of allowing you to take advantage of all the features of Google MAPs API.&nbsp;</font>
+                                                        </div>
+                                                        <ol>
+                                                            <li style="color:rgb(0,0,0);font-size:medium;font-family:Arial;margin-bottom:10px">Go back to your Fusion Table, and go to the "ROWS" view (not the map one). Hover over the "Total Population" column name, and a little arrow should pop up. Click on it, and go "Change". Rename the table to 'population'.</li>
+                                                            <li style="color:rgb(0,0,0);font-size:medium;font-family:Arial;margin-bottom:10px">Go back to the map view you made, and press <b>Tools -> Publish...</b> again.</li>
+                                                            <li style="color:rgb(0,0,0);font-size:medium;font-family:Arial;margin-bottom:10px">Instead of selecting the embedding stuff, click on the <b>Get HTML and Javascript</b> part. Select all the code in there.</li>
+                                                            <li style="color:rgb(0,0,0);font-size:medium;font-family:Arial;margin-bottom:10px">Inside your code editor, create a new file (File -> New File). Paste the code that you copied from Fusion tables in there.</li>
+                                                            <li style="color:rgb(0,0,0);font-size:medium;font-family:Arial;margin-bottom:10px">Save the file. Call it <b>map.html</b></li>
+                                                            <li style="color:rgb(0,0,0);font-size:medium;font-family:Arial;margin-bottom:10px">Open the file in your browser. You should see the map</li>
+
+
+
+
+                                                            <li style="color:rgb(0,0,0);font-size:medium;font-family:Arial;margin-bottom:10px">Now, go back to your code. Update the query sent to the Fusion Table Layer to include a filter. To do so modify "where" clause below, at line 43 as follows:</li>
+                                                            <blockquote style="margin:0 0 0 40px;border:none;padding:0px">
+                                                                <font color="#999999" size="3">query: {</font>
+                                                            </blockquote>
+                                                            <blockquote style="margin:0 0 0 40px;border:none;padding:0px">
+                                                                <div>
+                                                                    <font color="#999999" size="3">&nbsp; select: 'geometry',</font>
+                                                                </div>
+                                                                <div>
+                                                                    <font color="#999999" size="3">&nbsp; from: tableid,</font>
+                                                                </div>
+                                                                <div>
+                                                                    <font size="3">
+                                                                        <font color="#999999" style="font-weight:bold">&nbsp;</font>
+                                                                        <font color="#000000">where: 'population &gt; 100 000'</font>
+                                                                        <br>
+                                                                    </font>
+                                                                </div>
+                                                            </blockquote>
+                                                            <blockquote style="margin:0 0 0 40px;border:none;padding:0px">
+                                                                <div>
+                                                                    <font color="#999999" size="3">},</font>
+                                                                </div>
+                                                                <div>
+                                                                    <font color="#999999" size="3">
+                                                                        <br>
+                                                                    </font>
+                                                                </div>
+                                                            </blockquote>
+                                                            (Don't worry if the "from" and "select" lines look different from the ones above. You just care about the line that has "where" on it)
+                                                          <li style="color:rgb(0,0,0);font-size:medium;font-family:Arial;margin-bottom:10px">Refresh the page in the browser, and you should now only see areas that have population counts over 100 000. Feel free to explore!</li>
+
+                                                        </ol>
+                                                     
+                                                        <div>
+                                                            <font color="#000000" face="Arial" size="3"><b><br>
+</b>
+                                                            </font>
+                                                        </div>
+                                                        
+                                                    </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                                                                  <h2 style="margin-top:40px;font-family:Arial;color:rgb(0,0,0);font-size:medium">
+                            
+                            </div>
+                            </div>
+                            <div id="sites-canvas-bottom-panel">
+                                <div xmlns="http://www.w3.org/1999/xhtml" id="COMP_page-subpages"></div>
+                                <div xmlns="http://www.w3.org/1999/xhtml" id="sites-attachments">
+                                    <div style="height: 10px"></div>
+                                </div>
+                            </div>
+                            </td>
+                            </tr>
+                            </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div id="sites-chrome-footer-wrapper">
+                        <div id="sites-chrome-footer-wrapper-inside">
+                            <div id="sites-chrome-footer">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="sites-chrome-adminfooter-container">
+                </div>
+            </div>
+
+        
+
+            <script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+            window.jstiming.load.tick('sjl');
+            </script>
+            <script xmlns="http://www.w3.org/1999/xhtml" src="./Fusion Tables Workshop - Google Fusion Tables_files/jot_min_view__en.js"></script>
+            <script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+            window.jstiming.load.tick('jl');
+            </script>
+            <script xmlns="http://www.w3.org/1999/xhtml">
+            sites.core.Analytics.createTracker();
+            sites.core.Analytics.trackPageview();
+            </script>
+            <script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+            sites.Searchbox.initialize(
+                'sites-searchbox-search-button', {
+                    "object": []
+                }['object'],
+                'search-site', {
+                    "label": "Configure search options...",
+                    "url": "/site/fusiontablestalks/system/app/pages/admin/settings"
+                });
+            </script>
+            <script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+            gsites.HoverPopupMenu.createSiteDropdownMenus('sites-header-nav-dropdown', false);
+            </script>
+            <script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" defer="true">
+            JOT_setupNav("2bd", "Navigation", false);
+            JOT_addListener('titleChange', 'JOT_NAVIGATION_titleChange', 'COMP_2bd');
+            </script>
+            <script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+            new sites.CommentPane('//docs.google.com/comments/d/AAHRpnXvki2wJUeb6J5OXd5jR8yYxMOE6DT-pGAoV5Jfx9ackG8Amf7bsXwHc8nT-ubAUUHZXWuC8GuokLX5BLtLFpBUEXzPLcsvFB7c9CUUNDGB2zH7wLu2Ke22T_3_XiF1v4LF8uFFR/api/js?anon=true', true, true,
+                false, false);
+            </script>
+            <script xmlns="http://www.w3.org/1999/xhtml">
+            window.onload = function() {
+                if (false) {
+                    JOT_setMobilePreview();
+                }
+                var loadTimer = window.jstiming.load;
+                loadTimer.tick("ol");
+                loadTimer["name"] = "load," + webspace.page.type;
+                window.jstiming.report(loadTimer, {}, 'https://gg.google.com/csi');
+            }
+            </script>
+            <script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+            JOT_insertAnalyticsCode(false);
+            </script>
+            <script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+            var maestroRunner = new gsites.pages.view.SitesMaestroRunner(
+                webspace, "en");
+            maestroRunner.initListeners();
+            maestroRunner.installEditRender();
+            </script>
+            <script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" defer="true">
+            //<![CDATA[
+             // Decorate any fastUI buttons on the page with a class of 'goog-button'.
+            if (webspace.user.hasWriteAccess) {
+                JOT_decorateButtons();
+            }
+
+             // Fires delayed events.
+            (function() {
+                JOT_fullyLoaded = true;
+                var delayedEvents = JOT_delayedEvents;
+                for (var x = 0; x < delayedEvents.length; x++) {
+                    var event = delayedEvents[x];
+                    JOT_postEvent(event.eventName, event.eventSrc, event.payload);
+                }
+                JOT_delayedEvents = null;
+                JOT_postEvent('pageLoaded');
+            })();
+             //]]>
+            </script>
+            <script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
+            JOT_postEvent('decorateGvizCharts');
+            </script>
+            <script type="text/javascript">
+            JOT_postEvent('renderPlus', null, 'sites-chrome-main');
+            </script>
+            <div id="server-timer-div" style="display:none"></div>
+            <script>
+            window.jstiming.load.tick('render');
+            </script>
+
+
+            <div style="display: none;">
+                <iframe name="xpcpeerY1bP" id="xpcpeerY1bP" src="./Fusion Tables Workshop - Google Fusion Tables_files/xpc.html" style="height: 100%; width: 100%;"></iframe>
+            </div>
+</body>
+
+</html>
