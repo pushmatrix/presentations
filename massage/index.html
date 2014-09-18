@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js - The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<style type="text/css">
+			body{
+				width: 1920px;
+				height: 1200px;
+			}
+
+			.ikea {
+				position: relative;
+				left: -360px;
+				top: -310px;
+			}
+
+			.ikea h2 {
+				font-family: verdana !important;
+				color: black !important;
+				font-size: 130px !important;
+			}
+
+			.ikea img {
+				border: none !important;
+				box-shadow: none !important;
+				width: 180px;
+				left: -343px;
+				top: -20px;
+				position: relative;
+			}
+
+
+		</style>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-background="images/background.jpg">
+					<h1>Nordic.js</h1>
+				</section>
+
+				<section data-background="images/thai.jpg">
+        </section>
+
+        <section data-background="images/eng.jpg">
+        </section>
+
+			<section class="thai" data-background="images/thaiback.jpg">
+          <h1>Nordic.js</h1>
+          <h2>Thai Massage Crash Course</h2>
+        </section>
+
+
+        <section class="thai" data-background="images/thaiback.jpg">
+          <h4>Remember:</h4>
+          <h2>Never massage on bone</h2>
+          <h2>(only muscle)</h2>
+        </section>
+
+        <section data-background="white">
+          <img src="images/handlines.jpg" height="150%" style="background: none; border: none; box-shadow: none">
+        </section>
+   
+        <section class="thai" data-background="images/thaiback.jpg">
+          <h1>Nordic.js</h1>
+          <h2>Thai Massage ADVANCED Crash Course</h2>
+        </section>
+
+        <section>
+          <h2 style="color: grey">It's time we discuss a serious issue.</h2>
+        </section>
+
+        <section data-background="images/audience.jpg">
+        	<h2 style="position: relative; top: -200px">Happens at <span style="color:red;">all</span> events...</h2>
+        </section>
+
+        <section data-background="images/audience2.jpg">
+        	<h2 style="position: relative; top: -400px">Affects <span style="color:red;">every</span> developer.</h2>
+        </section>
+
+        <section data-background="images/audience3.jpg">
+        	<h2 class="fragment" style="position: relative; top: -400px">That time at conferences when you get sleepy at around 15:00 <span class="fragment">disorder.</span></h2>
+        </section>
+
+        <section data-background="images/background.jpg">
+					<h2>ENERGIZER TIME!!!!!!!!</h2>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: false,
+				progress: false,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+					// Remote control your reveal.js presentation using a touch device
+           // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } },
+
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
