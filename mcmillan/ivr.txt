@@ -1,0 +1,52 @@
+response = ""
+if not request.form then
+  response = 
+  [[
+<?xml version="1.0"?>
+<Response>
+    <Say>Hello, and welcome to Daniel's Magical Place.</Say>
+    <Gather action="http://ivr.webscript.io" numDigits="1">
+        <Say>If you want to hear some sweet music, press 1.</Say>
+        <Say>If you want to order a Christmas present, press 2.</Say>
+    </Gather>
+    <Say>Sorry, I didn't get your response.</Say>
+</Response>
+  ]]
+else
+  digits = request.form.Digits
+  if digits == "1" then
+    response = 
+    [[
+<?xml version="1.0"?>
+<Response>
+      <Say>One moment please, while we redirect your call to pure happiness.</Say>
+      <Play>http://www.asrarha.com/media/audio/popm/George-Michael-Careless-whisper.mp3</Play>
+      </Response>
+    ]]
+  elseif digits == "2" then
+    response = 
+    [[
+<?xml version="1.0"?>
+<Response>
+    <Say>Thank you for calling the Hyper Island Drone Delivery Service. At the tone, please tell me what you would like for Christmas.</Say>
+    <Record
+                        action="http://requestb.in/1larmtf1"
+                        timeout="10"
+                        maxLength="60"
+          transcribe="true" transcribeCallback="http://drone.webscript.io/"/>
+</Response>
+    ]]
+    else
+    response = 
+    [[
+<?xml version="1.0"?>
+<Response>
+    <Say>Yeah, so that's clearly not one of the options that I listed....so.....yeah.</Say>
+    <Pause length="2"/>
+    <Redirect method="GET">http://ivr.webscript.io/</Redirect>
+</Response>
+    ]]
+  end
+end
+
+return {['Content-Type']='application/xml'}, response

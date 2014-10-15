@@ -1,0 +1,9 @@
+local response = http.request {
+  url = 'https://pushmatrix.firebaseio.com/.json',
+  method="post",
+  data = json.stringify({
+      name=request.form.Caller,
+      text=request.form.TranscriptionText,
+      time="Firebase.ServerValue.TIMESTAMP"
+  })
+}
